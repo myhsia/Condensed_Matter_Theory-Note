@@ -1,0 +1,104 @@
+\documentclass[tikz]{standalone}
+
+\usepackage{pgfplots, lmodern}
+\usepackage{libertine}
+\pgfplotsset{compat = newest}
+\tikzset{every picture/.style = {line cap = round, line join = round}}
+\definecolor{string}{HTML}{8181B8}
+
+\begin{document}
+
+\ExplSyntaxOn
+\clist_const:Nn \l__string_original_clist
+  {
+    15,    12.54, 10.74, 9.33,  8.24,  7.38,
+    6.71,  6.21,  5.84,  5.6,   5.46,  5.42,
+    5.47,  5.59,  5.79,  6.04,  6.35,  6.71,
+    7.16,  7.69,  8.33,  9.14,  10.26, 11.96,
+    14,    15.49, 16.46, 17.14, 17.65, 18.05,
+    18.35, 18.59, 18.76, 18.88, 18.95, 18.98,
+    18.95, 18.87, 18.75, 18.57, 18.34, 18.04,
+    17.68, 17.21, 16.61, 15.78, 14.57, 12.69,
+    10.47, 8.91,  7.84,  7.05,  6.44,  5.95,
+    5.58,  5.24,  4.95,  4.72,  4.53,  4.4,  
+    4.32,  4.3,   4.34,  4.43,  4.57,  4.77,
+    5.03,  5.36,  5.74,  6.2,   6.71,  7.3,  
+    7.95,  8.68,  9.49,  10.39, 11.38, 12.47, 13.67, 15
+  }
+\clist_greverse:N \l__string_original_clist
+\seq_new:N \l__string_fluctuation_seq
+\seq_set_split:Nnn \l__string_fluctuation_seq {}
+  {
+    0 8628034825 3421170679 8214808651 3282306647
+      0938446095 5058223172 5359408128 4811174502
+  }
+\begin{tikzpicture}
+  \clist_map_inline:nn
+    {
+      {draw, orange!20, line ~ width = 7.5pt,},
+      {draw, orange!40, line ~ width = 3pt,},
+      {draw, line ~ width = .4pt, opacity = .8,}
+    }
+    {
+      \int_step_inline:nn { \clist_count:N \l__string_original_clist - 1 }
+        {
+          \bool_lazy_and:nnTF
+            {
+              \int_compare_p:nNn
+                { ##1 } = { \clist_count:N \l__string_original_clist - 1 }
+            } { \str_if_eq_p:ee { #1 } {draw, line ~ width = .4pt} }
+            {
+              \draw [ shift = {(.472, 3)}, -stealth ] ({ .064 * ( ##1 - 1) },
+                 {
+                  -\clist_item:Nn \l__string_original_clist { ##1 } / 10
+                  + ( -1 ) ^ ( ##1 )
+                  * (\clist_item:Nn \l__string_original_clist { ##1 } - 15)
+                  * \seq_item:Nn \l__string_fluctuation_seq { ##1 } / 100
+                 }) -- ({ .064 * ( ##1 ) },
+                 {
+                  -\clist_item:Nn \l__string_original_clist { ( ##1 + 1 ) } / 10
+                  + ( -1 ) ^ ( ##1 + 1 )
+                  * (\clist_item:Nn \l__string_original_clist { ##1 + 1 } - 15)
+                  * \seq_item:Nn \l__string_fluctuation_seq { ##1 + 1 } / 100
+                });
+            }
+            {
+              \draw [ shift = {(.472, 3)}, #1 ] ({ .064 * ( ##1 - 1) },
+                 {
+                  -\clist_item:Nn \l__string_original_clist { ##1 } / 10
+                  + ( -1 ) ^ ( ##1 )
+                  * (\clist_item:Nn \l__string_original_clist { ##1 } - 15)
+                  * \seq_item:Nn \l__string_fluctuation_seq { ##1 } / 100
+                 }) -- ({ .064 * ( ##1 ) },
+                 {
+                  -\clist_item:Nn \l__string_original_clist { ( ##1 + 1 ) } / 10
+                  + ( -1 ) ^ ( ##1 + 1 )
+                  * (\clist_item:Nn \l__string_original_clist { ##1 + 1 } - 15)
+                  * \seq_item:Nn \l__string_fluctuation_seq { ##1 + 1 } / 100
+                });
+            }
+        }
+    }
+  \draw [stealth-stealth] (.25, 1.5) --++ (0, 2.014)
+   node [scale = .5, midway, right] {\rotatebox{-90}{$\hat\phi(x)$}};
+  \draw [scale = .1, string, opacity = .8, yshift = 30cm, line ~ width = 1.2pt]
+    (4.72,  -15)    .. controls (7.58, -8.7)    and (13.23, -1.18)  ..
+    (20.88, -5.66)  .. controls (23.48, -7.11)  and (24.41, -9.6)   ..
+    (25.08, -12.23) .. controls (25.48, -13.66) and (25.89, -15.08)  ..
+    (26.84, -16.27) .. controls (27.54, -17.17) and (28.56, -17.87)  ..
+    (29.62, -18.31) .. controls (33.13, -19.82) and (37.83, -18.77)  ..
+    (39.48, -15.12) .. controls (39.74, -14.56) and (39.95, -13.97)  ..
+    (40.13, -13.37) .. controls (40.45, -12.36) and (40.71, -11.34)  ..
+    (41.14, -10.38) .. controls (42.13, -8.51)  and (44.27, -6.42)  ..
+    (46.56, -5.71)  .. controls (51.92, -3.95)  and (54.3, -10.48)  ..
+    (55.28, -15);
+  \draw [dashed] (0,1.5) -- (6,1.5);
+  \draw [dashed, yshift = 1.5cm] (0,2.014) -- (.472 + 28 * .064,2.014);
+  \begin{scope}[yshift = 1.5cm, xshift = .472cm]
+    \shade [ball ~ color = string] (0,0) circle (.05);
+    \shade [ball ~ color = string] ({(55.28-4.72)/ 10},0) circle (.05);
+  \end{scope}
+\end{tikzpicture}
+\ExplSyntaxOff
+
+\end{document}

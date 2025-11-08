@@ -1,0 +1,20 @@
+# Unnecessary files
+/archive
+recordings
+preamble.dtx
+
+# macOS DS
+.DS_Store
+
+# LaTeX aux files
+*.aux
+*.bbl
+*.bcf
+*.fdb_latexmk
+*.fls
+*.log
+*.minted
+*.out
+*.synctex.gz
+*.synctex(busy)
+*.toc

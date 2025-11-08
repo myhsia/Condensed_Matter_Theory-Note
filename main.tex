@@ -1,0 +1,56 @@
+% Mingyu Xia (夏明宇, Westlake ID: 20251202247) Homework #i
+\documentclass[11pt]{book}
+
+\input{../preamble.dtx}
+\coverset{
+  title   = Condensed Matter Theory,
+  author  = \ttfamily \textsc{Mingyu Xia},
+  afill   = PhD @Westlake University,
+  date    = November 2025,
+  extinfo = {\includegraphics[width = .1\paperwidth]{myhsia_seal}},
+  head    = Hmolecule.png,
+  clogo   = cat.pdf,
+  llogos  = {mouse1.png, mouse2.png,
+             mouse4.png, mouse5.png}
+}
+
+\begin{document}
+
+\maketitle[purple!50!green]
+\frontmatter
+\tableofcontents
+\mainmatter
+
+\input{./chapter/0_Preparation.tex}
+\input{./chapter/1_.tex}
+\input{./chapter/2_.tex}
+\input{./chapter/3_.tex}
+\input{./chapter/4_.tex}
+\input{./chapter/5_.tex}
+\input{./chapter/6_.tex}
+\input{./chapter/7_TBC.tex}
+\input{./chapter/9_semiconductors.tex}
+
+\newcommand \sectionname {Lecture \#}
+\appendix
+\sidefoot \thepage
+\fancyhead[OL, ER]{Mingyu Xia (Westlake ID: 20251202247)}
+\fancyhead[EL]{\sffamily \rightmark}
+\fancyhead[OR]{\fontfamily{lmr}\selectfont<<\texttt{\href{mailto:xiamingyu@westlake.edu.cn}{xiamingyu@westlake.edu.cn}}>>}
+\addcontentsline{toc}{chapter}{Problem Set}
+\renewcommand *\thesection{\sectionname \arabic{section}}
+\renewcommand*\familydefault {\sfdefault}
+\newweek
+\input{./homework/assignment1.tex}
+\newweek
+\input{./homework/assignment2.tex}
+\newweek
+\input{./homework/assignment3.tex}
+\newweek
+\input{./homework/assignment4.tex}
+\newweek
+\input{./homework/assignment5.tex}
+\newweek
+\input{./homework/assignment6.tex}
+
+\end{document}

@@ -1,0 +1,149 @@
+% !TeX root = ../main.tex
+
+\chapter{Crystal Symmetry \& Crystal Structure}
+
+\section{Crystal Symmetry}
+
+\subsection{Inversion Symmetry}
+
+\subsection{Rotoinversion Symmetry}
+
+\section{Crystal Structure}
+
+\begin{equation}
+  \text{Crystal lattice} + \text{Basis} = \text{Crystal structure}
+\end{equation}
+Replace a every site (represent the symmetry of crystals) by basis (represent the compound of crystal: one / a group of atom / a molecule / a set of molecule): nvotif
+
+Fourier transfor:
+\begin{equation}
+  \upe^{\iu\bm G\cdot\bm R} = 1,~
+  A(k) = A(k) \upe^{\iu\bm k\cdot\bm R}
+\end{equation}
+then $\upe^{\iu\bm k\cdot\bm R} = 1$.
+
+\begin{equation}
+  \bm a_i \cdot \bm b_i = 2\pi\delta_{ij}
+\end{equation}
+\begin{example}[Rec. lattice of BCC]
+  
+\end{example}
+
+\subsection{Structure factor of a monatomic lattice}
+
+In BCC structure, there are two atoms in a unit cell: $(0,0,0)$ and $\frac a2(1,1,1)$.
+They have the same atomic form factor $f$
+\[
+  S_G = f \upe^{-\iu \bm G_1 \cdot \bm r_1} +
+        f \upe^{-\iu \bm G_2 \cdot \bm r_2}
+\]
+where $\bm G_1 = \frac{2\pi}{a} (hx_0 + kx_0 + lx_0)$ and $\bm G_1 \cdot \bm r_1 = 0$;
+$\bm G_2 = \frac{2\pi}{a} (1 \times \frac a2h + 1 \times \frac a2k + 1 \times \frac a2l)$.
+\begin{itemize}
+  \item $S_G = 0$, when $h + k + l$ is an odd integer, there No diffraction.
+  \item $S_G = 2f$, when $h + k + l$ is an even integer, diffraction peak exists.
+\end{itemize}
+
+X-Ray Diffraction: some peeks in $I$ along $\theta$: stands for $(100)$, $(111)$, $(110)$, but $(110)$ is missing.
+\emph{Missing orders make it easier to identify a particular crystal structure.}
+
+The wave length of the X-Ray source has a range $(\lambda_1, \lambda_2)$,
+corresponging $k_{\max}$ to $k_{\min}$.
+For each $k$, we have a circle `field'.
+
+For incident beam, we can get a series of ring: the distance between the rings
+$d = a/\sqrt{h^2 + k^2 + l^2}$ for cubic lattice.
+
+\subsection{Bloch theorem}
+
+Lattice vector
+\[
+  \bm R = k_1 \bm x_1 + k_2 \bm x_2 + k_3 \bm x_3
+\]
+where $k_i$ should be integer numbers.
+Bloch electrons
+\[
+  \ab[-\frac{\hbar^2}{2m} \nabla^2 + U(\bm r)] \psi(\bm r) = E\psi(\bm r)
+\]
+where $U(\bm r + \bm R) = u(\bm r)$.
+The solution should be the form of
+\begin{equation}
+  \psi_k(\bm r) = \upe^{\iu\bm k \cdot \bm r} u_k(\bm r),
+\end{equation}
+where $u_k(\bm r) = u_k(\bm r + \bm R)$,
+multiplication of Plane wave and lattice periodic function.
+
+\subsection{Nearly free electron model}
+
+For free electrons, the periodic function
+\begin{equation}
+  E = \frac{\hbar^2k^2}{2m}
+\end{equation}
+then, when we apply the Bloch theorem
+\[
+  \psi_R(\bm r) = \upe^{\iu \bm k \cdot \bm r} u_k(\bm r), \quad
+  u_k(\bm r) = u_k(\bm r + \bm R)
+\]
+
+\begin{example}[Simple cube]
+  \[
+    E(\bm k) = \epsilon_s - J_0 - 2J_1(\cos(k_xa) + \cos(k_ya) + \cos(k_za))
+  \]
+  where
+  \[
+    -\bm k \cdot \bm R = -k_x \cdot a + ky \cdot 0 + k_z \cdot 0 = -k_x \cdot a
+  \]
+  In the first Brillouin zone of simple cube, there are several high symmetric
+  points
+  \begin{enumext}[columns = 2]
+    \item $\Gamma$ points: $\bm k = (0,0,0)$
+    \item $X$ points: $\bm k = (\pi/a,0,0)$
+    \item $R$ points: $\bm k = (\pi/a,\pi/a,\pi/a)$
+    \item $M$ points: $\bm k = (\pi/a,\pi/a,0)$
+  \end{enumext}
+  Along different directions, the band structure is different.
+  \begin{align}
+    E(\Gamma) & = \epsilon_0 - J_0 - 6J_1,\\
+    E(X)      & = \epsilon_0 - J_0 - 2J_1,\\
+    E(R)      & = \epsilon_0 - J_0 + 6J_1,
+  \end{align}
+  The effective mass. Around the ``minimum'' point, the electrons behave as the
+  free electrons, i.e.,
+  \[
+    E = \frac{\hbar^2k^2}{2m}
+  \]
+  Since we have (for cubic)
+  \[
+    E(k) = \epsilon_0 - J_0 - 6J_1 + J_1|\bm k|^2 a^2
+  \]
+  and we can expnad it into Taylor series
+  \[
+    E = E_0 + a_1\pdv Ek + a_2\pdv[2]Ek + \cdots
+  \]
+  where $\pdv Ek$ around the minimum point. Compare the expressions, we have the effective mass
+  \[
+    m^* = \frac{\hbar^2}{\pdv[2]E/k}
+  \]
+\end{example}
+The bands have antisymmetric properties, i.e.,
+\[
+  \pdv E{k_x} \neq \pdv E{k_y} \neq \pdv E{k_z}, \qq{and}
+  \pdv[2] E{k_x} \neq \pdv[2] E{k_y} \neq \pdv[2] E{k_z},
+\]
+
+\section{Bloch Oscillations}
+
+For three dimensional
+\[
+  E = \epsilon_0 - J_0 - 2J_1(\cos(k_xa) + \cos(k_ya) + \cos(k_za))
+\]
+For one dimensional
+\[
+  E = \epsilon_0 - J_0 - 2J_1 \cos(k_xa)
+\]
+
+\subsection{Requirements for observation}
+
+\[
+  w = \frac{eEa}{\hbar}, \quad T = \frac{2\pi}{eEa} = \frac{h}{eEa}
+\]

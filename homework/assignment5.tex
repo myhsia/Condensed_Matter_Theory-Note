@@ -1,0 +1,182 @@
+% !TeX root = ../main.tex
+
+\section{Nearly free electron model}
+
+\begin{problem}[Compare Kronig-Penney model with the nearly free electron model]
+  The Kronig-Penney model allows one to consider both the nearly-free-electron
+  and tight-binding limits. Consider the (repulsive) Dirac-Kronig-Penney model.
+  It gives the following implicit equation for the energy bands
+  \[
+    \cos(ka) = \cos(qa) + u\frac{\sin(qa)}{qa}
+  \]
+  where $q = \sqrt{2mE}/\hbar$ and $u = \frac{mU_0a}{\hbar^2} > 0$. Assuming
+  that $u \ll q$, find the solution of above equation near the Bragg points
+  $k \approx \pm\frac\pi a$, $\pm\frac{2\pi}{a}$, $\ldots\,$. Compare your
+  result with that of the nearly-free electron model. (Reminder: the $\approx$
+  sign means that $k$ is close yet no equal to the wavenumber of the Bragg
+  point.)
+\end{problem}
+\begin{solution}
+  Near the Bragg points, assume
+  \[
+    ka = n\pi + \kappa a, \qq{and}
+    qa = q_n a + \delta.
+  \]
+  with $|\kappa|$, $|\delta| \ll 1$, $q_n = n\pi/a$.
+  Keep the 2nd order of $\kappa$ and $\delta$, the implict equation can be
+  written as
+  \[
+    (-1)^n \ab[1 - \frac12(\kappa a)^2] = (-1)^n \ab(1 - \frac12\delta^2)
+                                        + u\frac{(-1)^n\delta}{n\pi}.
+  \]
+  Then, we can have the solution of $\delta$
+  \[
+    \delta = \frac u{n\pi} \pm \sqrt{\ab(\frac u{n\pi})^2 + (\kappa a)^2}.
+  \]
+  Since $q = \sqrt{2mE}/\hbar$, then we have
+  \[
+    E = \frac{\hbar^2(q_n + \delta/a)^2}{2m}
+      \approxeq E_n^0 + \frac{\hbar^2 q_n \delta/a}{m},
+  \]
+  where $E_n^0 = \frac{\hbar^2q_n^2}{2m}$.
+  Substitute $q_n = n\pi/a$, and the solution of $\delta$ into the expression
+  of $E$
+  \[
+    E = E_n^0 + \frac{n\pi\hbar^2\delta}{m}
+  = E_n^0 + \frac{n\pi\hbar^2}{ma^2}
+            \ab[\frac{u}{n\pi} \pm
+            \sqrt{\ab(\frac{u}{n\pi})^2 + (\kappa a)^2}].
+  \]
+  Substitute $u = mU_0a/\hbar^2$ into the expression above
+  \[
+    E = E_n^0 + \frac{U_0}{a} \pm
+              \sqrt{\ab(\frac{U_0}{a})^2 + \ab(\frac{n\pi\hbar^2\kappa}{ma})^2},
+  \]
+  with the band gap
+  \[
+    \Delta E_n = E_+ - E_-
+  = 2\sqrt{\ab(\frac{U_0}{a})^2 + \ab(\frac{n\pi\hbar^2\kappa}{ma})^2}.
+  \]
+  When $\kappa a \to 0$, the energy band and the band gap become
+  \[
+    E = E_n^0 + \frac{U_0}{a} \pm \frac{U_0}{a}, \qq{and}
+    \Delta E_n = \frac{2U_0}{a}.
+  \]
+  The results perfectly match that of the nearly-free electron model.
+\end{solution}
+
+\begin{problem}[Nearly free electron model]
+  Consider 2D electrons subject to a weak periodic potential
+  \[
+    U(x,y) = U_0 \ab(\cos\frac{2\pi x}{a} + \cos\frac{2\pi y}{a}).
+  \]
+  \begin{enumext}
+    \item Find the energy bands near the edges of the first Brillouin zone.
+    (Hint: the edges of the Brillouin zone are the Bragg planes where the
+    eigenstates are doubly degenerate.) Plot the bands and isoenergetic
+    surfaces.
+    \item Repeat the analysis of part (a) for regions near the corners of the
+    first Brillouin zone, where there are four degenerate eigenstates.
+  \end{enumext}
+\end{problem}
+\begin{solution}\leavevmode
+  \begin{enumext}
+    \item In reciprocal space, the reciprocal lattice vectors are
+    \[
+      \bm G_1 = \ab(\frac{2\pi}{a}, 0), \quad
+      \bm G_2 = \ab(0, \frac{2\pi}{a}).
+    \]
+    The potential can be expressed as
+    \[
+      U(x,y) = \frac{U_0}{2} \ab[
+        e^{i \bm G_1 \cdot \bm r} + e^{-i \bm G_1 \cdot \bm r} +
+        e^{i \bm G_2 \cdot \bm r} + e^{-i \bm G_2 \cdot \bm r}].
+    \]
+    At the zone edge (e.g., $k_x = \pi/a$), consider a wavevector
+    \[
+      \bm k = \ab(\frac{\pi}{a} + q_x,  k_y),
+    \]
+    with $|q_x| \ll \pi/a$. The two nearly degenerate plane waves are
+    $\ket|\bm k>$ and $\ket|\bm k - \bm G_1>$.
+    Their free-electron energies are
+    \[
+      \begin{aligned}
+        E^{(0)}(\bm k) &
+      = \frac{\hbar^2}{2m} \ab[\ab(\frac{\pi}{a} + q_x)^2 + k_y^2], \\
+        E^{(0)}(\bm k - \bm G_1) &
+      = \frac{\hbar^2}{2m} \ab[\ab(-\frac{\pi}{a} + q_x)^2 + k_y^2].
+      \end{aligned}
+    \]
+    Expanding to first order in $q_x$
+    \[
+      E^{(0)} \approx E_0 \pm \alpha q_x, \qq{where}
+      E_0 = \frac{\hbar^2}{2m} \ab[\ab(\frac{\pi}{a})^2 + k_y^2], \quad
+      \alpha = \frac{\hbar^2 \pi}{m a}.
+    \]
+    \begin{center}
+      \begin{minipage}{.42\linewidth}
+        \centering
+        \includegraphics[height = .16\paperwidth]{homework/hw5-1.png}
+      \end{minipage}
+      \hspace*\fill
+      \begin{minipage}{.27\linewidth}
+        \centering
+        \includegraphics[height = .16\paperwidth]{homework/hw5-2.png}
+      \end{minipage}
+      \hspace*\fill
+      \begin{minipage}{.27\linewidth}
+        \centering
+        \includegraphics[height = .16\paperwidth]{homework/hw5-3.png}
+      \end{minipage}
+    \end{center}
+    The perturbation couples these states with matrix element
+    $\braket<\bm k|U|\bm k - \bm G_1> = U_0/2$.
+    The Hamiltonian in the subspace $\{\ket|\bm k>, \ket|\bm k - \bm G_1>\}$ is
+    \[
+      H = \begin{pmatrix}
+        E_0 + \alpha q_x & U_0/2 \\
+        U_0/2 & E_0 - \alpha q_x
+      \end{pmatrix}.
+    \]
+    Diagonalizing gives the eigenenergies
+    \[
+      E_{\pm} = E_0 \pm \sqrt{(\alpha q_x)^2 + \ab( \frac{U_0}{2})^2 }
+    = E_0 + \frac{\hbar^2 q_x^2}{2m} \pm \sqrt{\ab(\frac{\hbar^2 \pi}{m a} q_x)^2 + \ab(\frac{U_0}{2})^2}
+    \]
+    \item The corners of the first Brillouin zone are points like $\bm k_0 = (\pi/a, \pi/a)$ (the M point). The four degenerate plane waves at this point are
+    \begin{align*}
+      \bm k_1 & = \bm k_0 = (+\pi/a, +\pi/a), \\
+      \bm k_2 & = \bm k_0 - \bm G_1 = (-\pi/a, +\pi/a), \\
+      \bm k_3 & = \bm k_0 - \bm G_2 = (+\pi/a, -\pi/a), \\
+      \bm k_4 & = \bm k_0 - \bm G_1 - \bm G_2 = (-\pi/a, -\pi/a).
+    \end{align*}
+    All have the same free-electron energy $E_0 = \frac{\hbar^2}{2m} \ab[ (\pi/a)^2 + (\pi/a)^2] = \frac{\hbar^2 \pi^2}{m a^2}$.
+
+    In the basis
+    $\{\ket|\bm k_1>, \ket|\bm k_2>, \ket|\bm k_3>, \ket|\bm k_4> \}$,
+    states are coupled if they differ by $\pm \bm G_1$ or $\pm \bm G_2$.
+    The non-zero off-diagonal matrix elements are
+    \[
+      \braket<\bm k_1|U|\bm k_2> = \braket<\bm k_1|U|\bm k_3> =
+      \braket<\bm k_2|U|\bm k_4> = \braket<\bm k_3|U|\bm k_4> = U_0/2.
+    \]
+    The Hamiltonian is
+    \[
+      H = E_0 \identity + \frac{U_0}{2}
+      \begin{pmatrix}
+        0 & 1 & 1 & 0 \\
+        1 & 0 & 0 & 1 \\
+        1 & 0 & 0 & 1 \\
+        0 & 1 & 1 & 0
+      \end{pmatrix}.
+    \]
+    Diagonalizing this matrix yields eigenvalues
+    \[
+      E = E_0 + \frac{U_0}{2} \times \{2,\ -2,\ 0,\ 0\}
+      = \{E_0 + U_0,\ E_0 - U_0,\ E_0,\ E_0\}.
+    \]
+    Thus, at $\bm q = 0$, the fourfold degeneracy splits into three distinct
+    levels: one non-degenerate band at $E_0 + U_0$, one non-degenerate band at
+    $E_0 - U_0$, and a two-fold degenerate band at $E_0$.
+  \end{enumext}
+\end{solution}

@@ -1,0 +1,48 @@
+% !TeX root = ../main.tex
+
+\chapter{Physics of semiconductors}
+
+\section{Intrinsic semiconductors}
+
+The number of particles
+\begin{equation}
+  n = \int_{E_c}^\infty \d E g(E) f(E)
+\end{equation}
+where
+\[
+  g(E) = \frac{m_n^*}{\pi^2\hbar^3} \sqrt{2m_n^*(E - E_c)}
+\]
+Typically, $E_f$ is inside the band gap.
+In most cases, the energy $E \gg E_f$.
+So, the distribution function is
+\[
+  f(E) = \frac1{\upe^{(E-E_f)/kT} + 1} \approx \upe^{-(E-E_f)/kT}
+\]
+Then, the integral
+\begin{equation}
+  n = \int_{E_c}^\infty \frac{m^*}{\pi^2\hbar^3} \sqrt{2m^*(E - E_c)}
+      \upe^{-(E-E_f)/kT} \d E = N_c\upe^{-(E_c-E_f)/kT}
+\end{equation}
+where $N_c = \frac{2(2\pi m_e^* kT)^{3/2}}{h^3}$.
+
+One can simplify understanding
+\begin{equation}
+  n_i^2 = n \cdot p = N_c \cdot N_v \upe^{-E_k/kT}
+\end{equation}
+$n$ and $p$ satisfies
+\[
+  \begin{cases}
+    n + N_a & = p + N_d,\\
+    np & = n_i^2
+  \end{cases}
+\]
+then, we can solve
+\begin{align}
+  n & = \frac{N_d - N_a}{2} + \ab[\ab(\frac{N_d - N_a}{2})^2 + n_i^2]^2,\\
+  p & = \frac{N_a - N_d}{2} + \ab[\ab(\frac{N_a - N_d}{2})^2 + n_i^2]^2,
+\end{align}
+\begin{enumext}[wrap-label = \underline{Case #1}, label = \arabic*,
+                      list-indent = 0pt]
+  \item $n$-type: $N_d - N_a \gg n_i$
+  \item $p$-type: $N_d - N_a \ll n_i$
+\end{enumext}

@@ -1,0 +1,250 @@
+% !TeX root = ../main.tex
+
+\chapter{Free electron model of metals}
+
+\section{Durde model (1900) for electrons in metals}
+
+\section{Ohm's Law in macroscope}
+
+\begin{equation}
+  V = \int_a^b E \d x = Ed,~ V = IR
+\end{equation}
+Define current density $j = I/A$, therefore
+\[
+  Ed = jAR,~ E = \ab(\frac{RA}d) j
+\]
+then, we can define the conductivity $\sigma = 1/\rho$,
+where $\rho = RA/d$ is the resistivity. So,
+\begin{equation}
+  \bm j = \sigma \bm E
+\end{equation}
+
+\section{Resistivity}
+
+\begin{enumerate}
+  \item Metals:
+  \begin{itemize}
+    \item Very conductive
+    \item The resistivity increases with increasing temperature
+  \end{itemize}
+  \item Semiconductors
+  \begin{itemize}
+    \item Limited conductance
+    \item The resistivity decreases with increasing temperature
+  \end{itemize}
+  \item Insulators: Very weak conductance
+\end{enumerate}
+
+\section{Summerfeld model (1920s) for electrons in metals}
+
+\section{Drude model}
+
+Without electric field:
+\begin{itemize}
+  \item Free electron moving randomly
+  \item $\frac12 mv_\text{rms}^2 = \frac32 k_BT$, $v_\text{rms} = \qty{1.2e5}{\m/\s}$ at room temperature.
+\end{itemize}
+
+With elecric field, the drift velocity $v_\text d \ll v_\text{rms}$, $v_d \sim \qty{e-5}{\m/\s}$.
+The definition of the drift velocity is $v_\text d = l/\tau$.
+
+Let $\tau$ be the scattering time and $1/\tau$ be the scattering rate.
+Consider in a time interval $\d t$, a fraction $\d t/\tau$ of th electrons are scattered, and their average velocity becomes zero.
+
+\section{Classical Hall effet}
+
+\section{Drude model with a magnetic field}
+
+Consider Drude model with applied electric and magnetic fields:
+\[
+  m^* \dot{\bm v} = -e(\bm E + \bm v \times \bm B) - m^*\bm v/\tau
+\]
+In steady state, we have
+\[
+  \bm E = -\frac{m^*\bm v}{e\tau} - \bm v \times \bm B
+\]
+and we can rewritten it into 3 components:
+\[
+  \begin{aligned}
+    & \frac{v_x}\tau - \omega_cv_y = -\frac em E_x\\
+    & \frac{v_y}\tau + \omega_cv_x = -\frac em E_y\\
+    & \frac{v_z}\tau = -\frac em E_z
+  \end{aligned}
+\]
+then we arrive at
+\[
+  \begin{aligned}
+    v_x & = -\frac{e\tau}{m(1 + \omega_c^2\tau^2)}(E_x + \omega_c\tau E_y)\\
+    v_y & = -\frac{e\tau}{m(1 + \omega_c^2\tau^2)}(E_y - \omega_c\tau E_y)\\
+    v_z & = -\frac{e\tau}m E_z
+  \end{aligned}
+\]
+and we can write it into matrix form
+\[
+  \begin{pmatrix}
+    v_x\\v_y\\v_z
+  \end{pmatrix} =
+  \hat\sigma
+  \begin{pmatrix}
+    E_x\\E_y\\E_z
+  \end{pmatrix}
+\]
+or $\hat \rho = \sigma^{-1}$.
+
+\section{Summerfeld Model}
+
+\subsection{Electron wave}
+
+Time-independent Schr\"odinger equation
+\begin{equation}
+  -\frac{\hbar^2}{2m} \nabla^2 \psi(\bm r) + U\psi(\bm r) = E\psi(\bm r)
+\end{equation}
+For a free electron: $U = 0$,
+\[
+  \nabla^2 \psi(\bm r) = -\frac{2mE}{\hbar^2}\psi(\bm r)
+\]
+The solution is a plane wave
+\begin{equation}
+  \psi(\bm r) = \frac1{\sqrt V}\upe^{\iu(k_xx+k_yy+k_zz)}
+\end{equation}
+Energy
+\begin{equation}
+  E = \frac{\hbar^2k^2}{2m} = \frac{\hbar^2(k_x^2 + k_y^2 + k_z^2)}{2m}
+\end{equation}
+apply the Born-von Karman periodic boundary conditions
+\begin{equation}
+  \begin{aligned}
+    \psi(x + L_x,y,z) & = \psi(x,y,z)\\
+    \psi(x,y + L_y,z) & = \psi(x,y,z)\\
+    \psi(x,y,z + L_z) & = \psi(x,y,z)
+  \end{aligned}
+\end{equation}
+States in $k$-space
+\begin{equation}
+  k_x = \frac{2\pi n_1}{L_x},~
+  k_y = \frac{2\pi n_2}{L_y},~
+  k_z = \frac{2\pi n_3}{L_z}
+\end{equation}
+with $n_i \in \mathbbm Z$.
+In each unit (3D grid) with size $d^3$: $\Delta d = \frac{2\pi}{L_x}[(x + 1) - (-x)]$.
+The volume is $\frac{2\pi}{L_x} \cdot \frac{2\pi}{L_y} \cdot \frac{2\pi}{L_z}$, there are $2 \times V/(2\pi)^3$ quantum states per unit volume in $k$-space, while the density is $\frac2V = 2 \times \frac{1}{\ab(\prod_i\frac{2\pi}{L_i})}$.
+
+One can simply think that the allowed states inside a sphere.
+The volume of the sphere should be
+\[
+  V = \frac43\pi k_F^3
+\]
+while the density is
+\[
+  2 \times \frac1{(\frac{2\pi}{L})^3}
+\]
+then, the number of electrons in the sphere should be
+\[
+  N = 2 \times \frac{(4\pi/3)k_F^3}{(2\pi/L)^3} = \frac{k_F^3}{3\pi^2}V
+\]
+We define the \emph{Fermi wave vector}: $k_F = (3\pi^2 n)^{1/3}$, which we can compute it from the carrier density $n = N/V$.
+
+\section{Bosons and Fermions at $T \neq 0$}
+
+Bosoons:
+\begin{equation}
+  \bar n_i = \frac{g_i}{\exp}
+\end{equation}
+
+at $T = 0$,
+\[
+  f(E) =
+  \begin{cases*}
+    0, & for $E > E_f$\\
+    1, & for $E < E_f$
+  \end{cases*}
+\]
+
+\section{Fermi-Dirac Distribution}
+
+\begin{equation}
+  f(E) = \frac{1}{1 + \exp[(E - E_f)/k_BT]}
+\end{equation}
+
+\section{Density of states}
+
+\[
+  n(T) = \int f(E)g(E)\d E
+\]
+$g(E)$: how many states are allowed at energy $E$.
+
+\begin{equation}
+  g(E) = \frac1V \odv NE
+\end{equation}
+we cancalculate the total number
+\begin{equation}
+  N = \frac{k^3}{3\pi^2}V
+\end{equation}
+and
+\begin{equation}
+  E = \frac{\pi^2 k^2}{2n}
+\end{equation}
+Subsititute $E$ and $N$ into $g(E) = \frac1V\odv NE$, we can have
+\begin{equation}
+  g(E) = \frac{mk}{\hbar^2 \pi^2}
+\end{equation}
+which $k = \frac{\sqrt{2mE}}\hbar$.
+\begin{enumext}[columns = 2]
+  \item $g_{3D}(E) = \frac{m^*}{\pi^2 \hbar^3} \sqrt{2m^*E} \propto E^{1/2}$
+  \item $g_{2D}(E) = \frac{m^*}{\pi \hbar^2} = \text{Const}$
+  \item $g_{1D}(E) = \frac1{\pi \hbar} \sqrt{\frac{2m^*}{E}} \propto E^{-1/2}$
+  \item $g_{0D}(E) = 2\delta(E)$
+\end{enumext}
+The total number of electron at $T > 0$ per volume
+\[
+  \frac NV = \int \underbrace{f(E)}_{probability} \cdot \underbrace{g(E) \d E}_{\text{can be occupied}}
+\]
+and the energy for the electrons at the Fermi energy level (internal energy) is
+\begin{equation}
+  \bar E = \int E f(E) g(E) \d E
+\end{equation}
+to calculate the velocity
+\[
+  v(E) = \int v(E) f(E) g(E) \d E, \qq{and}
+  v(k) = \int v(k) f(k) g(k) \d k
+\]
+remember to add a $\frac{V}{(2\pi)^3}$ factor when calculate in $k$-space.
+Then, the current density is
+\begin{equation}
+  \bm j = -ne\bm v = -2e \int \frac{\d^3 \bm k}{(2\pi)^3} f(\bm k) v(\bm k)
+\end{equation}
+Consider $\bm j = \sigma \bm E$,
+when $\bm E = \bm 0$ then $\bm j = \bm 0$. Now, check it.
+At zero field, for every occupied state $\bm k$, there is a state $-\bm k$ occupied with the same probability and the corresponding velocity is same but negative.
+
+For the current density in an applied electric field,
+\begin{equation}
+  \bm j = -nev = -2e \int \frac{\d^3 \bm k}{(2\pi)^3} f\ab(\bm k + \frac{e\tau}{\hbar} \bm E) v(\bm k)
+  = -2e \int \frac{\d^3 \bm k}{(2\pi)^3} f(\bm k) v\ab(\bm k - \frac{e\tau}{\hbar} \bm E)
+\end{equation}
+since $v(\bm k) = h\bm k/m$
+\[
+  \bm j = \frac{e^2\tau}{m} \ab[2\int \frac{\d^3\bm k}{(2\pi)^3} f(\bm k)] \bm E
+= \frac{e^2\tau}{m} n \bm E = \sigma \bm E
+\]
+which $\sigma = ne\tau^2/m$ is the same as that in Drude mode.
+
+\subsection{Heat capacity of an electron gas}
+
+The change of internal energy when heated from $0K$ to $T > 0$
+\begin{equation}
+  \Delta U = U(T) - U(0) = \int - \int 
+\end{equation}
+
+\begin{itemize}
+  \item At Mediate temperature: $T^3$
+  \item At Low temperature: $T$
+  \item At High temperature: Const
+\end{itemize}
+
+At low temperature, $f$ choose to be step function, and obviously,
+$\pdv* fT$ will be like a $\delta$-function.
+
+\subsection{Thermal transport}
+
+\section{Limitation of Free electron gas model}

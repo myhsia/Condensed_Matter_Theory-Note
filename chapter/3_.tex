@@ -1,0 +1,52 @@
+% !TeX root = ../main.tex
+
+\chapter{Lattice Vibrations and Phonons}
+
+\section{Specific head capacity in solids}
+
+\begin{equation}
+  m \odv[2]{u_n}t = \beta(u_{n+1} + u_{n-1} - 2u_n)
+\end{equation}
+should have wave-like solutions
+\[
+  u_n = A\upe^{\iu(\omega t - nak)}
+\]
+Subsititute it to the ODE, then we have the dispersion relation
+\[
+  \omega = 2\sqrt{\frac\beta m} \ab|\sin\ab(\frac{ka}{2})|
+\]
+\begin{itemize}
+  \item The dispersion relation is perodic in $k$, \emph{with period $2\pi/a$}
+  \item ...
+\end{itemize}
+
+$k = n \frac{2\pi}{Na}$
+For a $n$-number of particles, we have n phonons, each phonon has a vibration, that is a $\omega$.
+
+For small $ka$, $\omega \approx a \sqrt{\frac\beta m}|k|$.
+
+$k \in [-\pi/a, \pi/a]$, $k \to k + 2\pi/a$
+
+$\hbar \frac\pi a \frac23 \times 3 \to \frac{2\pi}{a}\hbar$
+
+$-\frac23\hbar\frac\pi a \times 3$ $-\frac{2\pi}{a}\hbar + \frac{2\pi}{a} \hbar \times 2$
+
+\subsection{A diatomic chain}
+
+We have two kind of atoms, and keep the period. Using two kind of equations
+\begin{gather}
+  m \odv[2]{u_{2n}}t = \beta(u_{2n+1} + u_{2n-1} - 2u_{2n})\\
+  M \odv[2]{u_{2n+1}}t = \beta(u_{2n+2} + u_{2n} - 2u_{2n+1})
+\end{gather}
+Similarly
+\[
+  u_{2n} = A\upe^{\iu (\omega t - 2nak)}
+\]
+
+\subsection{Gap}
+
+For gap: at $k = \ab|\frac\pi{2a}|$, supposed $M > m$, we have
+\[
+  \omega_+^2 = \frac{2\beta}m > \omega_-^2 = \frac{2\beta}{M}
+\]
+when $m = M$, the gap equals to zero.
