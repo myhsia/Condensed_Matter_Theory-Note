@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v5
       - name: Install TeX Live
         uses: zauguin/install-texlive@v4
-        # with:
-        #   package_file: .github/tl_packages
-      - name: Run l3build
+        with:
+          package_file: .github/tl_packages
+      # - name: Run l3build
         # run: l3build doc
