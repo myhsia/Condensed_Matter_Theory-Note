@@ -9,6 +9,7 @@ preamble.dtx
 # LaTeX aux files
 *.aux
 *.bbl
+*.bbl-SAVE-ERROR
 *.bcf
 *.fdb_latexmk
 *.fls
@@ -18,3 +19,4 @@ preamble.dtx
 *.synctex.gz
 *.synctex(busy)
 *.toc
+*.xml
