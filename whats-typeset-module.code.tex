@@ -1,0 +1,124 @@
+\whatsnote_provide_module:n { typeset }
+
+\RequirePackage{amssymb, bbm, bm, cancel, extarrows,
+                mathtools, nicematrix, xfrac}
+\RequirePackage[e]{esvect}
+\let \vec \vv
+\DeclareRobustCommand \cev [1]{{\mathpalette\do@cev{#1}}}
+\newcommand \do@cev [2]{
+  \vbox{\offinterlineskip
+    \ialign{##\cr
+      \hidewidth\reflectbox{$\m@th#1\vec{}\mkern4mu$}\hidewidth\cr
+      $\m@th#1#2$\cr
+    }
+  }
+}
+\sys_if_engine_xetex:T { \PassOptionsToPackage { no-math } { fontspec } }
+\RequirePackage{fixdif, derivative}
+\newdif \D {\mathsf D}
+\newdif \upe {\mathrm e}
+\newdif \iu {\mathrm i \mkern1mu}
+\RequirePackage{siunitx}
+\DeclareSIUnit \angstrom {\text \AA}
+\let \sinh \relax \let \cosh \relax \let \tanh \relax \let \coth \relax
+\DeclareMathOperator \sinh  {sh}
+\DeclareMathOperator \cosh  {ch}
+\DeclareMathOperator \tanh  {th}
+\DeclareMathOperator \coth  {cth}
+\DeclareMathOperator \sgn   {sgn}
+\DeclareMathOperator \cotan {\qopname\relax o{ctg}}
+\DeclareMathOperator \im    {im}
+\DeclareMathOperator \adj   {adj}
+\DeclareRobustCommand \tran{^{\mkern-1.5mu\mathsf T}}
+\DeclareRobustCommand \identity {\ensuremath{\mathbbm 1}}
+\RequirePackage[version = 4]{mhchem}
+\RequirePackage{physics2}
+\usephysicsmodule{ab, ab.braket, diagmat, xmat, qtext.legacy, op.legacy}
+\DeclareRobustCommand \bra
+  {\@ifstar{\phy@d@lx{br.m}{br.a}}{\phy@d@lx{br.m}{br.a}*}}
+\DeclareRobustCommand \ket
+  {\@ifstar{\phy@d@lx{kt.m}{kt.a}}{\phy@d@lx{kt.m}{kt.a}*}}
+\DeclareRobustCommand \braket
+  {\@ifstar{\phy@d@lx{bk.m}{bk.a}}{\phy@d@lx{bk.m}{bk.a}*}}
+\DeclareRobustCommand \ketbra
+  {\@ifstar{\phy@d@lx{kb.m}{kb.a}}{\phy@d@lx{kb.m}{kb.a}*}}
+\DeclareDocumentCommand \diagmat { s O{} m }
+  {
+    \IfBooleanTF {#1}
+      { \__phy_diagmat_type:nnn {  small } {#2} {#3} }
+      { \__phy_diagmat_type:nnn {        } {#2} {#3} }
+  }
+\DeclareDocumentCommand \pdiagmat { s O{} m }
+  {
+    \IfBooleanTF {#1}
+      { \__phy_diagmat_type:nnn { psmall } {#2} {#3} }
+      { \__phy_diagmat_type:nnn { p      } {#2} {#3} }
+  }
+\DeclareDocumentCommand \bdiagmat { s O{} m }
+  {
+    \IfBooleanTF {#1}
+      { \__phy_diagmat_type:nnn { bsmall } {#2} {#3} }
+      { \__phy_diagmat_type:nnn { b      } {#2} {#3} }
+  }
+\DeclareDocumentCommand \Bdiagmat { s O{} m }
+  {
+    \IfBooleanTF {#1}
+      { \__phy_diagmat_type:nnn { Bsmall } {#2} {#3} }
+      { \__phy_diagmat_type:nnn { B      } {#2} {#3} }
+  }
+\DeclareDocumentCommand \vdiagmat { s O{} m }
+  {
+    \IfBooleanTF {#1}
+      { \__phy_diagmat_type:nnn { vsmall } {#2} {#3} }
+      { \__phy_diagmat_type:nnn { v      } {#2} {#3} }
+  }
+\DeclareDocumentCommand \Vdiagmat { s O{} m }
+  {
+    \IfBooleanTF {#1}
+      { \__phy_diagmat_type:nnn { Vsmall } {#2} {#3} }
+      { \__phy_diagmat_type:nnn { V      } {#2} {#3} }
+  }
+\RequirePackage{hyperref}
+\hypersetup{colorlinks, citecolor = teal}
+\let\oldHyPsd@CatcodeWarning\HyPsd@CatcodeWarning
+\renewcommand \HyPsd@CatcodeWarning [1]
+  {\ifnum\pdfstrcmp{#1}{math shift}=0 \else \oldHyPsd@CatcodeWarning{#1} \fi}
+\pdfstringdefDisableCommands{
+  \def\intop{∫} \def\ilimits@{lim}
+  \def\infty{∞} \let\HyPsd@CatcodeWarning\@gobble
+}
+\NewDocumentCommand \mathemph { O{} m } {\ifmmode
+  \colorbox{Crimson!15}{\vphantom{$\displaystyle #1$}$\displaystyle #2$}\else
+  \colorbox{Crimson!15}{\vphantom{#1}#2}\fi}
+\color_set:nnn { eqcolor } { HTML } { 2F4F4F }
+^^A \def \dollardollar@begin { \def \eqcolor {\color{eqcolor}} \eqcolor $$ }
+^^A \def \dollardollar@end   { $$ \color_select:n {black} }
+\DeclareRobustCommand \[
+  {
+    \scan_stop:
+    \if_mode_math:
+      \@badmath
+    \else:
+      \if_mode_vertical:
+        \nointerlineskip
+        \makebox[.6\linewidth]{ }
+      \fi:
+    \dollardollar@begin^^A \color_select:n { eqcolor }
+    \fi:
+  }
+\DeclareRobustCommand \]
+  {
+    \scan_stop:
+    \if_mode_math:
+      \if_mode_inner:
+        \@badmath
+      \else:
+        \dollardollar@end
+      \fi:
+    \else:
+      \@badmath
+    \fi:
+    \ignorespaces
+  }
+
+\file_input_stop:

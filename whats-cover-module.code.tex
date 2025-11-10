@@ -1,0 +1,143 @@
+\whatsnote_provide_module:n { layout }
+
+\RequirePackage{tikz, zref-totpages}
+\ExplSyntaxOff
+\usetikzlibrary{fadings, patterns, arrows.meta}
+\tikzset{ > = Stealth, every picture/.append style = {
+          line join = round, line cap = round, thick } }
+\ExplSyntaxOn
+\DeclareDocumentCommand \coverset { m } { \keys_set:nn { @@ / coverset } {#1} }
+\clist_new:N \l_@@_cover_llogos_clist
+\keys_define:nn { @@ / coverset }
+  {
+    title         .tl_gset:N    = \@title,
+    author        .tl_gset:N    = \@author,
+    afill         .tl_gset:N    = \@afill,
+    date          .tl_gset:N    = \@date,
+      date        .initial:n    = \today,
+    extinfo       .tl_set:N     = \l_@@_cover_extinfo_tl,
+    head          .tl_set:N     = \l_@@_cover_head_tl,
+    clogo         .tl_set:N     = \l_@@_cover_clogo_tl,
+    clogo-pattern .tl_set:N     = \l_@@_cover_clogo_pattern_tl,
+    llogos        .clist_set:N  = \l_@@_cover_llogos_clist,
+  }
+\DeclareRobustCommand *\sidehead [1] { \tl_gset:Nn \@sidehead {#1} }
+\DeclareRobustCommand *\sidefoot [1] { \tl_gset:Nn \@sidefoot {#1} }
+\sidehead{\@title}
+\sidefoot{\thepage\,/\,\ztotpages}
+\hook_gset_rule:nnnn { shipout / background } { @@ } { before } { pgfrcs }
+\DeclareDocumentCommand \maketitle { O { gray } }
+  {
+    \@@_@maketitle:n {#1}
+    \hook_gput_code:nnn { shipout / background } { @@ }
+      { \if@mainmatter \@@_sidebar_hook:n {#1} \fi }
+  }
+\DeclareCommandCopy \save@cleardoublepage \cleardoublepage
+\cs_new_protected_nopar:Npn \@@_@maketitle:n #1
+  {
+    \pagecolor{#1!10}
+    \let \cleardoublepage \clearpage
+    \begin{titlepage}
+      \begin{tikzpicture} [ remember ~ picture, overlay ]
+        \tl_if_empty:NF \l_@@_cover_head_tl
+          {
+            \node [ yshift = .325\paperheight, opacity = .5,
+                    rotate ~ around = { pi \c_colon_str
+                    ([yshift = .325\paperheight]current ~ page.center)} ]
+              at (current ~ page.center)
+              { \includegraphics [width = \paperwidth]
+                { \l_@@_cover_head_tl } };
+          }
+        \clist_if_empty:NF \l_@@_cover_llogos_clist
+          {
+            \int_step_inline:nn { \clist_count:N \l_@@_cover_llogos_clist }
+              {
+                \node
+                  [ opacity = .25, yshift = {
+                    -.6\paperheight / 2 /
+                      \clist_count:N \l_@@_cover_llogos_clist +
+                    ##1 * .6\paperheight /
+                      \clist_count:N \l_@@_cover_llogos_clist }
+                  ] at ([xshift = .1\paperwidth]current ~ page.south ~ west)
+                  {
+                    \includegraphics
+                      [
+                        height  = .6\paperheight/6,
+                        width   = .16\paperwidth, keepaspectratio
+                      ] { \clist_item:Nn \l_@@_cover_llogos_clist { ##1 } }
+                  };
+              }
+          }
+        \fill [ white, opacity = .5 ] (current ~ page.south ~ east) rectangle +
+          (-.8\paperwidth, .6\paperheight);
+        \node [ gray, above ~ left, inner ~ sep = 1em ] at
+          (current ~ page.south ~ east) { \l_@@_cover_extinfo_tl };
+        \fill [ white, opacity = .5 ] (current ~ page.south ~ east) rectangle +
+          (-.7\paperwidth, .7\paperheight);
+        \node
+          [ shift = {(-.35*\paperwidth,.65*\paperheight)},
+            darkgray, font = \Huge \bfseries \sffamily
+          ] at (current ~ page.south ~ east) { \@title };
+        \node
+          [ shift = {(-.75*\paperwidth,.3*\paperheight)},
+            rotate = 90, gray, opacity = .6, font = \huge \sffamily
+          ] at (current ~ page.south ~ east) { \@author\ | \ \@afill };
+        \tl_if_empty:NF { \l_@@_cover_clogo_tl }
+          {
+            \node (cover ~ logo)
+              [ shift = {(.65*\paperwidth,.3*\paperheight)}]
+              at (current ~ page.south ~ west)
+              {
+                \includegraphics[ height = .4\paperheight ]
+                  { \l_@@_cover_clogo_tl }
+              };
+          }
+      \end{tikzpicture}
+      \clearpage \thispagestyle{empty}
+      \centering
+      \vspace* \fill \sffamily
+        \Large This ~ page ~ was ~ intentionally ~ left ~ blank.
+      \vspace* \fill
+    \end{titlepage}
+    \pagecolor{Beige!30}
+  }
+\cs_new_protected:Npn \@@_sidebar_hook:n #1
+  {
+    \int_if_odd:nTF { \arabic { page } }
+      {
+        \tikz [remember ~ picture, overlay] {
+          \fill [ #1, opacity = .125 ]
+                (current ~ page.south ~ west) rectangle
+                ([xshift = +.5in]current ~ page.north ~ west);
+          \node [ opacity = .25, inner ~ xsep = .25in,
+                  above, inner ~ ysep = {1in - \footskip + 1ex},
+                  font = \sffamily \large,
+                ] at ([xshift = +.25in]current ~ page.south ~ west)
+                { \rotatebox {-90} {\@sidehead} };
+          \node [ opacity = .25, inner ~ xsep = .25in,
+                  above, inner ~ ysep = \headsep, yshift = -1in,
+                  font = \sffamily \large,
+                ] at ([xshift = +.25in]current ~ page.north ~ west)
+                { \rotatebox {-90} {\@sidefoot} };
+          }
+      }
+      {
+        \tikz [remember ~ picture, overlay] {
+          \fill [ #1, opacity = .125 ]
+                (current ~ page.south ~ east) rectangle
+                ([xshift = -.5in]current ~ page.north ~ east);
+          \node [ opacity = .25, inner ~ xsep = .25in,
+                  above, inner ~ ysep = {1in - \footskip + 1ex},
+                  font = \sffamily \large,
+                ] at ([xshift = -.25in]current ~ page.south ~ east)
+                { \rotatebox {+90} {\@sidehead} };
+          \node [ opacity = .25, inner ~ xsep = .25in,
+                  above, inner ~ ysep = \headsep, yshift = -1in,
+                  font = \sffamily \large,
+                ] at ([xshift = -.25in]current ~ page.north ~ east)
+                { \rotatebox {+90} {\@sidefoot} };
+          }
+      }
+  }
+
+\file_input_stop:

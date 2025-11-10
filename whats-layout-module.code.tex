@@ -1,0 +1,87 @@
+\whatsnote_provide_module:n { cover }
+
+^^A % Graphics
+\RequirePackage{anyfontsize, lmodern, microtype, manfnt, ragged2e, soul}
+\RequirePackage[mono = false, osf]{libertine}
+\RequirePackage[normalem]{ulem}
+\RequirePackage[svgnames]{xcolor}
+\RequirePackage[left  = 1.25in, vmargin = 1in, headheight = 15pt,
+                right = .75in,  headsep = 15pt]{geometry}
+\RequirePackage{graphicx, pgfplots}
+\pgfplotsset{compat = newest}
+\graphicspath{{./media/logos/} {./media/}}
+\RequirePackage[compat = 1.1.0]{tikz-feynhand}
+\setlength \feynhandblobsize {10mm}
+^^A % Table and list
+\RequirePackage{booktabs, array, enumext}
+\setenumext[enumext, 1]{label = (\alph*)}
+\setenumext[enumext, 2]{label = \roman*.}
+\RequirePackage[inline]{enumitem}
+^^A % Header & Footer
+\RequirePackage{fancyhdr}
+\fancyhead[OR]{\sffamily \rightmark}
+\fancyhead[OL]{\sffamily \thepage}
+\fancyhead[EL]{\sffamily \leftmark}
+\fancyhead[ER]{\sffamily \thepage}
+\fancyfoot[L,C,R]{}
+\renewcommand* \headrulewidth {1pt}
+\renewcommand* \footrulewidth {.5pt}
+\hook_gput_code:nnn { cmd / headrule / before } {.}
+  { \color_select:n { black!25 } }
+\dim_new:N \l_@@_footrule_tmp_dim
+\renewcommand \footrule
+  {
+    \if@fancyplain \let \footrulewidth \plainfootrulewidth \fi
+    \color_select:n { black!25 }
+    \hrule \@width \headwidth \@height \footrulewidth
+  }
+\pagestyle{fancy}
+^^A % Paragraphs
+\linespread{1.2}
+\RequirePackage{titlesec, subcaption}
+\titleformat \chapter [hang] {\huge \bfseries \sffamily}
+  {\biolinumLF \scshape \@chapapp\ \thechapter} {1em} {}
+\titlespacing* \chapter {\z@} {\z@} {30pt}
+\titlespacing \paragraph {\z@} {1.5ex minus .1 ex} {1pc}
+\RequirePackage{paracol}
+\columnratio{.64}
+\RequirePackage{framed}
+\setlength \FrameSep {\z@}
+\renewcommand* \chaptermark[1] {
+  \markboth {\normalfont \biolinumLF \scshape
+    \ifnum \c@secnumdepth >\m@ne
+      \if@mainmatter \@chapapp \ \thechapter .~\ \fi
+    \fi #1}{}}
+\renewcommand* \sectionmark[1] {
+  \markright {\normalfont \sffamily
+    \ifnum \c@secnumdepth >\z@ \thesection . \
+    \fi #1}}
+\setlength \parindent {\z@}
+\renewcommand \@pnumwidth {2.5em}
+\renewcommand \appendix {
+  \cleardoublepage
+  \setcounter{chapter}{0}
+  \setcounter{section}{0}
+  \gdef\@chapapp{\appendixname}
+  \gdef\thechapter{\@Alph\c@chapter}
+  \addtocontents {toc} { \protect \makeatletter }
+  \addtocontents {toc} {
+    \token_to_str:N \renewcommand* \token_to_str:N \l@section
+      { \token_to_str:N \@dottedtocline {1} {1.5em} {5em} }
+  }
+  \addtocontents {toc} { \protect \makeatother }
+  \renewcommand*\familydefault {\sfdefault}
+  \pagenumbering{roman}
+}
+^^A % Theorems
+\RequirePackage{keytheorems}
+\newcounter {week}
+\newcommand \newweek { \refstepcounter{week} \clearpage }
+\newkeytheorem{theorem}[parent = section, style = definition]
+\newkeytheorem{example}[parent = section, style = definition]
+\newkeytheorem{definition}[parent = section, style = definition]
+\newkeytheorem{problem}[parent = week, style = definition]
+\newkeytheorem{solution}[numbered = false, style = definition]
+\newkeytheorem{remark}[numbered = false, style = remark]
+
+\file_input_stop:
