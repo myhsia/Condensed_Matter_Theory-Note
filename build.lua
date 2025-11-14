@@ -16,7 +16,7 @@ typesetopts      = "-pdf -interaction=nonstopmode"
 function docinit_hook()
   for _,supp in pairs(suppdirs) do
     run(currentdir, "cp -r " .. supp .. " " .. typesetdir)
-  end   
+  end
   return 0
 end
 function tex(file,dir,cmd)
