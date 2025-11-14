@@ -6,6 +6,9 @@ preamble.dtx
 # macOS DS
 .DS_Store
 
+# l3build
+/build
+
 # LaTeX aux files
 *.aux
 *.bbl
