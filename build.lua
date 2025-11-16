@@ -4,7 +4,7 @@
 
 module           = "PHY4804@CMT"
 version          = "2025-11-16"
-suppdirs         = {"chapter", "media"}
+suppdirs         = {"context", "media"}
 unpacksuppfiles  = {"*.bib"}
 textfiles        = {"*.md", "LICENSE", "*.lua"}
 typesetexe       = "latexmk"
