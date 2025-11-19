@@ -4,7 +4,7 @@
 
 module           = "PHY4804@CMT"
 version          = "2025-11-16"
-suppdirs         = {"context", "media"}
+docsuppdirs      = {"context", "media"}
 unpacksuppfiles  = {"*.bib"}
 textfiles        = {"*.md", "LICENSE", "*.lua"}
 typesetexe       = "latexmk"
@@ -12,8 +12,8 @@ typesetfiles     = {module .. ".tex"}
 typesetopts      = "-pdf -interaction=nonstopmode"
 
 function docinit_hook()
-  for _,supp in pairs(suppdirs) do
-    run(currentdir, "cp -r " .. supp .. " " .. typesetdir)
+  for _,glob in pairs(docsuppdirs) do
+    run(currentdir, "cp -r " .. glob .. " " .. typesetdir)
   end
   return 0
 end
