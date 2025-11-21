@@ -1,0 +1,229 @@
+% !TeX root = ../main.tex
+
+\chapter{Electrons in a Magnetic Field}
+
+\begin{multline*}
+  \text{Free electrons in a magnetic field} \\ \longrightarrow
+  \text{Bloch electrons (electrons in a periodic potential field) in a
+    magnetic field}
+\end{multline*}
+For metals, the electrons near the Fermi surface can be considered as the
+quasifree electrons, where $m^* \to m$.
+So, we start from the free electrons first.
+
+\section{Bohr-Sommerfeld Quantization}
+
+\subsection{Classical Hall effect}
+
+In the polar coordinate
+\begin{align*}
+  \bm r & = r\cos(\omega t)\bm i + r\sin(\omega t)\bm j\\
+  \bm{\dot r} & = -r\omega\sin(\omega t)\bm i + r\omega\cos(\omega t)\bm j\\
+  \bm{\ddot r} & = -r\omega^2\cos(\omega t)\bm i - r\omega^2\sin(\omega t)\bm j
+\end{align*}
+where the equation of motion
+\[
+  m^*\bm{\ddot r} = e\bm{\dot r}\times\bm B
+\]
+If the magnetic field $B = (0, 0, B)$, then
+\[
+  m^*(-r\omega^2\cos(\omega t)) = -e\cdot r\omega\cos(\omega t) B
+\]
+where $r = v/\omega \propto \frac1B$, and the orbit is quantized.
+
+The current density
+\[
+  \bm j = \frac{ne^2\tau}{m^*}\bm E
+\]
+while in Drude model, we have
+\[
+  \bm j = \hat \sigma \bm E
+\]
+where $\sigma$ is a tensor mentioned in Chapter 1.
+If we apply the magnetic field, we use
+\[
+  \bm E = \frac{m^*}{ne^2\tau}\bm j + \frac1{ne}\bm j \times \bm B
+\]
+In the Drude model, the diagonal elements are independent from the magnetic
+field, while the $xy$ term is linear to the magnetic field.
+
+\subsection{Bohr-Sommerfeld Quantization rule}
+
+The number of wavelength along the trajectory must be integer
+\begin{equation}
+  \frac1\hbar \oint \bm p \cdot \d\bm r = 2\pi N
+\end{equation}
+Apply the magnetic field, we need do the replication $\bm p \to \bm p - e\bm A$,
+hence
+\begin{equation}
+  \frac1\hbar \oint \bm p \cdot \d\bm r - \frac1\hbar \oint e\bm A \cdot \d\bm r
+= 2\pi N
+\end{equation}
+where $\bm p = \hbar\bm k$. Using the motion equation becomes
+\begin{equation}
+  \hbar\bm k = -e\bm r \times \bm B
+\end{equation}
+The first term of the integral now becomes
+\[
+  \frac1\hbar \oint \hbar \bm k \cdot \d\bm r
+= -\frac e\hbar \oint(\bm r \times \bm B) \cdot \d r
+= -\frac e\hbar \oint \bm B \cdot(\d\bm r \times \bm r) = -\frac{2e}{\hbar} \oint \bm B \cdot \d\bm S = \frac{2e}{\Phi}
+\]
+and the seconde term
+\[
+  \frac e\hbar \oint \bm A \cdot \d \bm r \xlongequal{\text{Stock' Equation}}
+  \frac e\hbar \oint (\nabla \times \bm B) \cdot \d\bm r
+= \frac e\hbar \iint \bm B \cdot \d S = \frac e\hbar \Phi
+\]
+Hence, the quantization condition becomes
+\begin{equation}
+  \frac e\hbar \Phi = 2\pi N, \quad \Phi = \frac{2\pi\hbar}{e}N
+= \frac he N = \phi_0N
+\end{equation}
+Since $\phi_0 = BS$, so, the area $S$ should be quantized.
+\emph{If the magnetic field is changed, the radius of motion will change
+  discretely.}
+
+\subsection{Onsager quantization condition}
+
+Going to $k$-space from $r$-space for $\bm B = (0,0,B_z)$
+\[
+  \hbar|\bm k| = e|\bm r| B, \quad |\bm k| = \frac{|\bm r|}{l_B^2},
+\]
+where $l_B = \sqrt{\frac\hbar{eB}}$ denotes the magnetic length.
+Then, the area
+\[
+  S_r = \pi r^2, \quad S_k = \pi k^2, \to S_r = l_B^4 S_k
+\]
+where $S_k$ denotes the area of \emph{Fermi Surface}. Then, the flux
+\[
+  \phi = N\phi_0, \quad B l_B^4 S_k = N\frac he
+\]
+Then, we obtain the the quantization condition in $k$-space
+\begin{equation}
+  l_B^2 S_k = 2\pi N
+\end{equation}
+To generalized onsager relation
+\[
+  l_B^2 S_k = 2\pi\ab(N + \frac12 - \frac\gamma{2\pi})
+\]
+Consider a change in $B$
+\[
+  \frac\hbar{eB_N} \cdot S_k = 2\pi N, \quad
+  \frac\hbar{eB_{N+1}} \cdot S_k = 2\pi (N + 1)
+\]
+Hence, the flux area change in $k$-space
+\begin{equation}
+  S_k \cdot \Delta\ab(\frac1B) = \frac{2\pi}{\hbar} e
+\end{equation}
+
+\subsection{Quantization of energy}
+
+Starting from
+\begin{gather}
+  l_B^2 S_k = 2\pi \ab(N + \frac12 - \frac\gamma{2\pi})\\
+  S_k = \pi k^2
+\end{gather}
+The energy $E = \frac{\hbar^2k^2}{2m}$
+\[
+  \frac\hbar{eB} \cdot \pi \cdot \frac{2mE}{\hbar^2} = 2\pi(N + \frac12), \quad
+  E = \hbar\omega\ab(N + \frac12)
+\]
+
+\subsection{Full quantum mechanical solution}
+
+The Hamiltonian for a free electron
+\[
+  \hat H = \frac{\hat p^2}{2m} \xlongrightarrow{\bm p\to\bm p - e\bm A}
+  \frac{(\bm p - e\bm A)^2}{2m}
+\]
+where $\bm B = \nabla \times \bm A$ and use Landau gauge $\bm A = (0,Bx,0)$.
+Since $p_y$, $p_z$ commutes with the Hamiltonian, it can be replaced with its
+eigenvalue $\hbar k_y$, $\hbar k_z$. The Schr\"odinger equation becomes
+\[
+  \ab[\frac{p_x^2}{2m^*}
+    + \frac1{2m^*}(\hbar k_y - eB_x)^2 + \frac{\hbar^2k^2}{2m^*}]\psi
+= E\psi
+\]
+Rearrange it
+\[
+  \ab[\frac{p_x^2}{2m^*}
+    + \frac1{2m^*}(\hbar k_y - eB_x)^2]\psi
+= \ab(E - \frac{\hbar^2k^2}{2m^*})\psi = E'\psi
+\]
+Denote $x_0 = \frac{\hbar k_y}{eB}$, the Schr\"odinger equation becomes
+\begin{equation}
+  \ab[\frac{p_x^2}{2m^*}
+    + \frac12m^*\omega_c^2(x - x_0)^2]\psi = E'\psi
+\end{equation}
+The quantized energy
+\begin{equation}
+  E = \frac{\hbar^2k_z^2}{2m^*} + \ab(N + \frac12)\hbar\omega_c
+\end{equation}
+
+Due to the limitation of boundary,
+\[
+  0 < x_0 = \frac{\hbar k_y}{eB} < L_x
+\]
+where $k_y = \frac{2\pi}{L_y}n_y$, $\Delta k_y = \frac{2\pi}{L_y}$, it will be
+limited within
+\[
+  0 < k_y < \frac{eBL_x}{\hbar`'}
+\]
+So, the total number of state
+\[
+  n = \frac{eBL_x/\hbar}{2\pi/L_y} = \frac{eB(L_xL_y)}{h}
+\]
+and the density of states
+\[
+  \text{DOS} = \frac{eB(L_xL_y)/\hbar}{L_xL_y}g_s = \frac{eB}{h}g_s
+= \phi_0 B g_s \propto B
+\]
+Usually, $g_s = 2$, but for like graphene, $g_s > 2$.
+By increasing the magnetic field, one can confine all of the electrons within
+the same energy (such as the ground) state.
+
+\section{Landau Quantization}
+
+\subsection{Filling factor}
+
+With a given $E_f$, the number of Landau levels filled with states $\nu$.
+\begin{equation}
+  \nu = \frac{n}{eB/h} = \frac{hn_B}{eB}
+\end{equation}
+The Landau level will broaden due to scattering.
+For a given scattering time $\tau_q$, the broaden energy
+\[
+  \Delta E \sim \frac\hbar{\tau_q}
+\]
+due to Heisenberg's uncertainty principle.
+When $\Delta E > \hbar\omega_c$, or $\frac\hbar{\tau_c} > \hbar\omega_c$,
+$\omega_c\tau_c < 1$. We denotte $\mu = e\tau/m$, then
+\[
+  \omega_c \cdot \frac{\mu m^*}{e} = \frac{eB}{m^*} \frac{\mu m^*}{e} < 1,
+  \quad B \mu_q < 1
+\]
+So, when $B\mu_q \geq 1$, we could not distinguish the levels.
+where $\mu_q$ denotes the quantum mobility. E.g, for
+$B = \qty 1\T$, $\mu_q \to \qty{e3}{\cm/\N\cdot\s}$.
+
+\section{Shubnikov-de Hass Oscillators}
+
+\subsection{Zeeman splitting}
+
+Each Landau level will separate into two levels.
+\[
+  E_c = \hbar \frac{eB}{m^*}, \quad E_z = g\mu_B B
+\]
+In case that $E_c < E_z$, then $\hbar eB/m^* < g\mu_B B$,
+$\hbar eB < gm^*\mu_B B$.
+
+If tune $B$ to $B_z$ and $B_\parallel$, then
+\[
+  \frac{E_c}{E_B} = \frac{\frac{\hbar eB}{m^*}\cos\theta}{g\mu_B B}
+= \frac{\hbar e\cos\theta}{gm^*\mu_B}
+\]
+
+\section{Integer Quantum Hall Effect}
+
+\section{Fractional Quantum Hall Effect}
