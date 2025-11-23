@@ -12,7 +12,7 @@
       \item Knowing that the Fermi level $E_F$ is in the bandgap
       ($5k_BT < E_F < E_g - 5k_BT$), leading to the conventional simplification
       for $f(E)$ (The Boltzmann approximation can be applied), find the
-      expression for the number of electrons $nn$ in the conduction band and the
+      expression for the number of electrons $n$ in the conduction band and the
       number of holes $h$ in the valence band respectively as a function of the
       data and absolute temperature.
     \end{enumext}
@@ -46,9 +46,89 @@
 \end{problem}
 \begin{solution}\leavevmode
   \begin{enumext}
-    \item 
-    \item 
-    \item 
-    \item 
+    \item The number of electrons in the conduction band
+    \[
+      n = \int_{E_g}^{E_g+E_c} g(E) f(E) \d E
+        = Ck_BT\upe^{-\frac{(E_g-E_F)}{k_BT}}(1 - \upe^{-\frac{E_C}{k_BT}})
+        \xlongequal[\text{Boltzmann approximation}]{E_C\gg k_BT}
+          Ck_BT\upe^{-\frac{E_g-E_F}{k_BT}}.
+    \]
+    The number of electrons in the valence band
+    \[
+      h = \int_{-E_V}^0 g(E) [1 - f(E)] \d E
+        \approxeq Ck_BT\upe^{-\frac{E_F}{k_BT}} (1 - \upe^{-\frac{E_V}{k_BT}})
+        \xlongequal[\text{Boltzmann approximation}]{E_V\gg k_BT}
+          Ck_BT\upe^{-\frac{E_F}{k_BT}}.
+    \]
+    where $f(E) \approxeq \upe^{-\frac{E-E_F}{k_BT}}$,
+          $[1 - f(E)] \approxeq \upe^{\frac{E-E_F}{k_BT}}$.
+    \item For the intrinsic carriers, the number of electrons and holes are the
+    same
+    \[
+      n = Ck_BT\upe^{-\frac{E_g-E_F}{k_BT}} =
+      h = Ck_BT\upe^{-\frac{E_F}{k_BT}}, \quad
+      E_g - E_F = E_F.
+    \]
+    Then, the Fermi level is at mid-gap, i.e., $E_F = \frac{E_g}{2}$.
+    Substitute it back into the expression of $n$ (or $h$),
+    we get the intrinsic carrier concentration
+    \[
+      n_i = Ck_BT\upe^{-\frac{E_g}{2k_BT}}.
+    \]
+    Apply the parameters, $n_i = \qty{4.158e19}{\m^{-3}}$,
+    $E_F = \qty{0.35}\eV$.
+    \item The conductivity
+    \[
+      \sigma_i = e(n_i\mu_e + n_i\mu_h) = \qty{1.332}{\siemens/\m}.
+    \]
+    \item Boron is an acceptor, so doping concentration $N_A = N_0$.
+    Now, the number of electrons and holes
+    \[
+      n = n_i,\ h = n_i \longrightarrow
+      n_d = n,\ h_d = n + N_0,
+    \]
+    and they satisfy the identity: mass-action law
+    \[
+      n_i^2 = n_dh_d = n(n + N_0).
+    \]
+    We can solve that
+    \[
+      n = \frac{\sqrt{N_0^2 + 4n_i^2} - N_0}2,\quad
+      n_d = n = \frac{\sqrt{N_0^2 + 4n_i^2} - N_0}2,\quad
+      h = n + N_0 = \frac{\sqrt{N_0^2 + 4n_i^2} + N_0}2.
+    \]
+    The conductivity becomes
+    \[
+      \sigma_d = e(n_d\mu_e + h_d\mu_h).
+    \]
+    From $h = Ck_BT\upe^{-\frac{E_F}{k_BT}}$, we can obtain the Fermi level
+    \[
+      E_{F_d} = k_BT \ln\frac{C k_BT}{h_d}.
+    \]
+    Apply the parameters (with the previous $n_i = \qty{4.158e19}{\m^{-3}}$)
+    \begin{enumext}[columns = 2]
+      \item $N_0 = \qty{e18}{\m^{-3}}$.\\
+      The numbers of the acceptors and donators
+      \begin{gather*}
+        n_d = \qty{4.108e19}{\m^{-3}},\\
+        h_d = \qty{4.208e19}{\m^{-3}}.
+      \end{gather*}
+      The conductivity and the Fermi level
+      \[
+        \sigma_d = \qty{1.332}{\siemens/\m},~
+        E_{F_d} = \qty{0.350}\eV.
+      \]
+      \item $N_0 = \qty{e20}{\m^{-3}}$.\\
+      The numbers of the acceptors and donators
+      \begin{gather*}
+        n_d = \qty{1.503e19}{\m^{-3}},\\
+        h_d = \qty{1.150e20}{\m^{-3}}.
+      \end{gather*}
+      The conductivity and the Fermi level
+      \[
+        \sigma_d = \qty{2.083}{\siemens/\m},~
+        E_{F_d} = \qty{0.325}\eV.
+      \]
+    \end{enumext}
   \end{enumext}
 \end{solution}
