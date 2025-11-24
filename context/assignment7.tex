@@ -49,11 +49,11 @@
     \item The number of electrons in the conduction band
     \[
       n = \int_{E_g}^{E_g+E_c} g(E) f(E) \d E
-        = Ck_BT\upe^{-\frac{(E_g-E_F)}{k_BT}}(1 - \upe^{-\frac{E_C}{k_BT}})
+        = Ck_BT\upe^{-\frac{E_g-E_F}{k_BT}}(1 - \upe^{-\frac{E_C}{k_BT}})
         \xlongequal[\text{Boltzmann approximation}]{E_C\gg k_BT}
           Ck_BT\upe^{-\frac{E_g-E_F}{k_BT}}.
     \]
-    The number of electrons in the valence band
+    The number of holes in the valence band
     \[
       h = \int_{-E_V}^0 g(E) [1 - f(E)] \d E
         \approxeq Ck_BT\upe^{-\frac{E_F}{k_BT}} (1 - \upe^{-\frac{E_V}{k_BT}})
@@ -95,7 +95,7 @@
     \[
       n = \frac{\sqrt{N_0^2 + 4n_i^2} - N_0}2,\quad
       n_d = n = \frac{\sqrt{N_0^2 + 4n_i^2} - N_0}2,\quad
-      h = n + N_0 = \frac{\sqrt{N_0^2 + 4n_i^2} + N_0}2.
+      h_d = n + N_0 = \frac{\sqrt{N_0^2 + 4n_i^2} + N_0}2.
     \]
     The conductivity becomes
     \[
