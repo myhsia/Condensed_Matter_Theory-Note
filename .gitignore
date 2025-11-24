@@ -1,7 +1,5 @@
 # Unnecessary files
 /archive
-recordings
-preamble.dtx
 
 # macOS DS
 .DS_Store
