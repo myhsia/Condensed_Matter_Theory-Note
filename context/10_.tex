@@ -226,4 +226,45 @@ If tune $B$ to $B_z$ and $B_\parallel$, then
 
 \section{Integer Quantum Hall Effect}
 
+\subsection{Edge modes}
+
+The Hamiltonian with the potention $\phi(x)$
+\begin{equation}
+  \hat H = \frac{p_x^2}{2m^*} + \frac1{2m^*}(\hbar k_y - eBx)^2 + \phi(x)
+\end{equation}
+The eigenenergy will be
+\[
+  E(\hbar k) = \ab(N + \frac12)\hbar\omega_c + \phi\ab(\frac{\hbar k_y}{eB})
+\]
+The current
+\[
+  I = -e \int_{-\infty}^\infty \frac{\d k}{2\pi} v_y(k)
+= \frac{e}{2\pi l_B^2} \int_0^x \d x \frac1{eB} \fdv\phi x
+= \frac e{2\pi\hbar} \Delta\mu
+\]
+where $\pdv E{k_y} = \pdv\phi x \cdot \ab(\frac\hbar{eB})$.
+In the bulk, the electrons motion counterclockwise; But on the both edges
+of top and top, the electrons will be ``perfectly scattered'' (reflected) by the
+edges and do hafl-circle counterclockwise motion.
+Obviously, the direction of the currents is different.
+
 \section{Fractional Quantum Hall Effect}
+
+\subsection{Composite fermions}
+
+\[
+  B = n_e\phi_e (2j + 1/\nu^*)
+\]
+Then, $\nu = \frac{\nu^*}{2j\nu^* + 1}$.
+
+If consider $j = 1$, which means that each electrons attached to flux, then
+\[
+  \nu = \frac13, \rightarrow \nu^* = 1.
+\]
+
+\subsection{Wigner crystal}
+
+The electron-electron interaction is so large that forms the lattice.
+The bonds are Columb interactions.
+When a strong filed is applied on a level, the electrons will be fixed and form
+the lattice.
