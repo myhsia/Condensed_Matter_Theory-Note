@@ -3,7 +3,7 @@
 --]==========================================]--
 
 module           = "PHY4804@CMT"
-version          = "2025-11-16"
+version          = "2025-12-01"
 docsuppdirs      = {"context", "media"}
 unpacksuppfiles  = {"*.bib"}
 textfiles        = {"*.md", "LICENSE", "*.lua"}

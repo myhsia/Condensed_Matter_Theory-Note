@@ -19,5 +19,5 @@ jobs:
         uses: zauguin/install-texlive@v4
         with:
           package_file: .github/tl_packages
-      # - name: Run l3build
-        # run: l3build doc
+      - name: Run l3build
+        run: l3build doc
