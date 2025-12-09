@@ -23,6 +23,101 @@
     well as the shape of constant energy surfaces around this point.
   \end{enumext}
 \end{problem}
+\begin{solution}[By TA]
+  $\frac a2(\pm1,\pm1,\pm1)$
+  \[
+    \sum_s\upe^{-\iu \bm k\cdot \bm R_s}
+  = \sum_{u,v,w} \ab[-\frac a2\iu(uk_x + vk_y + wk_z)]
+  = 8\cos\ab(\frac{ak_x}2) \cos\ab(\frac{ak_y}2) \cos\ab(\frac{ak_z}2)
+  \]
+  $\frac a2(\pm 1,0,\pm 1)$, $\frac a2(\pm1,\pm1,0)$, $\frac a2(0,\pm1,\pm1)$.
+
+  For BCC $E(\Gamma) = E(0,0,0) = -\alpha - 8\gamma$.
+  \[
+    |\bm k|^2 = |\bm k - \bm G|^2
+  = |\bm k|^2 - 2\bm k \cdot \bm G + |\bm G|^2, \quad
+  2\bm k \cdot \bm G = |\bm G|^2
+  \]
+  The nearest $\frac{2\pi}{a}(\pm1,0,\pm1)$
+  \[
+    \begin{cases}
+      k_x \pm k_y = \pm\frac{2\pi}{a},\quad
+      k_y \pm k_z = \pm\frac{2\pi}{a},\quad
+      k_z \pm k_x = \pm\frac{2\pi}{a}.
+    \end{cases}
+  \]
+  For $[1,0,0]$
+  \[
+    \begin{cases}
+      k_x = t, \\
+      k_y = k_z = 0
+    \end{cases}
+  \]
+  $(\pm\frac{2\pi}{a}, 0, 0)$, $E = -\alpha + 8\gamma$.
+  For $[1,1,0]$
+  \[
+    \begin{cases}
+      k_x = k_y = t,\\
+      k_z = 0
+    \end{cases}
+  \]
+  $(\frac\pi a, \frac\pi a, 0)$, $E = -\alpha$.
+  For $[1,1,1]$: $k_x = k_y = k_z = t$,
+  $(\frac\pi a, \frac\pi a, \frac\pi a)$, $E = -\alpha$.
+
+  For FCC:
+  \[
+    E(\Gamma) = -\alpha - 12\gamma
+  \]
+  Consider the nearest $\frac{2\pi}{a}(\pm 1, \pm 1, \pm 1)$.
+  \[
+    \bm k \cdot \bm a = \ab(\frac{2\pi}{a})^2 \cdot \frac32,
+  \]
+  \[
+    \pm k_x\pm k_y\pm k_z = \frac{3\pi}{a}
+  \]
+  Sub-nearest: $\frac{2\pi}{a}(\pm2,0,0)$,
+  \[
+    k_x = \pm\frac{2\pi}{a}, \quad
+    k_y = \pm\frac{2\pi}{a}, \quad
+    k_z = \pm\frac{2\pi}{a}.
+  \]
+  For $[1,0,0]$: $(\frac{2\pi}{a},0,0)$
+  \[
+    \begin{cases}
+      k_x = t,\\
+      k_y = k_z = 0
+    \end{cases},\quad
+    E = -\alpha + 4r
+  \]
+  For $[1,1,0]$: $(\frac{3\pi}{2a}, \frac{3\pi}{2a}, 0)$
+  \[
+    \begin{cases}
+      k_x = k_y = t,\\
+      k_z = 0
+    \end{cases}, \quad
+    E = -\alpha - 2\gamma + 4\sqrt2r
+  \]
+  For $[1,1,1]$: $(\frac\pi a, \frac\pi a, \frac\pi a)$
+  \[
+    k_x = k_y = k_z = t, \quad E = -\alpha
+  \]
+  \[
+    E_k = E_0 + \frac{\hbar^2}{2m} (\bm k - \bm k_0)^2 \qq{for $k \to 0$}
+  \]
+  Use some approximation
+  \[
+    k \to 0, \quad
+    \cos\frac{ak}{2} = 1 - \frac{a^2k^2}{8}
+  \]
+  BCC:
+  \[
+    E_k = -\alpha - 8\gamma \ab(1 - \frac{a^2k_x^2}{8})\ab( ...k_y) \ab( ... k_z)
+  = -\alpha - 8\gamma + \gamma a^2k^2
+  \]
+  where $\gamma a^2 = \frac{\hbar^2}{2m^*}$, $m^* = \frac{\hbar^2}{2\gamma a}$.
+  
+\end{solution}
 \begin{solution}[$\text{i} = \text{BCC}$, $\text{ii} = \text{FCC}$]
   Assume the lattice constant $a$.
   \newcounter{case} \setcounter{case}{1}

@@ -1,0 +1,162 @@
+% !TeX root = ../main.tex
+
+\chapter{Dirac Band Theory}
+
+\section{Introduction to Graphene}
+
+\paragraph{Why $\mu$ in graphene is very high}
+\begin{enumext}
+  \item Dirac band: $m^* = 0$.
+  \item Electron-phonon scattering is weak.
+  \item $\tau_i$ increase: $\mu_i$ increase.
+\end{enumext}
+
+\subsection{Honeycomb lattice and its Brillouin zone}
+
+Two vectors
+\[
+  a_1 = \frac a2(1,\sqrt3), \quad
+  a_2 = \frac a2(1,-\sqrt3)
+\]
+\begin{paracol}{2}
+We want to get the $E(k)$ relation, so we obtain the reciprocal lattice first
+\[
+  b_1 = \frac{2\pi}{a}\ab(1, \frac{\sqrt3}{3}),\quad
+  b_2 = \frac{2\pi}{a}\ab(-1, \frac{\sqrt3}{3}).
+\]
+with the first Brillouin zone
+\[
+  k = \frac{4\pi}{3a}(1,0), \quad k' = \frac{4\pi}{3a}(-1,0).
+\]
+\switchcolumn \centering
+  \begin{tikzpicture}
+    \draw
+      (0:{1/sqrt(3)}) node [right] {$k$} --  (60:{1/sqrt(3)}) --
+      (120:{1/sqrt(3)}) -- (180:{1/sqrt(3)}) node [left] {$k'$} --
+      (240:{1/sqrt(3)}) -- (300:{1/sqrt(3)}) -- cycle;
+    \draw [dashed]
+      (150:1) -- (150:-1)
+      (90:1) -- (90:-1)
+      (30:1) -- (30:-1);
+    \shade [ball color = red]
+      (0,0) circle (.1)
+      (30:1) circle (.1)
+      (90:1) circle (.1)
+      (150:1) circle (.1)
+      (210:1) circle (.1)
+      (270:1) circle (.1)
+      (330:1) circle (.1);
+  \end{tikzpicture}
+\end{paracol}
+
+\subsection{Tight-binding method to calculate band structure of graphene}
+
+The Boloch wave function
+\begin{align}
+  \psi_A & = \frac1{\sqrt N} \sum_{\bm R_A}^N \upe^{\iu\bm k \cdot \bm R_A}
+    \varphi_A(\bm r - \bm R_A),\\
+  \psi_B & = \frac1{\sqrt N} \sum_{\bm R_B}^N \upe^{\iu\bm k \cdot \bm R_A}
+    \varphi_B(\bm r - \bm R_B)
+\end{align}
+where $\psi_A$ denotes the atomic orbital of A-atom, also for $\psi_B$.
+The total wavefunction
+\begin{equation}
+  \psi = \sum_n b_n\psi_n = b_A \psi_A + b_B \psi_b
+= b_A \frac1{\sqrt N} \sum_{R_A} \upe^{\iu\bm k \cdot\bm R_A}
+  \varphi_A(\bm r - \bm R_A) +
+  b_B \frac1{\sqrt N} \sum_{R_B} \upe^{\iu\bm k \cdot\bm R_B}
+  \varphi_B(\bm r - \bm R_B)
+\end{equation}
+The eigen function
+\[
+  \hat H\ket|\psi> = E\ket|\psi>
+\]
+Project all the wavefunction of A-atom
+\[
+  \braket<\psi_A|\hat H|\psi> = E\braket<\psi_A|\psi>
+\]
+Then, we have
+\begin{multline}
+  b_A \frac1{\sqrt N} \sum_{R_A} \upe^{\iu\bm k \cdot\bm R_A}
+  \braket<\varphi_A|\hat H|\varphi_{A'}(\bm r - \bm R_A)> +
+  b_B \frac1{\sqrt N} \sum_{R_B} \upe^{\iu\bm k \cdot \bm R_B}
+  \braket<\varphi_A|\hat H|\varphi_B(\bm r - \bm R_B)>\\
+= E\ab[b_A\frac1{\sqrt N} \sum_{R_A}\upe^{\iu\bm k\cdot \bm R_A}
+    \braket<\varphi_A|\varphi_A(\bm r - \bm R_A)> +
+    b_B \frac1{\sqrt N} \sum_{R_A} \upe^{\iu\bm k\cdot\bm R_B}
+    \braket<\varphi_A|\varphi_B(\bm r - \bm R_B)>]
+\end{multline}
+Rearrange it
+\[
+  b_A\braket<\varphi_A|\hat H|\varphi_B> \upe^{\iu\bm k\cdot \bm R_A}
++ b_B\braket<\varphi_A|\hat H||\varphi_B> \sum_{R_B}\upe^{\iu\bm k\cdot \bm R_B}
+= E b_A \upe^{\iu\bm k\cdot\bm R_A}
+\]
+Substitute the orthonormality
+$\braket<\varphi_A|\varphi_B> = \delta_{A,B}\epsilon_{A,B}$
+\[
+  b_A\epsilon_0 + b_Bt\sum_{i = 1,2,3} \upe^{\iu k\cdot k_i} = Eb_A
+\]
+Finally, we arrive at
+\begin{equation}
+  b_A\epsilon_0 + b_Bt\sum_i \upe^{\iu k\cdot \delta_i} = E b_a,
+\end{equation}
+Similarly, we can project by $\bra<\varphi_B|$
+\begin{equation}
+  b_At\sum_i \upe^{-\iu \bm k\cdot \bm \delta_i} + b_B\epsilon = E b_B
+\end{equation}
+we define
+\[
+  f(k) = \sum_i \upe^{\iu\bm k \cdot \bm \delta_i}
+\]
+Then, we can write them into matrix,
+\begin{equation}
+  \begin{pmatrix}
+    \epsilon_0 & tf(k)\\
+    tf^*(k) & \epsilon
+  \end{pmatrix}
+  \begin{pmatrix}
+    b_A\\b_B
+  \end{pmatrix} = E
+  \begin{pmatrix}
+    b_A\\b_B
+  \end{pmatrix}, \mathbf A\bm b = E\bm b
+\end{equation}
+The determine $\det(\mathbf A - \lambda\identity)$ should be zero
+\[
+  \begin{vmatrix}
+    \epsilon_0 - E & tf(k)\\
+    tf^*(k) & \epsilon_0 - E
+  \end{vmatrix} = 0
+\]
+We can obtain the $E(k)$ relation
+\begin{equation}
+  E = \epsilon_0 \pm t|f(k)|.
+\end{equation}
+Make the replacement
+\[
+  \bm K = \frac{4\pi}{3a}(1,0) \to (0,0), \quad \bm q = \bm k - \bm K, \quad
+  \bm p = \hbar\bm q
+\]
+Then
+\begin{align}
+  f(k) & = \upe^{\iu\bm k_xa/\sqrt3}
+       + 2\upe^{\iu-\iu k_xa/2\sqrt3}\cos(k_xa/2)
+= \upe^{\iu q_ya/\sqrt3} + 2\upe^{\iu q_ya/2\sqrt3},\\
+  f(q) & = \cos\ab[\frac{(q_x + \frac{4\pi}{3a})a}{2}]
+= \upe^{\iu q_ya/\sqrt3} + 2\upe^{-\iu q_ya/2\sqrt3}
+  \ab(\cos\frac{q_xa}{2} \cos\frac{4\pi}{3} - \sin\frac{q_xa}{2} \sin\frac{4\pi}{3})
+\end{align}
+Expand $f(q)$ to the first order
+\begin{equation}
+  f(q) = \frac{\sqrt3a}{2} (\iu q_y - q_x) + \iu \frac{a^x}{4} q_x \cdot q_y
+= \frac{\sqrt3a}{2}(\iu q_y - q_x)
+\end{equation}
+We can rewrite
+\[
+  E(k) = \pm t|f(k)| = \pm t\frac{\sqrt3a}{2\hbar} |q|\hbar = v_F |\bm p|
+\]
+One can rewrite the Hamiltonian interms of Pauli matrices
+\begin{equation}
+  H_k(p) = v_F(\sigma_x p_x + \sigma_y p_y) = v_F \bm \sigma \cdot \bm p
+\end{equation}

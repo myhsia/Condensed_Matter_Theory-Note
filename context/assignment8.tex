@@ -6,8 +6,8 @@
   Suppose that the electron spectrum for a tetragonal lattice can be described
   by the following equation
   \[
-    E_k = \frac{\hbar^2 k_x^2}{2m_{xx}} + \frac{\hbar^2 k_x^2}{2m_{xx}}
-        + \frac{\hbar^2 k_x^2}{2m_{zz}},
+    E_k = \frac{\hbar^2 k_x^2}{2m_{xx}} + \frac{\hbar^2 k_y^2}{2m_{xx}}
+        + \frac{\hbar^2 k_z^2}{2m_{zz}},
   \]
   with $m_{xx} \neq m_{zz}$. Using the Onsager formula for the cyclotron mass,
   $m_c = \frac{\hbar^2}{2\pi} \pdv A{E_k}$ with $A$ being the area of an
@@ -18,8 +18,31 @@
     \item In the $x-y$ plane.
   \end{enumext}
 \end{problem}
-\begin{solution}
-  
+\begin{solution}\leavevmode
+  \begin{enumext}
+    \item For $\bm B \parallel \hat z$, the motion of electrons will
+    perpendicular to $\hat z$, i.e., parallel to $x-y$ plane. The equation of
+    motion becomes
+    \[
+      E_k = \frac{\hbar^2}{2m_{xx}}(k_x^2 + k_y^2), \quad
+      k_\parallel^2 \equiv k_x^2 + k_y^2 = \frac{2m_{xx} E_k}{\hbar^2}.
+    \]
+    Then, the area of the isoenergetic contour is
+    \[
+      A = \pi k_\parallel^2 = \frac{2\pi m_{xx} E_k}{\hbar^2}.
+    \]
+    Substitute to the definition of cyclotron mass, we can obtain
+    \[
+      m_c = \frac{\hbar^2}{2\pi} \pdv A{E_k}
+    = \frac{\hbar^2}{2\pi} \pdv A{E_k}
+    = \frac{\hbar^2}{2\pi} \frac{2\pi m_{xx}}{\hbar^2} = m_{xx}.
+    \]
+    \item Simply take $\bm B \parallel \hat x$, then orbits lie in the
+    $k_y-k_z$ plane with an ellipse area. The equation of motion becomes
+    \[
+      E_k = \frac{\hbar^2 k_y^2}{2m_{xx}} + \frac{\hbar^2 k_z^2}{2m_{zz}}
+    \]
+  \end{enumext}
 \end{solution}
 
 \begin{problem}[Integer Quantum Hall Effect]

@@ -17,6 +17,77 @@
   point.)
 \end{problem}
 \begin{solution}
+  KP model $k = \frac{n\pi}{a} + \delta$.
+  \[
+    \cos ka = \cos qa + u\frac{\sin qa}{qa}
+  \]
+  Since
+  \[
+    \cos(n\pi + \delta a) = \cos n\pi \cos\delta a - \sin n\pi \sin\delta a
+  = (-1)^n \cos\delta a = (-1)^n \ab[1 - \frac{(\delta a)^2}{2}]
+  \]
+  The energy
+  \[
+    E^2 = \frac{\hbar^2}{2m}\ab(\frac{n\pi}{a})^2 + \Delta E, \quad
+    q = \frac{\sqrt{2mE}}{\hbar} = \frac{n\pi}{a} + \epsilon
+  \]
+  Then the cosine and sine
+  \[
+    \cos(qa) = (-1)^n \ab[1 - \frac{(\epsilon a)^2}{2}], \quad
+    \frac{\sin(qa)}{qa} = \frac{(-1)^n\epsilon a}{n\pi}
+  \]
+  We can obtain an equation about $\epsilon$
+  \[
+    \epsilon^2 - \frac{2U}{an\pi}\epsilon - \delta^2 = 0
+  \]
+  NFE: Expand into a Fourier mode
+  \[
+    V(x) = \sum_a Va\upe^{\iu Gx} = U_0\delta(x - na)
+  \]
+  \[
+    k = \frac{n\pi}{a} + \Delta, \quad
+    k' = \frac{n\pi}{a} - \Delta
+  \]
+  The wavefunction
+  \[
+    \psi(x) = a\psi_k^0 + b\psi_{k'}^0
+  \]
+  where $\psi_k^0 = \frac1{\sqrt L}\upe^{\iu kx}$.
+  The eigenequation
+  \[
+    (H_0 + H')\psi(x) = E\psi(x)
+  \]
+  where $H_0 = -\frac{\hbar^2}{2m} \odv*[2]{}x + \bar V$, $\Delta V = V(x) - \bar V$.
+  \[
+    H_0\psi_k^0 = E_k^0\psi_k^0, \quad
+    H_0\psi_{k'}^0 = E_{k'}^0 \psi_{k'}^0
+  \]
+  \[
+    a(E_k^0 - E + \Delta V)\psi_k^0 + b(E_{k'}^0 - E + \Delta V)\psi_{k'}^0 = 0
+  \]
+  \[
+    \begin{cases}
+      (E_k^0 - E)a + V_n^*b = 0,\\
+      V_n^a (E_{k'}^0 - E)b = 0
+    \end{cases}
+  \]
+  \[
+    V_n = \braket<k|V(x)|k> = \frac1a\int_0^a U_0 \delta(x) \upe^{-\iu2\pi mx/a} \d x
+  \]
+  The Determine should be zero
+  \[
+    \begin{vmatrix}
+      E_k^0 - E & V_m^*\\
+      V_n & E_{k'}^0 - E
+    \end{vmatrix} = 0
+  \]
+  $E_k^0 = E_{k'}^0$,
+  \[
+    E_\pm = \frac12\{E_k^0 + E_{k'}^0 \pm \sqrt{(E_k^0 - E_k^0) + 4|V_n|^2}\}, \quad
+    E_\text{gap} = 2|V_n| = \frac{2U_0}{a}
+  \]
+\end{solution}
+\begin{solution}
   Near the Bragg points, assume
   \[
     ka = n\pi + \kappa a, \qq{and}
@@ -79,6 +150,40 @@
     first Brillouin zone, where there are four degenerate eigenstates.
   \end{enumext}
 \end{problem}
+\begin{solution}[By TA]
+  \begin{enumext}
+    \item
+    \[
+      U(\bm r) = \sum_G U_G \upe^{\iu \bm G\cdot \bm r}, \quad
+      U_G = \frac1{V_\text{Cell}} \int_\text{Cell} U(\bm r)
+      \upe^{-\iu \bm G\cdot \bm r} \d \bm r
+    \]
+    \[
+      U = U_0 \ab(\cos\frac{2\pi x}{a} + \cos\frac{2\pi y}{a})
+    = \frac{U_0}{2}
+      (\upe^{\pm\iu\frac{2\pi x}{a}} + \upe^{\pm\iu\frac{2\pi x}{a}})
+    \]
+    \[
+      \bm G = (\pm\frac{2\pi}{a}, 0), (0, \pm \frac{2\pi}{a}), U_G = \frac{U_0}{2}.
+    \]
+    $k_x = \frac\pi a + \delta$, $k_y$.
+    \[
+      \begin{vmatrix}
+        E_k^0 - E & \frac{U_0}{2}\\
+        \frac{U_0}{2} & E_{k'}^0 - E
+      \end{vmatrix} = 0
+    \]
+    \[
+      E = \frac{\hbar^2}{2m} \ab(\frac{\pi^2}{a^2} + q_x^2 + k_y^2)
+      \pm\sqrt{\ab(\frac{\pi\hbar^2}{ma}q_x)^2 + \ab(\frac{U_0}{2})^2}
+    \]
+    \[
+      k_x = \pm \frac\pi a + q_x, \quad
+      k_y = \pm \frac\pi a + q_x.
+    \]
+    \item $\braket<k_i|U(\bm r)|k_j> \neq 0$, $\bm k_i - \bm k_j = (0,\pm\frac{2\pi}{a})$, $(\pm\frac{2\pi}{a}, 0)$.
+  \end{enumext}
+\end{solution}
 \begin{solution}\leavevmode
   \begin{enumext}
     \item In reciprocal space, the reciprocal lattice vectors are

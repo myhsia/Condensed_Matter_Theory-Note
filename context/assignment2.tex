@@ -11,6 +11,21 @@
   find the dispersion of this mode.
   Analyze the behavior of this mode in the continuum limit.
 \end{problem}
+\begin{solution}[By TA]
+  Only consider the vibration perpendicular to the surface
+  \[
+    M\odv[2]{U_{n,m}}t = -k \sum [u_{n,m} - u_{n\pm1,m\pm1}]
+  \]
+  Substitute the plane wave
+  \[
+    u_{n,m}(t) = U\upe^{\iu(q_xna + q_yna - \omega t)}
+  \]
+  we have
+  \[
+    -M\omega^2 = 2k[\cos(q_xa) + \cos(q_ya) - 2]
+  \]
+  For $|q_xa|$, $|q_ya| \ll q$, $\sin qa = qa$.
+\end{solution}
 \begin{solution}
   Assume the lattice constant $a$, then the lattice sites become
   \[
@@ -77,6 +92,31 @@
     sketch the instantaneous position of atoms as a function of $x$.
   \end{enumext}
 \end{problem}
+\begin{solution}[By TA]
+  $v_y = \odv mk$.
+  $v_s$ is long-wave limit $v_s$: $\lim_{k\to0}v_g = a\sqrt{\frac\beta m}$,
+  and $\omega_m = \frac{2v_s}{a}$.
+  \[
+    u_n = u_0\upe^{-\alpha na}\upe^{\iu(\omega't - kna)}
+  \]
+  Substitute it into the EOM
+  \[
+    \begin{cases}
+      -\omega'^2m' = \beta[\upe^{ax}(\upe^{\iu ka} + \upe^{-\iu ka}) - 2]\\
+      -\omega'^2m = \beta[\upe^{(\alpha + \iu k)a} + \upe^{-(\alpha + \iu k)a} - 2]
+    \end{cases}
+  \]
+  where $ka = \pi$, $\omega' = \omega_m'$,
+  \[
+    u_n = u_0(-1)^n \upe^{\iu\omega t} \upe^{-\alpha a|n|}
+  \]
+  \[
+    \begin{cases}
+      m\omega_m'^2 = 2\beta(1 + \upe^{-\alpha a}),\\
+      m\omega'm^2 = \Delta\beta \cosh^2\ab(\frac{\alpha a}{2})
+    \end{cases}
+  \]
+\end{solution}
 \begin{solution}\leavevmode
   \begin{enumext}[label = (\alph*)]
     \item Assume the nearest-neighbor spring constant $\beta$.
@@ -174,6 +214,37 @@
     \item What is the evolution of $C_v$ at low temperature? Compare the result obtained here with that deduced from the Debye model.
   \end{enumext}
 \end{problem}
+\begin{solution}[By TA]
+  \begin{enumext}
+    \item $\omega = v_sk$, $\int_0^{\omega_0} g_D(\omega) \d\omega = N$,
+    $\omega(k) = 2\sqrt{\beta/m}|\sin(ka/2)|$.
+    \[
+      g_D(\omega) = \frac{L}{\pi} \odv k\omega = \frac L\pi \cdot \frac1{v_s}
+    = \frac{Na}{\pi v_s}
+    \]
+    $\omega_D = \pi v_s/a$, $\omega_M = 2v_s/a$.
+    \item $\braket<n> = \frac{1}{\upe^{\hbar\omega/k_BT} - 1}$,
+    $\braket<E> = \braket<n>\hbar\omega$, $u_0 = \frac12\hbar\omega$.
+    \[
+      U = \int_0^{\omega_M} g(\omega) \ab[\frac12\hbar\omega + \frac{\hbar\omega}{\upe^{\hbar\omega/k_BT} - 1}] \d\omega
+    \]
+    $D_v = \odv UT$, for $\hbar\omega \ll k_BT$,
+    the exponential is $\frac{\hbar\omega}{k_BT}$,
+    \[
+      C_v = k_B\int_0^{\omega_a} g(\omega) \d\omega = Nk_B
+    \]
+    \item Only $\omega \to 0$ contributes to the integration.
+    \[
+      \upe^{\hbar\omega/k_BT}
+      \begin{cases}
+        \hbar\omega \gg k_BT\frac{\hbar\omega}{\upe^{\hbar\omega k_BT}-1}
+      = \hbar\omega\upe^{-\hbar\omega/k_BT},\\
+        \hbar\omega \ll k_BT \upe^{\hbar\omega/k_BT} \approx k_BT
+      \end{cases}
+    \]
+    $\omega \to 0$, $g(\omega) = g(0) = \frac{2N}{\pi\omega_M}$.
+  \end{enumext}
+\end{solution}
 \begin{solution}\leavevmode
   \begin{enumext}[label = (\alph*)]
     \item The same to Problem 2.2(a): the dispersion
