@@ -31,5 +31,27 @@
   non-differentiable Dirac point. Please explain this contradiction.
 \end{problem}
 \begin{solution}
-  
+  The contradiction arises from applying different definitions of ``mass'' to
+  graphene's unique band structure. The description of ``massless Dirac
+  fermions'' comes from the analogy to relativistic particles.
+  \par \vspace{.5\baselineskip}
+  From a massless special relativity particle like a photon to the electrons in
+  the graphene, their dispersion relations have the comparasion
+  \[
+    E = pc \Longrightarrow E = \pm \hbar v_F k = p v_F
+  \]
+  with $v_F$ playing the role of $c$. Hence, electrons near the Dirac point
+  behave as if they have zero rest mass.
+  \par \vspace{.5\baselineskip}
+  However, the conventional effective mass $m^* = \hbar^2 (\odv[2]E/k)^{-1}$ is
+  defined under the parabolic-band approximation $E \propto k^2$. For graphene's
+  linear dispersion, $\odv[2]E/k = 0$ away from $k = 0$, leading
+  to $m^* \to \infty$ mathematically. At $k = 0$ the dispersion is
+  non-differentiable, so the formula breaks down.
+  \par \vspace{.5\baselineskip}
+  Physically, this infinite effective mass reflects that the electron's speed is
+  constant at $v_F$: An external force parallel to its momentum cannot change
+  its speed, much like a photon's speed is fixed at $c$. Thus, the ``massless''
+  label refers to the relativistic analogy, while the divergent $m^*$ indicates
+  the inapplicability of the parabolic effective mass concept to a linear band.
 \end{solution}
