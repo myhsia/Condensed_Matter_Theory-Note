@@ -20,6 +20,7 @@ jobs:
         with:
           os: ${{ matrix.os }}
           texlive_version: latest
+          scheme: full
       #   uses: zauguin/install-texlive@v4
       #   with:
       #     package_file: .github/tl_packages
