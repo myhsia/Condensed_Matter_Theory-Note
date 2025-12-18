@@ -160,3 +160,71 @@ One can rewrite the Hamiltonian interms of Pauli matrices
 \begin{equation}
   H_k(p) = v_F(\sigma_x p_x + \sigma_y p_y) = v_F \bm \sigma \cdot \bm p
 \end{equation}
+
+\section{Calculation about TBC}
+
+Using the approximation
+\begin{enumext}
+  \item Only consider the nearest neighbor hopping
+  \[
+    \braket<\phi_A|H|\phi_B> \neq 0
+  \]
+  \[
+    \epsilon_0 = 0, \quad E_\pm = \pm V_0|f(\bm k)|
+  \]
+  \item $f(\bm k) \approx \frac{\sqrt3}{2} a(\iu q_y - \xi q_x)$.
+\end{enumext}
+
+\section{Chirality}
+
+\begin{enumext}
+  \item For conduction band electron: $\bm\sigma \cdot \bm n = 1$.
+  \item For valence band electron: $\bm\sigma \cdot \bm n = -1$.
+\end{enumext}
+
+\section{Dirac equation with a mass}
+
+The Hamiltonian
+\[
+  H_k =
+  \begin{pmatrix}
+    \Delta & -\gamma_0f(\bm k)\\
+    -\gamma_0f^*(\bm k) & -\Delta
+  \end{pmatrix}
+\]
+The energy
+\[
+  E_\pm = \pm\sqrt{\Delta^2 + (\gamma_0|f(\bm k)|)^2}
+= \pm \sqrt{(m_Dv_F^2)^2 + (\hbar v_Fk)^2}
+\]
+where $m_D = \Delta/v_F^2$.
+The gap is
+\[
+  \Delta E = E_+ - E_-
+= 2\sqrt{\Delta^2 + (\gamma_0|f(\bm k)|)^2},
+\]
+and we can open a gap in the band.
+
+\section{Density of states in Graphene}
+
+\[
+  g(E) = g_sg_vvv \frac{|E|}{2\pi\hbar^2v_F^2}
+\]
+The total carrier density
+\[
+  n = \int_0^\infty g(E) f(E) \d E
+= \int_0^{E_f} \frac{g_sg_N E}{2\pi\hbar^2v_F^2} \d E
+= \frac{g_sg_VE}{2\pi\hbar^2v_F^2}\d E
+= \frac{g_sg_V}{2\pi\hbar^2v_F^2} \frac12 E_F^2
+= \frac{E_f^2}{\pi\hbar^2v_F^2}
+\]
+where $E_F = \pm\hbar v_F\sqrt{|n|\pi} = \pm\hbar v_Fk_F$.
+
+\section{Massless Dirac fermions}
+
+\[
+  m^* = \frac1\hbar/\pdv[2]Ek
+\]
+For $E = \hbar v_F k$, $\pdv Ek = \hbar v_F$, and $\pdv[2]Ek = 0$,
+the effective mass will diverge.
+So, for massless particle, $m_0 = 0$, $E = c|p|$.

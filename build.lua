@@ -10,6 +10,7 @@ textfiles        = {"*.md", "LICENSE", "*.lua"}
 typesetexe       = "latexmk"
 typesetfiles     = {module .. ".tex"}
 typesetopts      = "-pdf -interaction=nonstopmode"
+typesetruns      = 1
 
 function docinit_hook()
   for _,glob in pairs(docsuppdirs) do

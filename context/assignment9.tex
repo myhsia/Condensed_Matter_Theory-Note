@@ -1,0 +1,57 @@
+% !TeX root = ../main.tex
+
+\section{Band structure of graphene}
+
+\begin{problem}
+  In the calculation of the monolayer graphene band structure using
+  tight-binding model, if we keep the contribution of the next-nearest
+  hopping $t'$.
+  \begin{enumext}
+    \item Write down the dispersion relation.
+    \item Expand the energy spectrum around the Dirac point up to second order.
+    Search the literature and check what's trigonal warping effect is in
+    a monolayer.
+  \end{enumext}
+\end{problem}
+\begin{solution}\leavevmode
+  \begin{enumext}
+    \item 
+  \end{enumext}
+\end{solution}
+
+\begin{problem}
+  Graphene has the record room-temperature electron mobility, mainly due to two
+  reasons. The first is the high Debye temperature ($\sim\qty{2100}\K$) that
+  suppresses phonon scattering arising from the in-plane covalent $sp^2$ bonding
+  between carbon atoms. The second one is related to its unique linear Dirac
+  band, resulting in massless Dirac fermions ($m^* = 0$) near the Dirac point.
+  However, if we apply the definition of the effective
+  mass $m^* = \hbar^2\ab(\odv[2]{E(k)}k)^{-1}$ to the band dispersion of
+  graphene $(E_\pm(k) = \pm \hbar v_Fk)$, we will get diverging $m^*$ and
+  non-differentiable Dirac point. Please explain this contradiction.
+\end{problem}
+\begin{solution}
+  The contradiction arises from applying different definitions of ``mass'' to
+  graphene's unique band structure. The description of ``massless Dirac
+  fermions'' comes from the analogy to relativistic particles.
+  \par \vspace{.5\baselineskip}
+  From a massless special relativity particle like a photon to the electrons in
+  the graphene, their dispersion relations have the comparasion
+  \[
+    E = pc \Longrightarrow E = \pm \hbar v_F k = p v_F
+  \]
+  with $v_F$ playing the role of $c$. Hence, electrons near the Dirac point
+  behave as if they have zero rest mass.
+  \par \vspace{.5\baselineskip}
+  However, the conventional effective mass $m^* = \hbar^2 (\odv[2]E/k)^{-1}$ is
+  defined under the parabolic-band approximation $E \propto k^2$. For graphene's
+  linear dispersion, $\odv[2]E/k = 0$ away from $k = 0$, leading
+  to $m^* \to \infty$ mathematically. At $k = 0$ the dispersion is
+  non-differentiable, so the formula breaks down.
+  \par \vspace{.5\baselineskip}
+  Physically, this infinite effective mass reflects that the electron's speed is
+  constant at $v_F$: An external force parallel to its momentum cannot change
+  its speed, much like a photon's speed is fixed at $c$. Thus, the ``massless''
+  label refers to the relativistic analogy, while the divergent $m^*$ indicates
+  the inapplicability of the parabolic effective mass concept to a linear band.
+\end{solution}
