@@ -15,7 +15,224 @@
 \end{problem}
 \begin{solution}\leavevmode
   \begin{enumext}
-    \item 
+    \item The Hamiltonian in second quantization form for the graphene with
+    the next-nearest (NN) hopping is
+    \[
+      \mathcal H
+    = -t\sum_{\braket<i,j>} (\hat a_i\hat b_j^\dagger + \text{H.c.})
+    - t'\sum_{\ab*<\braket<i,j>>}
+      (\hat a_i\hat a_j^\dagger + \hat b_i\hat b_j^\dagger+ \text{H.c.})
+    = \mathcal H_t + \mathcal H_{t'},
+    \]
+    where $i$ and $j$ label the nearest neighbor, i.e., the bond $A_i, B_i$.
+    \begin{paracol}{2}
+    The fermion operators $a_i$ and $a_i^\dagger$ annihilate/create an electron
+    at site $A$, also for $b_i$ and $b_i^\dagger$ at site $B$. The vectors
+    pointing from $A_i$ to the 3 nearest $B$-type sites and 6 next-nearest
+    $A$-type sites are
+    \[\begin{array}{*3{l@{\enspace}}}
+      \bm \delta_1 = a(1, 0), &
+      \bm \delta_2 = a\ab(-\frac12,  \frac{\sqrt3}{2}), &
+      \bm \delta_3 = a\ab(-\frac12, -\frac{\sqrt3}{2}); \\
+      \bm a_1 = a\ab(\frac32, \frac{\sqrt3}{2}), &
+      \bm a_2 = a(0, \sqrt3), &
+      \bm a_3 = a\ab(-\frac32, \frac{\sqrt3}{2}), \\
+      \bm a_4 = a\ab(-\frac32, -\frac{\sqrt3}{2}), &
+      \bm a_5 = a(0, -\sqrt3), &
+      \bm a_6 = a\ab(\frac32, -\frac{\sqrt3}{2}).
+    \end{array}\]
+    Assume there are $N$ atoms in total, then there are $N/2$ $A$-type or
+    $B$-type sites in total.
+    \switchcolumn \vspace*\fill \centering
+    \begin{tikzpicture}[scale = 1.2]
+      \foreach \i in {0,120,240}
+        \draw [rotate around = {\i:(0,0)}]
+              (0,0) --++ (0:1) --++ (-60:1) --++ (-120:1) --++
+              (-180:1) --++ (-240:1) --++ (60:1);
+      \foreach \i in {0,120,240}
+        {
+          \shade [rotate around = {\i:(0,0)}, ball color = red]
+            (0,{sqrt(3)}) circle (.1);
+          \shade [rotate around = {\i:(0,0)}, ball color = red]
+            (1.5,{sqrt(3)/2}) circle (.1);
+          \shade [rotate around = {\i:(0,0)}, ball color = blue]
+            (1,0) circle (.1);
+          \shade [rotate around = {\i:(0,0)}, ball color = blue]
+            (1,{-sqrt(3)}) circle (.1);
+        }
+      \shade [ball color = red] (0,0) circle (.1);
+      \draw [opacity = .3, dashed, <->] (30:.1) to [bend right]
+                    node [above] {$t'$} (30:{sqrt(3) - .1});
+      \draw [opacity = .3, dashed, <->] (90:.1)
+                        to [bend right] (90:{sqrt(3) - .1});
+      \draw [opacity = .3, dashed, <->] (150:.1)
+                        to [bend right] (150:{sqrt(3) - .1});
+      \draw [opacity = .3, dashed, <->] (120:.1)
+                        to [bend right] (210:{sqrt(3) - .1});
+      \draw [opacity = .3, dashed, <->] (270:.1)
+                        to [bend right] (270:{sqrt(3) - .1});
+      \draw [opacity = .3, dashed, <->] (-30:.1)
+                        to [bend right] (-30:{sqrt(3) - .1});
+      \draw [opacity = .6, <->] (30:.1) to[bend left]  ([shift = (150:.1)]0:1);
+      \draw [opacity = .6, <->] (150:.1) to[bend left]
+        ([shift = (270:.1)]120:1);
+      \draw [opacity = .6, <->] (-90:.1) to[bend left]
+        node [midway, right] {$t$} ([shift = (30:.1)]240:1);
+      \draw [->, very thick, teal] (0,0) -- (0:1)
+       node [below, near end] {$\bm\delta_1$};
+      \draw [->, very thick, teal] (0,0) -- (120:1)
+       node [right, near end] {$\bm\delta_2$} ;
+      \draw [->, very thick, teal] (0,0) -- (240:1)
+       node [left, near end]  {$\bm\delta_3$};
+      \node [left] at (0,0) {$A_i$} node [left] at (0,{sqrt(3)}) {$A_j$};
+      \node [above left] at (120:1) {$B_i$} node [right] at (60:2) {$B_j$};
+      \draw [->, orange] (0,0) -- (30:{sqrt(3)})  node [right] {$\bm a_1$};
+      \draw [->, orange] (0,0) -- (90:{sqrt(3)})  node [above] {$\bm a_2$};
+      \draw [->, orange] (0,0) -- (150:{sqrt(3)}) node [above]  {$\bm a_3$};
+      \draw [->, orange] (0,0) -- (210:{sqrt(3)}) node [below] {$\bm a_4$};
+      \draw [->, orange] (0,0) -- (270:{sqrt(3)}) node [below] {$\bm a_5$};
+      \draw [->, orange] (0,0) -- (330:{sqrt(3)}) node [right] {$\bm a_6$};
+    \end{tikzpicture}
+    \vspace*\fill
+    \end{paracol}
+    Applying the Fourier transformation to the fermion
+    operators
+    \[\begin{array}{
+      >\displaystyle l@{~}>\displaystyle c@{~}
+      >\displaystyle l@{\quad}
+      >\displaystyle l@{~}>\displaystyle c@{~}
+      >\displaystyle l}
+      \hat a_i &
+  = & \frac1{\sqrt N}
+      \sum_{\bm k} \upe^{\iu\bm k \cdot \bm r_i} \hat a_{\bm k}, &
+      \hat b_{i+\bm\delta} &
+  = & \frac1{\sqrt N} \sum_{\bm k,j}
+      \upe^{\iu\bm k \cdot (\bm r_i + \bm\delta_j)} \hat b_{\bm k},\\
+      \hat a_i^\dagger &
+  = & \frac1{\sqrt N} \sum_{\bm k}
+      \upe^{-\iu\bm k \cdot \bm r_i} \hat a_{\bm k}^\dagger, &
+      \hat b_{i+\bm\delta}^\dagger &
+  = & \frac1{\sqrt N} \sum_{\bm k,j}
+      \upe^{-\iu\bm k \cdot (\bm r_i + \bm\delta_j)} \hat b_{\bm k}^\dagger.
+    \end{array}
+    \]
+    Consider the first term of the Hamiltonian, it can be expressed as
+    \begin{multline*}
+      \mathcal H_t = -t \sum_{i\in A} \sum_{j=1}^3 \ab(
+        \frac1N \sum_{\bm k} \upe^{-\iu \bm k \cdot \bm r_i}
+        \hat a_{\bm k}^\dagger
+        \sum_{\bm k'} \upe^{\iu \bm k' \cdot (\bm r_i+\bm\delta_j)}
+        \hat b_{\bm k'} + \text{h.c.})\\
+      = -t\frac1N \sum_{\bm k, \bm k'} \sum_{i\in A}
+        \upe^{\iu(\bm k'-\bm k) \cdot \bm r_i}
+        \sum_{j=1}^3 \upe^{\iu \bm k' \cdot \bm\delta_j}
+        \hat a_{\bm k}^\dagger \hat b_{\bm k'} + \text{h.c.}
+      = -t\sum_{\bm k}
+        \sum_{j=1}^3 \upe^{\iu \bm k \cdot \bm\delta_j}
+        \hat a_{\bm k}^\dagger \hat b_{\bm k} + \text{h.c.}
+    \end{multline*}
+    where $\sum_{i\in A} \upe^{\iu(\bm k'-\bm k)\cdot\bm r_i}
+      = N\delta_{\bm k',\bm k}$ is applied, and multiple sum will not
+      occur here since we only sum over every $A$-type site.
+
+    Denote $\Delta(\bm k) = -t\sum_{j=1}^3 \upe^{\iu\bm k \cdot \bm \delta_j}$,
+    this part becomes
+    \[
+      \mathcal H_t
+    = \sum_{\bm k} \Delta(\bm k) \hat a_{\bm k}^\dagger \hat b_{\bm k}
+    + \sum_{\bm k} \Delta^*(\bm k) \hat b_{\bm k}^\dagger \hat a_{\bm k}
+    \]
+    Similarly for the second part: Denote $\epsilon(\bm k)
+    = -t'\sum_{m=1}^6 \upe^{\iu \bm k \cdot \bm a_m}$, one can obtain
+    (The Hermit conjugate is applied, but the factor $\frac12$ is also applied
+    to prevent a twice sum between the same NN bond.)
+    \[
+      \mathcal H_{t'}
+    = \sum_{\bm k} \epsilon(\bm k) \hat a_{\bm k}^\dagger \hat a_{\bm k}
+    + \sum_{\bm k} \epsilon(\bm k) \hat b_{\bm k}^\dagger \hat b_{\bm k}.
+    \]
+    Here the $\epsilon(\bm k)$ should not taken Hermit conjugate, since the
+    hopping $A_i$-$A_j$ and $B_i$-$B_j$ are the same physical process.
+    Hence, the total Hamiltonian is
+    \begin{multline*}
+      \mathcal H = \mathcal H_t + \mathcal H_{t'}
+    = \sum_{\bm k} \ab(
+        \Delta(\bm k)     \hat a_{\bm k}^\dagger \hat b_{\bm k} +
+        \Delta^*(\bm k)   \hat b_{\bm k}^\dagger \hat a_{\bm k} +
+        \epsilon(\bm k)   \hat a_{\bm k}^\dagger \hat a_{\bm k} +
+        \epsilon^*(\bm k) \hat b_{\bm k}^\dagger \hat b_{\bm k})\\
+    = \sum_{\bm k} \ab(\hat a_{\bm k}^\dagger \hat b_{\bm k}^\dagger)
+      \begin{pmatrix}
+        \epsilon(\bm k) & \Delta(\bm k)\\
+        \Delta^*(\bm k) & \epsilon(\bm k)
+      \end{pmatrix}
+      \begin{pmatrix}
+        \hat a_{\bm k}\\
+        \hat b_{\bm k}
+      \end{pmatrix}
+    = \sum_{\bm k} \bm\Psi^\dagger \mathbf H_{2\times2} \bm\Psi
+    \end{multline*}
+    By taking $\det(\mathbf H_{2\times2} - E\identity) = 0$, one can obtain the
+    dispersion relation
+    \[
+      (\epsilon(\bm k) - E)^2 = \Delta(\bm k) \Delta^*(\bm k), \quad
+      E_\pm = \pm\sqrt{\Delta(\bm k)\Delta^*(\bm k)} + \epsilon(\bm k)
+    \]
+    To obtain the exact expression, expanding $\Delta(\bm k)$
+    and $\epsilon(\bm k)$
+    \[\begin{array}{l@{~}c@{~}l}
+      \Delta(\bm k) & = &
+      -t\ab[\upe^{\iu\bm k\cdot a(1,0)}
+          + \upe^{\iu\bm k\cdot a\ab\big(-\frac12, \frac{\sqrt3}{2})}
+          + \upe^{\iu\bm k\cdot a\ab\big(-\frac12,-\frac{\sqrt3}{2})}]\\
+  & = & -t\ab(\upe^{\iu k_xa}
+            + \upe^{-\frac12\iu k_xa} \cdot \upe^{\frac{\sqrt3}{2}\iu k_ya}
+            + \upe^{-\frac12\iu k_xa} \cdot \upe^{-\frac{\sqrt3}{2}\iu k_ya})\\
+  & = & -t\upe^{-\iu k_xa} \ab[1 + 2\upe^{\frac32\iu k_xa}
+          \cos\ab(\frac{\sqrt3}{2}k_ya)],\\[1ex]
+      \Delta(\bm k) \Delta^*(\bm k) & = &
+      t^2\ab\bigg[3
+        + \underbrace{2\cos(\sqrt3k_ya)
+        + 4\cos\ab(\frac32k_xa)\cos\ab\bigg(\frac{\sqrt3}{2}k_ya)
+        }_{f(\bm k)}],\\
+      \epsilon(\bm k) & = &
+     -t'\bigg[\upe^{\iu ka\ab(\frac32,\frac{\sqrt3}{2})}
+          + \upe^{\iu ka(0,\sqrt3)}
+          + \upe^{\iu ka\ab(-\frac32,\frac{\sqrt3}{2})}\\
+      & & + \upe^{\iu ka\ab(-\frac32,-\frac{\sqrt3}{2})}
+          + \upe^{\iu ka(0,-\sqrt3)}
+          + \upe^{\iu ka\ab(\frac32,-\frac{\sqrt3}{2})}\bigg]\\
+    & = & -t'\ab[\upe^{\sqrt3\iu k_ya}
+              + 2\upe^{\frac{\sqrt3}{2}\iu k_ya}  \cos\ab(\frac32k_xa)
+              + 2\upe^{-\frac{\sqrt3}{2}\iu k_ya} \cos\ab(\frac32k_xa)
+              + \upe^{-\sqrt3\iu k_ya}]\\
+    & = & -t'\ab[2\cos(\sqrt3k_xa)
+      + 4\cos\ab(\frac{\sqrt3}{2}k_ya) \cos\ab(\frac32k_xa)]
+      =   -t'f(\bm k)
+    \end{array}\]
+    Substituting them back to the dispersion relation, we can obtain
+    \[
+      E_\pm = \pm t\sqrt{3 + f(\bm k)} - t'f(\bm k)
+    \]
+    with $f(\bm k)$ defined above.
+    \item Take the Dirac point $\bm K = \frac{2\pi}{3\sqrt3a}(\sqrt3,1)$, then
+    calculate $f(\bm K + \bm q)$ ($|\bm q| \ll 1$).
+    \begin{multline*}
+      f(\bm K + \bm q)
+    = 2\cos(\sqrt3 K_ya + \sqrt3 q_ya)\\
+    + 4\cos\ab(\frac32 K_xa + \frac32 q_xa)
+      \cos\ab(\frac{\sqrt3}{2} K_ya + \frac{\sqrt3}{2} q_ya)
+    = -3 + \frac94|\bm q|^2a^2,
+    \end{multline*}
+    where the identities for the trigonometric functions and the approximations
+    $\cos(x) \sim 1 - \frac12 x^2$, $\sin x \sim x$ are used.
+    Substituting $f(\bm K + \bm q)$ to $E_\pm$
+    \[
+      E_\pm = \pm t\sqrt{3 - 3 + \frac94|\bm q|^2a^2}
+              - t'\ab(-3 + \frac94|\bm q|^2a^2) + \mathcal O(|\bm q|^3)
+    = \pm\frac{3t}{2}|\bm q| a + 3t' - \frac94t'|\bm q|^2a^2
+      + \mathcal O(|\bm q|^3).
+    \]
   \end{enumext}
 \end{solution}
 
