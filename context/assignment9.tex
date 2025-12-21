@@ -41,7 +41,7 @@
       \bm a_5 = a(0, -\sqrt3), &
       \bm a_6 = a\ab(\frac32, -\frac{\sqrt3}{2}).
     \end{array}\]
-    Assume there are $N$ atoms in total, then there are $N/2$ $A$-type or
+    Assume there are $2N$ atoms in total, then there are $N$ $A$-type or
     $B$-type sites in total.
     \switchcolumn \vspace*\fill \centering
     \begin{tikzpicture}[scale = 1.2]
@@ -157,10 +157,10 @@
     \begin{multline*}
       \mathcal H = \mathcal H_t + \mathcal H_{t'}
     = \sum_{\bm k} \ab(
-        \Delta(\bm k)     \hat a_{\bm k}^\dagger \hat b_{\bm k} +
-        \Delta^*(\bm k)   \hat b_{\bm k}^\dagger \hat a_{\bm k} +
-        \epsilon(\bm k)   \hat a_{\bm k}^\dagger \hat a_{\bm k} +
-        \epsilon^*(\bm k) \hat b_{\bm k}^\dagger \hat b_{\bm k})\\
+        \Delta(\bm k)   \hat a_{\bm k}^\dagger \hat b_{\bm k} +
+        \Delta^*(\bm k) \hat b_{\bm k}^\dagger \hat a_{\bm k} +
+        \epsilon(\bm k) \hat a_{\bm k}^\dagger \hat a_{\bm k} +
+        \epsilon(\bm k) \hat b_{\bm k}^\dagger \hat b_{\bm k})\\
     = \sum_{\bm k} \ab(\hat a_{\bm k}^\dagger \hat b_{\bm k}^\dagger)
       \begin{pmatrix}
         \epsilon(\bm k) & \Delta(\bm k)\\
@@ -196,17 +196,17 @@
         + 4\cos\ab(\frac32k_xa)\cos\ab\bigg(\frac{\sqrt3}{2}k_ya)
         }_{f(\bm k)}],\\
       \epsilon(\bm k) & = &
-     -t'\bigg[\upe^{\iu ka\ab(\frac32,\frac{\sqrt3}{2})}
-          + \upe^{\iu ka(0,\sqrt3)}
-          + \upe^{\iu ka\ab(-\frac32,\frac{\sqrt3}{2})}\\
-      & & + \upe^{\iu ka\ab(-\frac32,-\frac{\sqrt3}{2})}
-          + \upe^{\iu ka(0,-\sqrt3)}
-          + \upe^{\iu ka\ab(\frac32,-\frac{\sqrt3}{2})}\bigg]\\
+     -t'\bigg[\upe^{\iu\bm k\cdot a\ab(\frac32,\frac{\sqrt3}{2})}
+          + \upe^{\iu\bm k\cdot a(0,\sqrt3)}
+          + \upe^{\iu\bm k\cdot a\ab(-\frac32,\frac{\sqrt3}{2})}\\
+      & & + \upe^{\iu\bm k\cdot a\ab(-\frac32,-\frac{\sqrt3}{2})}
+          + \upe^{\iu\bm k\cdot a(0,-\sqrt3)}
+          + \upe^{\iu\bm k\cdot a\ab(\frac32,-\frac{\sqrt3}{2})}\bigg]\\
     & = & -t'\ab[\upe^{\sqrt3\iu k_ya}
               + 2\upe^{\frac{\sqrt3}{2}\iu k_ya}  \cos\ab(\frac32k_xa)
               + 2\upe^{-\frac{\sqrt3}{2}\iu k_ya} \cos\ab(\frac32k_xa)
               + \upe^{-\sqrt3\iu k_ya}]\\
-    & = & -t'\ab[2\cos(\sqrt3k_xa)
+    & = & -t'\ab[2\cos(\sqrt3k_ya)
       + 4\cos\ab(\frac{\sqrt3}{2}k_ya) \cos\ab(\frac32k_xa)]
       =   -t'f(\bm k)
     \end{array}\]
