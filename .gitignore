@@ -6,6 +6,7 @@
 
 # l3build
 /build
+*.pdf
 
 # LaTeX aux files
 *.aux
