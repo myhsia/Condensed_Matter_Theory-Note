@@ -12,6 +12,11 @@
   llogos  = {mouse1.png, mouse2.png,
              mouse4.png, mouse5.png}
 }
+\usepackage{titlesec}
+\titleformat *\paragraph {\large \bfseries}
+\titleformat *\subparagraph {\bfseries}
+\titlespacing *\paragraph {0pt}{1.5pt}{2ex}
+\titlespacing *\subparagraph {0pt}{0pt}{2ex}
 
 \begin{document}
 
@@ -34,24 +39,24 @@
 
 \appendix
 \sidefoot \thepage
-\fancyhead[OL, ER]{Mingyu Xia (Westlake ID: 20251202247)}
-\fancyhead[EL]{\sffamily \rightmark}
-\fancyhead[OR]{\fontfamily{lmr}\selectfont<<\texttt{%
-  \href{mailto:xiamingyu@westlake.edu.cn}{xiamingyu@westlake.edu.cn}}>>}
 \addcontentsline{toc}{chapter}{Problem Set}
 \renewcommand *\familydefault {\sfdefault}
 
 \renewcommand *\newweek {\refstepcounter{week}}
 \pagestyle{empty}
 \pgfpagesuselayout{resize to}[a4paper]
-\newgeometry{hmargin = .2in, vmargin = -.2in}
+\newgeometry{hmargin = .1in, vmargin = -.4in}
 \pgfpagesuselayout{8 on 1}[a4paper, landscape]
-\setlength \abovedisplayskip {3.6pt}
-\setlength \belowdisplayskip {3.6pt}
-\linespread{1.12}
-\begin{multicols}{2}
-% \input{./context/maauzi.tex}
-\pgfpagesuselayout{8 on 1}[a4paper, landscape]
+\setlength \FrameSep {2.5pt}
+\setlength \OuterFrameSep {0pt}
+\setlength \abovedisplayskip {1.8pt}
+\setlength \belowdisplayskip {1.8pt}
+\clearpage
+\linespread{.9}
+\setenumext{nosep}
+\begin{multicols*}{2}
+\input{./context/maauzi.tex}
+\clearpage
 \newweek
 \input{./context/assignment1.tex}
 \newweek
@@ -70,6 +75,6 @@
 \input{./context/assignment8.tex}
 \newweek
 \input{./context/assignment9.tex}
-\end{multicols}
+\end{multicols*}
 
 \end{document}

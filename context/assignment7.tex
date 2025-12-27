@@ -2,19 +2,19 @@
 
 \paragraph{Homework \#7 Semiconductor}
 
+\begin{wrapstuff}[width = .32\linewidth]
+  \centering
+  \begin{tikzpicture}[scale = .4, every node/.style = {scale = .8}]
+    \draw [->] (0,0) node [left] {$0$} -- (2.5,0) node [right] {$g(E)$};
+    \draw [->] (0,-2.8) -- (0,4.2) node [right] {$E$};
+    \draw (0,-2.5) node [left] {$-E_V$} -- (1,-2.5) -- (1,0)
+     node [above] {$C$};
+    \draw (0,1.4) node [left] {$E_g$} -- (1,1.4) -- (1,3.4) -- (0,3.4)
+     node [left] {$E_C + E_g$};
+    \draw (0,.7) node [left] {$E_F$} --++ (.2,0);
+  \end{tikzpicture}
+\end{wrapstuff}
 \begin{problem}[Elementary study of an intrinsic semiconductor]
-  \begin{wrapstuff}[width = .32\linewidth]
-    \centering
-    \begin{tikzpicture}[scale = .4, every node/.style = {scale = .8}]
-      \draw [->] (0,0) node [left] {$0$} -- (2.5,0) node [right] {$g(E)$};
-      \draw [->] (0,-2.8) -- (0,4.2) node [right] {$E$};
-      \draw (0,-2.5) node [left] {$-E_V$} -- (1,-2.5) -- (1,0)
-       node [above] {$C$};
-      \draw (0,1.4) node [left] {$E_g$} -- (1,1.4) -- (1,3.4) -- (0,3.4)
-       node [left] {$E_C + E_g$};
-      \draw (0,.7) node [left] {$E_F$} --++ (.2,0);
-    \end{tikzpicture}
-  \end{wrapstuff}
   Consider a semiconductor characterized by a constant density of states
   ($g(E) = C$) in both the valence and conduction band. These bands,
   separated by $E_g$, have a respective width of $E_V$ and $E_C$
@@ -94,7 +94,7 @@
     The conductivity becomes $\sigma_d = e(n_d\mu_e + h_d\mu_h)$.
     From $h = Ck_BT\upe^{-\frac{E_F}{k_BT}}$, we can obtain the Fermi level
     \[
-      E_{F_d} = k_BT \ln\frac{C k_BT}{h_d}.
+      E_{F_d} = k_BT \ln(C k_BT/h_d).
     \]
   \end{enumext}
 \end{solution}

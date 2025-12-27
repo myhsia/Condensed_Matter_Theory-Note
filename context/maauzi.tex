@@ -1,19 +1,441 @@
 % !TeX root = ../main.tex
 
-\paragraph{Lecture \#2 Free electron model of metals}
+\begin{framed}\large\bfseries
+  \#2 Free Electron Model of Metals
+\end{framed}
 
-\paragraph{Lecture \#3}
+\paragraph{Drude model}\leavevmode
 
-\paragraph{Lecture \#4}
+\subparagraph{Basic assumptions}\leavevmode
 
-\paragraph{Lecture \#5}
+\begin{enumext*}[nosep, columns = 5, label = (\alph*)]
+  \item(5) Free electron approximation
+  \item(5) Electrical resistance results from scattering
+  (all information is lost upon scattering).
+  \item(3) Relaxation-time approximation.
+  \item(2) Thermal equilibrium.
+\end{enumext*}
 
-\paragraph{Lecture \#6}
+\subparagraph{With(out) electric field}
 
-\paragraph{Lecture \#7}
+Free electron moving randomly, no net current;
+Or the drift velocity $v_d \ll v_\text{rms}$.
 
-\paragraph{Lecture \#8}
+\subparagraph{EOM}
 
-\paragraph{Lecture \#9}
+\begin{enumext}[nosep]
+  \item Let $\tau$ be the scattering time and $1/\tau$ be the scattering rate.
+  \item In $\d t$, a fraction $\frac{\d t}\tau$ of the electrons are scattered
+  with zero average velocity.
+  \item The rest part $1 - \d t/\tau$ are accelerated by external force $-eE$.
+  \item In $t \sim t + \d t$, the EOM (omit high-order terms)
+  \[
+    m\odv{\bm v}/t = -m\bm v/\tau - e\bm E
+  \]
+  At steady state (omit the acceleration time), $\odv{\bm v}t = 0$. Hence
+  \[
+    \bm v_d \equiv \braket<\bm v(t)> = -e\tau\bm E/m \equiv -\mu\bm E.
+  \]
+  This is the drift velocity, with
+  mobility $\mu = \frac{\bm v}{\bm E} = \frac{e\tau}{m}$ defined.
+  For a given field, a higher $\mu$ means the electrons will move faster.
+  The conductance
+  \[
+    \sigma = \bm j/\bm E
+  = -en\bm v/\bm E = ne\mu = -e^2n\tau/m^*.
+  \]
+  $\tau = l/v_\text{rms}$ is usually independent of $E$.
+\end{enumext}
 
-\paragraph{Lecture \#10}
+\subparagraph{Classical Hall effect}
+
+\begin{enumext}
+  \item Classically, electrons experience
+  $\bm F = -e(\bm E + \bm v \times \bm B)$
+  \item Cyclotron motion: $\bm E = 0$
+  \[
+    \ddot x + \ab(eB_z/m^*)^2x = 0, \enspace
+    \omega_c = eB/m^*, \enspace
+    r_c = v/\omega_c \propto 1/B.
+  \]
+  Classically, any size of the orbit is allowed.
+\end{enumext}
+
+\subparagraph{Drude model with a magnetic field}\leavevmode
+
+Consider Drude model with applied electric and magnetic fields
+\[
+  m^*\dot{\bm v} = -e(\bm E + \bm v \times \bm B) - m^*\bm v/\tau
+\]
+\begin{enumext}
+  \item Steady state: $\bm E = -m^*\bm v/e\tau - \bm v \times \bm B$.
+  \item With $\bm j = -ne\bm v$,
+  $\bm E = m^*\bm j/ne^2\tau + \bm j \times \bm B/ne$.
+\end{enumext}
+From Ohm's law $\bm j = \hat\sigma \bm E$, conductivity/resistivity
+are tensors.
+\begin{gather*}
+  \hat\sigma =
+  \begin{pmatrix}
+    \frac{\sigma_0}{1 + \omega_c^2\tau^2} &
+    \frac{\sigma_0\omega_c\tau}{1 + \omega_c^2\tau^2} & 0\\
+   -\frac{\sigma_0\omega_c\tau}{1 + \omega_c^2\tau^2} &
+    \frac{\sigma_0}{1 + \omega_c^2\tau^2} & 0\\
+    0 & 0 & \sigma_0
+  \end{pmatrix}, \
+  \hat\rho = \hat\sigma^{-1}
+  \begin{pmatrix}
+    \sigma_0^{-1} & -\frac{B}{ne} & 0\\
+    \frac{B}{ne} & \sigma_0^{-1} & 0\\
+    0 & 0 & \sigma_0^{-1}
+  \end{pmatrix},\\
+  \sigma_{xx} = \frac{\rho_{xx}}{\rho_{xx}^2 + \rho_{xy}^2},\quad
+  \sigma_{xy} = -\frac{\rho_{xy}}{\rho_{xx}^2 + \rho_{xy}^2},\quad
+  \sigma_0    = \frac{ne^2\tau}{m^*}.
+\end{gather*}
+The Hall coefficient $R_H = \rho_{xy}/B = -1/ne$.
+
+\subparagraph{Drawbacks}
+
+\begin{enumext*}[nosep, columns = 7]
+  \item(3) Existence of insulators.
+  \item(4) Temperature dependence of $\sigma$.
+  \item(7) Heat capacity $C_v^\text{Drude} = \frac32nk_B$ does not match
+  $C_v \approx 10^{-4} nk_BT$.
+\end{enumext*}
+
+\paragraph{Summerfeld model for electrons in metals}
+
+\begin{enumext}
+  \item Electrons treated quantum mechanically:
+  Quantize the energy of electron gas.
+  \item The electronic velocity distribution is given by the quantum
+  Fermi-Dirac distribution.
+  \item Pauli exclusion: At most one electron can occupy any single
+  electron level.
+\end{enumext}
+
+\subparagraph{Electron wave}\leavevmode
+
+Schr\"odinger equation for free electron
+$\nabla^2\psi(\bm r) = -\frac{2mE}{\hbar^2}\psi(\bm r)$.
+The solution is a plane wave with the energy
+\[
+  \psi(\bm r) = \frac1{\sqrt V} \upe^{\iu(k_xx + k_yy + k_zz)},\enspace
+  E = \frac{\hbar^2(k_x^2 + k_y^2 + k_z^2)}{2m}.
+\]
+
+\subparagraph{Born-von Karman periodic boundary conditions}\leavevmode
+
+The electrons are confined in a 3D box ($V = L_xL_yL_z$) with
+\begin{enumext}[columns = 2]
+  \item $U(\bm r) = 0$ inside the box,
+  \item $U(\bm r) = \infty$ outside the box.
+\end{enumext}
+The PBC can be applied
+\[
+  \psi(x + L_x, y, z) = \psi(x, y + L_y, z) = \psi(x, y, z + L_z).
+= \psi(x, y, z),
+\]
+determines the allowed $k$
+\[
+  \upe^{\iu k_iL_i} = 1,\quad k_i = 2\pi n_i/L_i, \quad n_i \in \mathbb Z.
+\]
+The boundary conditions lead to quantization.
+
+\subparagraph{States in $k$-space}\leavevmode
+
+\begin{enumext}
+  \item The allowed quantum states can be visualized as a 3D grid of points in
+  $k$-space with the distance of $\Delta k_i = 2\pi/L_i$.
+  \item In $k$-space, one grid point occupies
+  $\prod_{x,y,z}(\frac{2\pi}{L_i}) = (2\pi)^3/V$.
+  \item There are $2 \times V/(2\pi)^3$ (Each grid point can be occupied
+  by $\ket|\uparrow>$, $\ket|\downarrow>$) quantum states per unit
+  volume in k-space.
+\end{enumext}
+
+\subparagraph{Fermi energy}\leavevmode
+
+\begin{enumext}
+  \item The free electron gas is isotropic, so the surface of constant
+  $E = \hbar^2(k_x^2 + k_y^2 + k_z^2)/2m$ in k-space is a sphere.
+  \item Fermi energy: energy of the highest occupied state at zero temperature.
+  \begin{enumext}
+    \item Number of
+    electrons: $N = 2 \times \frac{4\pi k_F^3/3}{(2\pi/L)^3} = k_F^3V/3\pi^2$.
+    \item Fermi wave vector: $k_F = (3\pi^2n)^{1/3}$, $n = N/V$ denotes the
+    carrier density.
+    \item Fermi
+    energy: $E_f = \hbar^2k_F^2/2m = \frac{\hbar^2}{2m}(3\pi^2n)^{2/3}$.
+    \item Fermi velocity and temperature relate to the Fermi
+    energy $E_F = \frac12mv_F^2 = k_BT_F$.
+  \end{enumext}
+\end{enumext}
+
+\subparagraph{Bosons and Fermions at $T = 0$}
+
+\begin{enumext}
+  \item Bosons: The occupation number can take on any value:
+  photons, mesons, any composite particles with integer spin.
+  \item Fermions: The occupation number can be zero or one due to the Pauli
+  exclusion principle: lectrons, protons, neutrons, any composite
+  particles with half-integer spin.
+\end{enumext}
+
+\subparagraph{Bosons and Fermions at $T \neq 0$}\leavevmode
+
+At finite temperature, Bosons/Fermions obeys Bose-Einstein/Fermi-Dirac
+statistics
+\[
+  \bar n_i = g_i/\{\exp[(\epsilon_i-\mu)/k_BT] \mp 1\}
+\]
+\begin{enumext}[columns = 2]
+  \item $\epsilon_i$: Energy of the $i$-th state.
+  \item $n_i$: Occupation number.
+  \item $g_i$: Degeneracy.
+  \item $\mu$: Chemical potential.
+\end{enumext}
+Bosons and Fermions are identical and indistinguishable particles
+
+\subparagraph{The electron gas at zero temperature}
+
+\begin{enumext}
+  \item  All quantum sates inside the Fermi sphere are filled while outside
+  are empty.
+  \item The surface of the Fermi sphere is called Fermi surface.
+\end{enumext}
+
+\subparagraph{Fermi-Dirac distribution}\leavevmode
+
+Probability distribution function $f(E)$: the probability that a state
+with energy $E$ is occupied.
+\[
+  f(E) = [1 + \upe^{(E-E_f)/k_BT}]^{-1} \xlongrightarrow{T=0}
+  \begin{cases}
+    0, & E > E_f,\\
+    1, & E \leq E_f.
+  \end{cases}
+\]
+As $T$ increasing, the function will broaden $\sim 2k_BT$ at $E = E_f$.
+\begin{enumext}
+  \item At Fermi level, the probability being occupied is always $1/2$.
+  \item $E_f(T = 0) = E_F$, $E_f(T > 0) < E_F$
+\end{enumext}
+
+\subparagraph{Density of states}
+
+The density of states describes the number states that can be occupied within
+an interval of energy.
+\[
+  g(E) = \odv nE = \frac1V\odv NE =
+  \begin{cases*}
+    \frac{m^*}{\pi^2\hbar^3}\sqrt{2m^*E}, & 3D,\\
+    \frac1{\pi\hbar} \sqrt{2m^*/E},       & 1D,\\
+  \end{cases*}\
+  \begin{array}{ll}
+    m^*/\pi\hbar^2,                       & 2D,\\
+    2\delta(E),                           & 0D.
+  \end{array}
+\]
+
+\subparagraph{The electron gas at $T > 0$}
+
+\begin{enumext}
+  \item The total number of electron at $T > 0$
+  \[
+    n = N/V = \int_0^\infty g(E) [\upe^{(E-E_f)/k_BT} + 1]^{-1} \d E.
+  \]
+  \item  The energy
+  density $u = U/V = \int_0^\infty Eg(E) \frac1{\upe^{(E-E_f)/k_BT} + 1} \d E$.
+\end{enumext}
+
+\subparagraph{Current density}
+
+\[
+  \bm j =-ne\bm v = -2e \int \frac{\d^3\bm k}{(2\pi)^3} f(\bm k) v(\bm k).
+\]
+At zero field, for every occupied state $\bm k$, there is a state $-\bm k$
+occupied with the same probability. Therefore, $\bm j = 0$.
+
+In Drude model, assume that scattering adds damping
+\[
+  \odv{\hbar\bm k(t)}t = -e\bm E - \frac{\hbar[\bm k(t) - \bm k]}{\tau}
+  \xlongrightarrow[\text{steady state}]{t=\infty} \bm k(t)
+= \bm k - \frac{e\tau}{\hbar}\bm E,
+\]
+the wave vector of every electron is shifted. The current density
+\[
+  \bm j = -2e\int \frac{\d^3\bm k}{(2\pi)^3}
+          f\ab(\bm k + \frac{e\tau}\hbar\bm E) v(\bm k)
+        \xlongequal{\int\d^3\bm k f(\bm k)\bm k = 0}
+        \frac{e^2\tau}{m}n\bm E
+\]
+with $\bm j = \sigma\bm E$, $\sigma = ne^2\tau/m$ the same as that in
+Drude model.
+
+The excess current carriers are only those very near the Fermi surface.
+So the current carriers have velocity $v_F$.
+
+\subparagraph{Heat capacity of an electron gas}
+
+At low temperature, $\mu \sim E_f$ and $\pdv{f(E,T)}T$ is peaked close to $E_f$,
+$k_BT \ll E_f$. Then
+\[
+  C_e = \pdv{\Delta U}/T \approx \pi^2 nk_B^2T/2T_f \propto T.
+\]
+The heat capacity of electrons increases linearly with temperature.
+
+\subparagraph{Limitation of Free electron gas model}
+
+\begin{enumext}
+  \item Electrons in solids are not free electrons.
+  \item How to explain the existence of semiconductors and insulators?
+  \item $C_V\sim T$ only valid at very low temperatures. Fail to explain
+  $C_V \sim T^3$ at intermediate temperature region.
+  \item At intermediate $T$, , Wiedemann Franz law ($L = \kappa/T\sigma$) is $T$
+  dependent.
+  \item The sign of Hall coefficient $R_H = -1/ne$.
+\end{enumext}
+
+\begin{framed}\large\bfseries
+  \#3 Lattice Vibrations and Phonons
+\end{framed}
+
+\subparagraph{Specific heat capacity in solids}
+
+The experimental result $C_V \sim aT + bT^3$.
+At room temperature or above, most $C_V$ is close to a constant value.
+
+\subparagraph{Dulong-Petit law}
+
+Heat capacity per mole: $C_V = 3N_Ak_B = 3R$.
+\begin{enumext}
+  \item It's only applicable to the heavier elements (fail for light atoms
+  bonded strongly to each other, such as diamond)
+  \item It's appliable only at high temperatures.
+\end{enumext}
+
+\paragraph{Einstein model}
+
+\begin{enumext}
+  \item Assume that each atom in the crystal vibrates independently.
+  \item The vibrations are harmonic oscillators and assigned them a frequency
+  of $\omega_E$ (Einstein frequency)
+  \item The energy of a single harmonic oscillator
+  is $E_n = \hbar\omega_E\ab(n + \frac12)$.
+  \item For $N$ vibrating atoms, we need $3N$ independent 1D oscillators to
+  describe the motion.
+\end{enumext}
+The partition function ($\beta = 1/k_BT$)
+\[
+  Z = \sum_{n\geq 0} \upe^{-\beta\hbar\omega_E\ab(n+\frac12)}
+= \frac{\upe^{-\beta\hbar\omega_E/2}}{1 - \upe^{-\beta\hbar\omega_E}}
+\]
+The mean energy of single oscillator
+\[
+  \bar E = -\frac1Z\pdv Z\beta = \frac12 \hbar\omega_E
+          \frac{\upe^{\beta\hbar\omega_E} + 1}{\upe^{\beta\hbar\omega_E} - 1}
+\]
+The heat capacity
+\[
+  C = \pdv{\bar E}T = k_B(\beta\hbar\omega_E)^2
+      \frac{\upe^{\beta\hbar\omega_E}}{(\upe^{\beta\hbar\omega_E} - 1)^2}
+\]
+For $3N$ 1D oscillators, $C = 3Nk_B(\beta\hbar\omega_E)^2
+  \frac{\upe^{\beta\hbar\omega_e}}{(\upe^{\beta\hbar\omega_E} - 1)^2}$.
+\begin{enumext}
+  \item At high temperature limit ($\beta \to 0$), $C \to 3Nk_B$,
+  approach to Dulong-Petit law at high temperature.
+  \item At low temperature limit ($\beta \to \infty$), $C \to 0$,
+  but exponentially, rather than as $T^3$.
+\end{enumext}
+
+\subparagraph{Limitation of Einstein model}
+
+\begin{enumext}
+  \item Assume all the vibrations share the same frequency.
+  \item At low temperature, $\omega > k_BT/\hbar$ is frozen. The acoustic branch
+  of the vibrations contribute a lot to the heat capacity.
+\end{enumext}
+
+\paragraph{Debye model}
+
+\begin{enumext}
+  \item Atoms are coupled to each other in a solid.
+  \item Atom vibrations generate sound waves (replace $\omega_E$ by a linear
+  dispersion $\omega(k) = \nu k$)
+  \item The sound waves are quantized the same way as Planck quantized
+  light waves.
+  \item Different from light waves, there are three modes for each $\bm k$: a
+  longitudinal mode and two transverse modes. (light has only the transverse
+  modes).
+  \item There is a maximum oscillation frequency (Debye frequency).
+  \item Carry out the integration over a sphere of area equal to the area of
+  the Brillouin zones.
+\end{enumext}
+\[
+  (2\pi)^3N/V = \frac43 \pi k_D^3, \quad k_D = \ab(\frac{6\pi^2N}{V})^{1/3}.
+\]
+
+\subparagraph{PBC}
+
+In a 1D chain, the PBC let atom $N$ connect to atom $1$:
+$\upe^{\iu(\omega t - kna)} = \upe^{\iu(\omega t-k(N+n)a)}$, implies
+$k = 2\pi n/Na = 2\pi n/L$. With this, the possible mode of $k$ is quantized.
+
+\paragraph{Vibrations in a monatomic chain}
+
+\paragraph{Vibrations in a diatomic chain}
+
+\paragraph{Phonons}
+
+\paragraph{Experimental observations of lattice vibrations}
+
+\clearpage
+
+\begin{framed}\large\bfseries
+  \#4 Crystal Symmetry and Structure
+\end{framed}
+
+\clearpage
+
+\begin{framed}\large\bfseries
+  \#5 Scattering Experiments
+\end{framed}
+
+\clearpage
+
+\begin{framed}\large\bfseries
+  \#6 Bloch Theorem
+\end{framed}
+
+\clearpage
+
+\begin{framed}\large\bfseries
+  \#7 Band Theory I-NFE and TB model
+\end{framed}
+
+\clearpage
+
+\begin{framed}\large\bfseries
+  \#8 Band Theory II
+\end{framed}
+
+\clearpage
+
+\begin{framed}\large\bfseries
+  \#9 Physics of Semiconductors
+\end{framed}
+
+\clearpage
+
+\begin{framed}\large\bfseries
+  \#10 Electron in a Magnetic Field
+\end{framed}
+
+\clearpage
+
+\begin{framed}\large\bfseries
+  \#11, \#12 Dirac Band Theory
+\end{framed}

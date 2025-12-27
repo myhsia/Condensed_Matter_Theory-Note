@@ -41,7 +41,7 @@
     \]
     Similarly to (a)
     \[
-      A = \pi k_{y_0} k_{z_0} = \frac{2\pi E_k}{\hbar^2}\sqrt{m_{xx}m_{zz}},
+      A = \pi k_{y_0} k_{z_0} = 2\pi E_k\sqrt{m_{xx}m_{zz}}/\hbar^2,
       \enspace
       m_c = \sqrt{m_{xx}m_{zz}}.
     \]
@@ -85,10 +85,7 @@
       \item From the degeneracy of Landau level $n_s = \nu \frac{eB}{h}$,
       we can obtain the filling factor $\nu = \frac{n_sh}{eB} = 8.271$.
       \item Substituting the values into the expression of the Hall resistance
-      \[
-        R_{xy} = \frac{R_K}{\tilde\nu}
-      = \frac{h}{\tilde\nu e^2} = \qty{3226.60}\ohm.
-      \]
+      $R_{xy} = R_K/\tilde\nu = h/\tilde\nu e^2 = \qty{3226.60}\ohm$,
       where $\tilde \nu$ is the nearest integer of $\nu$.
       \item The filling factor $\tilde \nu = 8$ directly corresponds to the
       number of completely filled Landau levels.
@@ -103,8 +100,8 @@
 \begin{problem}[Lifshitz-Kosevich formula]
   The Lifshitz-Kosevich formula describes the amplitude of the Shubnikov-de Haas
   (SdH) oscillations. The amplitude $\Delta R$ is proportional to the factor:
-  $R_T = \frac{\lambda(T)}{\sinh \lambda(T)}$,
-  where $\lambda(T) = 2\pi^2 \frac{k_BTm^*}{\hbar eB}$.
+  $R_T = \lambda(T)/\sinh \lambda(T)$,
+  where $\lambda(T) = 2\pi^2 k_BTm^*/\hbar eB$.
   \begin{enumext}
     \item A researcher measures the SdH oscillation amplitude $\Delta R$ at a
     fixed magnetic field $B$ as a function of temperature $T$. How can they use
@@ -117,26 +114,26 @@
 \end{problem}
 \begin{solution}\leavevmode
   \begin{enumext}
-    \item Take $\alpha = \frac{2\pi^2k_Bm^*}{\hbar eB}$,
+    \item Take $\alpha = 2\pi^2k_Bm^*/\hbar eB$,
     then $\lambda(T) = \alpha T$.
     Since at $T \gg 1$, the
     amplitude $\Delta R$ satisfies
     \[
-      \Delta R \propto R_T = \frac{\alpha T}{\sinh(\alpha T)}
-      \to \frac12 \alpha T \upe^{-\alpha T}, \quad
+      \Delta R \propto R_T = \alpha T/\sinh(\alpha T)
+      \to \alpha T \upe^{-\alpha T}/2, \
       \Delta R = \tilde C T\upe^{-\alpha T}.
     \]
     Take the logarithm to the two sides
     \[
-      \ln\ab(\frac{\Delta R}T) = -\alpha T + C,
+      \ln(\Delta R/T) = -\alpha T + C,
     \]
     where $C = \ln\tilde C$.
     So, one can take plot the linear relation.
     By fitting the slope $k = -\alpha$ that fits the figure, one can obtain
     the effective mass
     \[
-      m^* = \frac{\alpha \hbar eB}{2\pi^2k_B}
-    = -\frac{k \hbar eB}{2\pi^2k_B}.
+      m^* = \alpha \hbar eB/2\pi^2k_B
+    = -k \hbar eB/2\pi^2k_B.
     \]
     \item Similarly to part (a), we take $T \gg 1$.
     Since $\Delta R$ is proportional to $R_TR_DR_S$, and if we only
@@ -146,13 +143,13 @@
       \Delta R \propto \frac{2\pi^2 k_BTm^*}{\hbar e} \cdot \frac1B \cdot
                \upe^{-\frac{2\pi^2 k_BTm^*}{\hbar e} \cdot \frac1B} \cdot
                \upe^{-\frac{\pi m^*}{e\tau_q} \cdot \frac1B}\\
-    = \tilde C \cdot \frac1B \cdot \upe^{-(\alpha+\beta/\tau_q)\cdot\frac1B},
+    = \tilde C \cdot \upe^{-(\alpha+\beta/\tau_q)\cdot\frac1B}/B,
     \end{multline*}
     where the coefficients $\alpha$ and $\beta$ can be easily known since we
     have already obtained the effective mass. Taking the logarithm to both
     sides, we can obtain
     \[
-      \ln(\Delta R)  = C - \ln B - \ab(\alpha + \frac\beta{\tau_q}) \frac1B,
+      \ln(\Delta R)  = C - \ln B - (\alpha + \beta/\tau_q)/B,
     \]
     Since the effective mass $m^*$ has been determined from (a), so the
     coefficients $\alpha$ and $\beta$ are known, and the slope directly reveals

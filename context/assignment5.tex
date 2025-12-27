@@ -7,7 +7,7 @@
   and tight-binding limits. Consider the (repulsive) Dirac-Kronig-Penney model.
   It gives the following implicit equation for the energy bands
   \[
-    \cos(ka) = \cos(qa) + u\frac{\sin(qa)}{qa},
+    \cos(ka) = \cos(qa) + u\sin(qa)/qa,
   \]
   where $q = \sqrt{2mE}/\hbar$ and $u = \frac{mU_0a}{\hbar^2} > 0$. Assuming
   that $u \ll q$, find the solution of above equation near the Bragg points
@@ -31,12 +31,12 @@
   \]
   Then, we can have the solution of $\delta$
   \[
-    \delta = \frac u{n\pi} \pm \sqrt{\ab(\frac u{n\pi})^2 + (\kappa a)^2}.
+    \delta = u/n\pi \pm \sqrt{(u/n\pi)^2 + (\kappa a)^2}.
   \]
   Since $q = \sqrt{2mE}/\hbar$, then we have
   \[
-    E = \frac{\hbar^2(q_n + \delta/a)^2}{2m}
-      \approxeq E_n^0 + \frac{\hbar^2 q_n \delta/a}{m},
+    E = \hbar^2(q_n + \delta/a)^2/2m
+      \approxeq E_n^0 + \hbar^2 q_n \delta/ma,
   \]
   where $E_n^0 = \frac{\hbar^2q_n^2}{2m}$.
   Substitute $q_n = n\pi/a$, and the solution of $\delta$ into the expression
@@ -59,8 +59,7 @@
   \]
   When $\kappa a \to 0$, the energy band and the band gap become
   \[
-    E = E_n^0 + \frac{U_0}{a} \pm \frac{U_0}{a}, \qq{and}
-    \Delta E_n = \frac{2U_0}{a}.
+    E = E_n^0 + U_0/a \pm U_0/a, \qq{and} \Delta E_n = 2U_0/a.
   \]
   The results perfectly match that of the nearly-free electron model.
 \end{solution}
@@ -68,7 +67,7 @@
 \begin{problem}[Nearly free electron model]
   Consider 2D electrons subject to a weak periodic potential
   \[
-    U(x,y) = U_0 \ab(\cos\frac{2\pi x}{a} + \cos\frac{2\pi y}{a}).
+    U(x,y) = U_0 [\cos(2\pi x/a) + \cos(2\pi y/a)].
   \]
   \begin{enumext}
     \item Find the energy bands near the \emph{edges} of the first Brillouin
@@ -93,28 +92,21 @@
     So, the Fourier coefficient is $U_{\pm G_{1,2}} = U_0/2$.
     Near the zone edge (e.g., $k_x = \pi/a$), consider a wavevector
     \[
-      \bm k = \ab(\frac{\pi}{a} + q_x,  k_y)
+      \bm k = (\pi/a + q_x,  k_y)
     \]
     with $|q_x| \ll \pi/a$. The two nearly degenerate plane waves are
     $\ket|\bm k>$ and $\ket|\bm k - \bm G_1>$.
     Their free-electron energies are
-    \[
-      \begin{aligned}
-        E^{(0)}(\bm k) &
-      = \frac{\hbar^2}{2m} \ab[\ab(\frac{\pi}{a} + q_x)^2 + k_y^2], \\
-        E^{(0)}(\bm k - \bm G_1) &
-      = \frac{\hbar^2}{2m} \ab[\ab(-\frac{\pi}{a} + q_x)^2 + k_y^2].
-      \end{aligned}
-    \]
-    Expanding to first order in $q_x$
-    \[
-      E^{(0)} \approx E_0 \pm \alpha q_x
+    \begin{multline*}
+      E^{(0)}(\bm k, \bm k - \bm G_1)
+    = \frac{\hbar^2}{2m} \ab[\ab(\pm\frac{\pi}{a} + q_x)^2 + k_y^2]\\
+    \approx E_0 \pm \alpha q_x
     = \frac{\hbar^2}{2m} \ab[\ab(\frac{\pi}{a})^2 + k_y^2]
       \pm \frac{\hbar^2 \pi}{m a} q_x.
-    \]
+    \end{multline*}
     The perturbation couples these states with matrix element
     $\braket<\bm k|U|\bm k - \bm G_1> = U_0/2$.
-    The Hamiltonian in the subspace $\{\ket|\bm k>, \ket|\bm k - \bm G_1>\}$ is
+    In the subspace $\{\ket|\bm k>, \ket|\bm k - \bm G_1>\}$, the Hamiltonian is
     \[
       H = \begin{pNiceMatrix}[first-col, first-row]
                       & \ket|\bm k>      & \ket|\bm k - \bm G_1>\\

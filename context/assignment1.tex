@@ -22,45 +22,27 @@
 \end{problem}
 \begin{solution}\leavevmode
   \begin{enumext*}[label = (\alph*), columns = 2]
-    \item(2) The EOM for the Drude model with fields
-    \[
-      m\odv vt = q(\bm E + \bm v \times \bm B) - m\frac{\bm v}{\tau} = 0.
-    \]
-    Assume $\bm B = (0,0,B)$.
-    Substituting $\bm j = \hat\sigma \bm E = nq\bm v$
-    \[
-      \bm E = \frac{m}{mq^2\tau}\bm j - \frac1{qn} \bm j \times \bm B
-    = \begin{pmatrix}
-        \frac{m}{nq^2\tau} & -\frac{B}{qn}      & 0\\
-        \frac{B}{qn}       & \frac{m}{nq^2\tau} & 0\\
-        0 & 0 & \frac{m}{nq^2\tau} \bm j
-      \end{pmatrix} = \hat\rho\bm j.
-    \]
-    The conductivity
-    \[
-      \hat\sigma_i = \hat \rho^{-1}
-      \xlongequal[\sigma_0 = nq^2\tau_i/m_i]{\omega_c = Bq/m_i}
-      \begin{pmatrix}
-        \frac{\sigma_0}{1 + \omega_{c_i}^2\tau_i^2} &
-        \frac{\sigma_0\omega_{c_i}\tau_i}{1 + \omega_{c_i}^2\tau_i^2} & 0\\
-       -\frac{\sigma_0\omega_{c_i}\tau_i}{1 + \omega_{c_i}^2\tau_i^2} &
-        \frac{\sigma_0}{1 + \omega_{c_i}^2\tau_i^2} & 0\\
-        0 & 0 & \sigma_0
-      \end{pmatrix},
-    \]
-    with each term for double charge carriers can be expressed as
-    $\sigma_{ij}^\text{tot} = \sigma_{ij}^{(1)} + \sigma_{ij}^{(2)}$.
-    Then, the resistance tensor is the inverse
-    \[
+    \item(2) Assume $\bm B = (0,0,B)$. Then, the resistance tensor
+    \begin{gather*}
         \hat\rho = \hat\sigma^{-1}
       = \frac{1}{\sigma_{xx}^2 + \sigma_{xy}^2}
-      \begin{pmatrix}
+      \begin{psmallmatrix}
         \sigma_{xx} & -\sigma_{xy} & 0\\
         \sigma_{xy} & \sigma_{xx}  & 0\\
-        0 & 0 & \frac{\sigma_{xx}^2+\sigma_{xy}^2}{\sigma_{zz}}
-      \end{pmatrix}
-    \]
-    with the elements
+        0 & 0 & (\sigma_{xx}^2+\sigma_{xy}^2)/\sigma_{zz}
+      \end{psmallmatrix}\\
+      \begin{array}{@{}l@{~}c@{~}l@{\quad}l@{~}c@{~}l@{}}
+        \sigma_{xx} & = & \sigma_{yy}
+      = \frac{\sigma_0}{1 + \omega_{c_i}^2\tau_i^2}, &
+        \sigma_{xy} & = & -\sigma_{yx}
+      = \frac{\sigma_0\omega_{c_i}\tau_i}{1 + \omega_{c_i}^2\tau_i^2},\\
+        \sigma_{zz} & = & \sigma_0 = nq^2\tau_i/m_i, &
+        \omega_c    & = & Bq/m_i,
+      \end{array}
+    \end{gather*}
+    For double charge carriers,
+    $\sigma_{ij}^\text{tot} = \sigma_{ij}^{(1)} + \sigma_{ij}^{(2)}$.
+    Then
     \[
       \rho_{xx} = \frac{1 + B^2\mu_1 \mu_2}{ne(\mu_1 + \mu_2)}, \quad
       \rho_{xy} = \frac{B(\mu_2 - \mu_1)}{ne(\mu_1 + \mu_2)}
