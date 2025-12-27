@@ -1,6 +1,5 @@
-% Mingyu Xia (夏明宇, Westlake ID: 20251202247) Homework #i
 \documentclass[11pt]{whatsnote}
-\usepackage{dsfont}
+\usepackage{dsfont, wrapstuff, pgfpages}
 \DeclareRobustCommand \identity {\mathds 1}
 \coverset{
   title   = Condensed Matter Theory,
@@ -33,7 +32,6 @@
 \include{./context/10_.tex}
 \include{./context/11_.tex}
 
-\newcommand \sectionname {Lecture \#}
 \appendix
 \sidefoot \thepage
 \fancyhead[OL, ER]{Mingyu Xia (Westlake ID: 20251202247)}
@@ -41,25 +39,37 @@
 \fancyhead[OR]{\fontfamily{lmr}\selectfont<<\texttt{%
   \href{mailto:xiamingyu@westlake.edu.cn}{xiamingyu@westlake.edu.cn}}>>}
 \addcontentsline{toc}{chapter}{Problem Set}
-\renewcommand *\thesection{\sectionname \arabic{section}}
-\renewcommand*\familydefault {\sfdefault}
+\renewcommand *\familydefault {\sfdefault}
+
+\renewcommand *\newweek {\refstepcounter{week}}
+\pagestyle{empty}
+\pgfpagesuselayout{resize to}[a4paper]
+\newgeometry{hmargin = .2in, vmargin = -.2in}
+\pgfpagesuselayout{8 on 1}[a4paper, landscape]
+\setlength \abovedisplayskip {3.6pt}
+\setlength \belowdisplayskip {3.6pt}
+\linespread{1.12}
+\begin{multicols}{2}
+% \input{./context/maauzi.tex}
+\pgfpagesuselayout{8 on 1}[a4paper, landscape]
 \newweek
-\include{./context/assignment1.tex}
+\input{./context/assignment1.tex}
 \newweek
-\include{./context/assignment2.tex}
+\input{./context/assignment2.tex}
 \newweek
-\include{./context/assignment3.tex}
+\input{./context/assignment3.tex}
 \newweek
-\include{./context/assignment4.tex}
+\input{./context/assignment4.tex}
 \newweek
-\include{./context/assignment5.tex}
+\input{./context/assignment5.tex}
 \newweek
-\include{./context/assignment6.tex}
+\input{./context/assignment6.tex}
 \newweek
-\include{./context/assignment7.tex}
+\input{./context/assignment7.tex}
 \newweek
-\include{./context/assignment8.tex}
+\input{./context/assignment8.tex}
 \newweek
-\include{./context/assignment9.tex}
+\input{./context/assignment9.tex}
+\end{multicols}
 
 \end{document}

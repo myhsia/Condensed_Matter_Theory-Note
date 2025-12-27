@@ -1,9 +1,9 @@
 % !TeX root = ../main.tex
 
-\section{X-ray diffraction}
+\paragraph{Homework \#4 X-ray diffraction}
 
 \begin{problem}[Structure factor for a tri-atomic basis]
-  Consider a linear crystal with lattice constant $a$ in which the basis
+  Consider a \emph{linear} crystal with lattice constant $a$ in which the basis
   consists of atom of species $A$ at $0$ and two atoms of species $B$ at $1/3$
   and $2/3$.
   \begin{enumext}
@@ -13,89 +13,58 @@
     plane of incidence, show graphically, the diffraction directions and
     indicate the relative weights of the different diffracted intensities.
     \item State the physical significance of the vector $\bm k$ from which the
-    extremity is on a plane passing through the origin of the reciprocal lattice.
+    extremity is on a plane passing through the origin of the reciprocal
+    lattice.
   \end{enumext}
 \end{problem}
-\begin{solution}[By TA]
-  \begin{enumext}
-    \item \[
-      S_a = \sum_j f_j \upe^{-\iu \bm a \cdot \bm r_j}
-    = f_A \upe^{-\iu\bm G\cdot0} + f_B(\upe^{-\iu\bm G\cdot\frac a3\hat x}
-    + \upe^{-\iu\bm a\cdot\frac23 a\hat x})
-    = f_A + 2f_B\cos(\frac{2\pi}{3}h)
-    = \begin{cases}
-      f_A + 2f_B,\\
-      f_A - f_B
-    \end{cases}
-    \]
-    \item $k = \frac{2\pi}{\lambda} = \frac{8\pi}{a}$,
-    \[
-      k\cos\qty{45}\degree - k\cos\theta = G_x
-    \]
-    $\cos\theta = \frac{h + 2\sqrt2}{4} \in [-1, 1]$.
-  \end{enumext}
-\end{solution}
 \begin{solution}\leavevmode
   \begin{enumext}
-    \item Substitute $r_i = 0$, $\frac a3$, $\frac{2a}3$ into the definition of
-    the structure factor
-    \begin{align*}
-    S(h) & = f_A\upe^{\iu G\cdot 0} + f_B\upe^{\iu G\cdot\frac a3}
-           + f_B\upe^{\iu G\cdot\frac{2a}{3}}
-      \xlongequal{G = 2\pi h/a} f_A + f_B
-             \ab(\upe^{\iu\frac{2\pi h}{3}} + \upe^{\iu\frac{4\pi h}{3}})\\
-    & \xlongequal{\text{Euler's formula}}
+    \item Substitute $r_i = 0$, $\frac a3$, $\frac{2a}3$ into the
+    structure factor
+    \begin{multline*}
+    S(h) = f_A\upe^{\iu G\cdot 0} + f_B\upe^{\iu G\cdot\frac a3}
+         + f_B\upe^{\iu G\cdot\frac{2a}{3}}\\
+    \xlongequal[G = 2\pi h/a]{\text{Euler's formula}}
     \begin{cases}
-      f_A + 2f_B, & h = 3n\\
-      f_A - f_B,  & \text{otherwise}
+      f_A + 2f_B, & h = 3n,\\
+      f_A - f_B,  & \text{otherwise.}
     \end{cases}
-    \end{align*}
-    \item The wave number
+    \end{multline*}
+    \item The incident wave number and the wavevector at $\qty{45}\degree$
     \[
-      k = \frac{2\pi}{\lambda} = \frac{8\pi}{a} = 4b_0,
+      k_i = 2\pi/\lambda = 8\pi/a,\quad
+      \bm k_i = \ab(k/\sqrt2, -k/\sqrt 2).
     \]
-    where $b_0 = \frac{2\pi}{a}$ is the reciprocal lattice vector.
-    The incident wavevector is
+    \begin{minipage}{.64\linewidth}
+    Apply the Laue condition $\bm k - \bm k_i = \bm G$, then project to the
+    cristal line
     \[
-      \bm k_i = \ab(k/\sqrt2, -k/\sqrt 2)
+      |\bm k_i|\cos\theta - |\bm k_i|\cos\qty{45}\degree = 2\pi h/a
     \]
-    \begin{paracol}{2}
-    Then, the Ewald circle satisfies
-    \[
-      \ab(x + k/\sqrt2)^2 + \ab(y - k/\sqrt2)^2 = k^2
-    \]
-    and we can obtain the two intersection on $x$-axis: $x_1 = 0$ and
-    $x_1 = -\sqrt2k$.
-
-    Obviously, $x_1 = 0b_0$, $n_1 = 0$;
-    $x_2 = -5.656b_0$, $n_2 = -5.656$.
-    \switchcolumn \centering
-    \vspace*\fill
-    \begin{tikzpicture}[scale = .75]
-      \draw [help lines, step = .5cm] (-4.5,4.5) grid (.5,-.5);
-      \draw [-stealth] (-4,0) -- (.5,0) node [below] {$x$};
-      \draw [-stealth] (0,-.5) -- (0,4) node [left] {$y$};
-      \draw [thick] ({-2/sqrt(2)}, {2/sqrt(2)}) circle (2);
-      \draw [blue, very thick, -stealth] ({-2/sqrt(2)}, {2/sqrt(2)}) -- (0,0);
-      \fill (-2.5,0) circle (.05) (-3,0) circle (.05);
-      \node [below] at (0,0) {$\scriptstyle h_0$};
-      \node [below] at (-2.5,0) {$\scriptstyle h_5$};
-      \node [below] at (-3,0) {$\scriptstyle h_6$};
-    \end{tikzpicture}
-    \vspace*\fill
-    \end{paracol}
-    Since $n$ is not an integer, no other reciprocal lattice points lies on the
-    Ewald circle except the one on the original point.
+    one can obtain $\cos\theta = (h + 2\sqrt2)/4 \in [-1,1)$,
+    $h = -6$, ..., $0$, $1$.
+    \end{minipage}
+    \hfill
+    \begin{minipage}{.32\linewidth}
+      \centering
+      \begin{tikzpicture}
+        \draw [->] (-.25,0) -- (2,0);
+        \draw ({.5*sqrt(2)},{-.5*sqrt(2)}) circle ({1});
+        \draw [->] (0,0) -- node [left] {$\bm k_i$}
+                   ({.5*sqrt(2)},{-.5*sqrt(2)});
+        \foreach \i in {0, .25, ..., 1.5}
+          \fill (\i,0) circle (.05);
+      \end{tikzpicture}
+    \end{minipage}
     The intensity of each diffraction order is proportional to $|S(h)|^2$, i.e.,
     \[
       I_h \propto |S(h)|^2 =
       \begin{cases}
         (f_A + 2f_B)^2, & h = 3m,\\
-        (f_A - f_B)^2,  & \text{otherwise}
+        (f_A - f_B)^2,  & \text{otherwise.}
       \end{cases}
     \]
-    \item The tip of $\bm k$ lying on a plane through the origin of the
-    reciprocal lattice means the Bragg condition is satisfied for diffraction.
+    \item The Bragg condition is satisfied for diffraction.
   \end{enumext}
 \end{solution}
 
@@ -131,7 +100,8 @@
     \end{enumext}
     \item Powder Method
     \begin{enumext}
-      \item Setup: Powdered sample (random crystallites), monochromatic X-rays.
+      \item Setup: Powdered sample (random crystallites),
+      mono\-chromatic X-rays.
       \item Ewald \& Pattern: Each set of $(hkl)$ planes forms a spherical shell
       in reciprocal space. The Ewald sphere's intersection with these shells
       creates cones of diffracted beams (Debye cones), which appear as

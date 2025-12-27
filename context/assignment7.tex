@@ -1,32 +1,33 @@
 % !TeX root = ../main.tex
 
-\section{Semiconductor}
+\paragraph{Homework \#7 Semiconductor}
 
 \begin{problem}[Elementary study of an intrinsic semiconductor]
-  \begin{paracol}{2}
-    Consider a semiconductor characterized by a constant density of states
-    ($g(E) = C$) in both the valence and conduction band. These bands,
-    separated by $E_g$, have a respective width of $E_V$ and $E_C$
-    (see the Figure).
-    \begin{enumext}
-      \item Knowing that the Fermi level $E_F$ is in the bandgap
-      ($5k_BT < E_F < E_g - 5k_BT$), leading to the conventional simplification
-      for $f(E)$ (The Boltzmann approximation can be applied), find the
-      expression for the number of electrons $n$ in the conduction band and the
-      number of holes $h$ in the valence band respectively as a function of the
-      data and absolute temperature.
-    \end{enumext}
-    \switchcolumn \centering
-    \begin{tikzpicture}
-      \draw [->] (0,0) node [left] {$0$} -- (3,0) node [right] {$g(E)$};
-      \draw [->] (0,-2.8) -- (0,3.5) node [right] {$E$};
+  \begin{wrapstuff}[width = .32\linewidth]
+    \centering
+    \begin{tikzpicture}[scale = .4, every node/.style = {scale = .8}]
+      \draw [->] (0,0) node [left] {$0$} -- (2.5,0) node [right] {$g(E)$};
+      \draw [->] (0,-2.8) -- (0,4.2) node [right] {$E$};
       \draw (0,-2.5) node [left] {$-E_V$} -- (1,-2.5) -- (1,0)
        node [above] {$C$};
-      \draw (0,1) node [left] {$E_g$} -- (1,1) -- (1,3) -- (0,3)
+      \draw (0,1.4) node [left] {$E_g$} -- (1,1.4) -- (1,3.4) -- (0,3.4)
        node [left] {$E_C + E_g$};
-      \draw (0,.5) node [left] {$E_F$} --++ (.2,0);
+      \draw (0,.7) node [left] {$E_F$} --++ (.2,0);
     \end{tikzpicture}
-  \end{paracol}
+  \end{wrapstuff}
+  Consider a semiconductor characterized by a constant density of states
+  ($g(E) = C$) in both the valence and conduction band. These bands,
+  separated by $E_g$, have a respective width of $E_V$ and $E_C$
+  (see the Figure).
+  \wrapstuffclear
+  \begin{enumext}
+    \item Knowing that the Fermi level $E_F$ is in the bandgap
+    ($5k_BT < E_F < E_g - 5k_BT$), leading to the conventional simplification
+    for $f(E)$ (The Boltzmann approximation can be applied), find the
+    expression for the number of electrons $n$ in the conduction band and the
+    number of holes $h$ in the valence band respectively as a function of the
+    data and absolute temperature.
+  \end{enumext}
   \begin{enumext}[topsep = 0pt]
     \setcounter{enumXi}{1}
     \item Deduce the expression for the volumetric density of intrinsic
@@ -49,16 +50,14 @@
     \item The number of electrons in the conduction band
     \[
       n = \int_{E_g}^{E_g+E_c} g(E) f(E) \d E
-        = Ck_BT\upe^{-\frac{E_g-E_F}{k_BT}}(1 - \upe^{-\frac{E_C}{k_BT}})
-        \xlongequal[\text{Boltzmann approximation}]{E_C\gg k_BT}
-          Ck_BT\upe^{-\frac{E_g-E_F}{k_BT}}.
+        \xlongequal[\text{B. approx.}]{E_C\gg k_BT}
+        Ck_BT\upe^{-\frac{E_g-E_F}{k_BT}}.
     \]
     The number of holes in the valence band
     \[
       h = \int_{-E_V}^0 g(E) [1 - f(E)] \d E
-        \approxeq Ck_BT\upe^{-\frac{E_F}{k_BT}} (1 - \upe^{-\frac{E_V}{k_BT}})
-        \xlongequal[\text{Boltzmann approximation}]{E_V\gg k_BT}
-          Ck_BT\upe^{-\frac{E_F}{k_BT}}.
+      \xlongequal[\text{B. approx.}]{E_V\gg k_BT}
+      Ck_BT\upe^{-\frac{E_F}{k_BT}}.
     \]
     where $f(E) \approxeq \upe^{-\frac{E-E_F}{k_BT}}$,
           $[1 - f(E)] \approxeq \upe^{\frac{E-E_F}{k_BT}}$.
@@ -67,20 +66,16 @@
     \[
       n = Ck_BT\upe^{-\frac{E_g-E_F}{k_BT}} =
       h = Ck_BT\upe^{-\frac{E_F}{k_BT}}, \quad
-      E_g - E_F = E_F.
+      E_F = E_g/2.
     \]
-    Then, the Fermi level is at mid-gap, i.e., $E_F = \frac{E_g}{2}$.
     Substitute it back into the expression of $n$ (or $h$),
     we get the intrinsic carrier concentration
     \[
-      n_i = Ck_BT\upe^{-\frac{E_g}{2k_BT}}.
+      n_i = Ck_BT\upe^{-\frac{E_g}{2k_BT}} = \qty{4.158e19}{\m^{-3}},\quad
+      E_F = \qty{0.35}\eV.
     \]
-    Apply the parameters, $n_i = \qty{4.158e19}{\m^{-3}}$,
-    $E_F = \qty{0.35}\eV$.
     \item The conductivity
-    \[
-      \sigma_i = e(n_i\mu_e + n_i\mu_h) = \qty{1.332}{\siemens/\m}.
-    \]
+    $\sigma_i = e(n_i\mu_e + n_i\mu_h) = \qty{1.332}{\siemens/\m}$.
     \item Boron is an acceptor, so doping concentration $N_A = N_0$.
     Now, the number of electrons and holes
     \[
@@ -93,42 +88,13 @@
     \]
     We can solve that
     \[
-      n = \frac{\sqrt{N_0^2 + 4n_i^2} - N_0}2,\quad
-      n_d = n = \frac{\sqrt{N_0^2 + 4n_i^2} - N_0}2,\quad
-      h_d = n + N_0 = \frac{\sqrt{N_0^2 + 4n_i^2} + N_0}2.
+      n_d = \frac{\sqrt{N_0^2 + 4n_i^2} - N_0}2,\enspace
+      h_d = N_0 = \frac{\sqrt{N_0^2 + 4n_i^2} + N_0}2.
     \]
-    The conductivity becomes
-    \[
-      \sigma_d = e(n_d\mu_e + h_d\mu_h).
-    \]
+    The conductivity becomes $\sigma_d = e(n_d\mu_e + h_d\mu_h)$.
     From $h = Ck_BT\upe^{-\frac{E_F}{k_BT}}$, we can obtain the Fermi level
     \[
       E_{F_d} = k_BT \ln\frac{C k_BT}{h_d}.
     \]
-    Apply the parameters (with the previous $n_i = \qty{4.158e19}{\m^{-3}}$)
-    \begin{enumext}[columns = 2]
-      \item $N_0 = \qty{e18}{\m^{-3}}$.\\
-      The numbers of the acceptors and donators
-      \begin{gather*}
-        n_d = \qty{4.108e19}{\m^{-3}},\\
-        h_d = \qty{4.208e19}{\m^{-3}}.
-      \end{gather*}
-      The conductivity and the Fermi level
-      \[
-        \sigma_d = \qty{1.332}{\siemens/\m},~
-        E_{F_d} = \qty{0.350}\eV.
-      \]
-      \item $N_0 = \qty{e20}{\m^{-3}}$.\\
-      The numbers of the acceptors and donators
-      \begin{gather*}
-        n_d = \qty{1.503e19}{\m^{-3}},\\
-        h_d = \qty{1.150e20}{\m^{-3}}.
-      \end{gather*}
-      The conductivity and the Fermi level
-      \[
-        \sigma_d = \qty{2.083}{\siemens/\m},~
-        E_{F_d} = \qty{0.325}\eV.
-      \]
-    \end{enumext}
   \end{enumext}
 \end{solution}

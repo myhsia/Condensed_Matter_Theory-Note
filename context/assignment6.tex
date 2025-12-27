@@ -1,6 +1,6 @@
 % !TeX root = ../main.tex
 
-\section{Tight binding model}
+\paragraph{Homework \#6 Tight binding model}
 
 \begin{problem}[Tight bindings in the BCC and FCC lattices]
   We consider identical atoms located at points of a lattice that are
@@ -23,146 +23,44 @@
     well as the shape of constant energy surfaces around this point.
   \end{enumext}
 \end{problem}
-\begin{solution}[By TA]
-  $\frac a2(\pm1,\pm1,\pm1)$
-  \[
-    \sum_s\upe^{-\iu \bm k\cdot \bm R_s}
-  = \sum_{u,v,w} \ab[-\frac a2\iu(uk_x + vk_y + wk_z)]
-  = 8\cos\ab(\frac{ak_x}2) \cos\ab(\frac{ak_y}2) \cos\ab(\frac{ak_z}2)
-  \]
-  $\frac a2(\pm 1,0,\pm 1)$, $\frac a2(\pm1,\pm1,0)$, $\frac a2(0,\pm1,\pm1)$.
-
-  For BCC $E(\Gamma) = E(0,0,0) = -\alpha - 8\gamma$.
-  \[
-    |\bm k|^2 = |\bm k - \bm G|^2
-  = |\bm k|^2 - 2\bm k \cdot \bm G + |\bm G|^2, \quad
-  2\bm k \cdot \bm G = |\bm G|^2
-  \]
-  The nearest $\frac{2\pi}{a}(\pm1,0,\pm1)$
-  \[
-    \begin{cases}
-      k_x \pm k_y = \pm\frac{2\pi}{a},\quad
-      k_y \pm k_z = \pm\frac{2\pi}{a},\quad
-      k_z \pm k_x = \pm\frac{2\pi}{a}.
-    \end{cases}
-  \]
-  For $[1,0,0]$
-  \[
-    \begin{cases}
-      k_x = t, \\
-      k_y = k_z = 0
-    \end{cases}
-  \]
-  $(\pm\frac{2\pi}{a}, 0, 0)$, $E = -\alpha + 8\gamma$.
-  For $[1,1,0]$
-  \[
-    \begin{cases}
-      k_x = k_y = t,\\
-      k_z = 0
-    \end{cases}
-  \]
-  $(\frac\pi a, \frac\pi a, 0)$, $E = -\alpha$.
-  For $[1,1,1]$: $k_x = k_y = k_z = t$,
-  $(\frac\pi a, \frac\pi a, \frac\pi a)$, $E = -\alpha$.
-
-  For FCC:
-  \[
-    E(\Gamma) = -\alpha - 12\gamma
-  \]
-  Consider the nearest $\frac{2\pi}{a}(\pm 1, \pm 1, \pm 1)$.
-  \[
-    \bm k \cdot \bm a = \ab(\frac{2\pi}{a})^2 \cdot \frac32,
-  \]
-  \[
-    \pm k_x\pm k_y\pm k_z = \frac{3\pi}{a}
-  \]
-  Sub-nearest: $\frac{2\pi}{a}(\pm2,0,0)$,
-  \[
-    k_x = \pm\frac{2\pi}{a}, \quad
-    k_y = \pm\frac{2\pi}{a}, \quad
-    k_z = \pm\frac{2\pi}{a}.
-  \]
-  For $[1,0,0]$: $(\frac{2\pi}{a},0,0)$
-  \[
-    \begin{cases}
-      k_x = t,\\
-      k_y = k_z = 0
-    \end{cases},\quad
-    E = -\alpha + 4r
-  \]
-  For $[1,1,0]$: $(\frac{3\pi}{2a}, \frac{3\pi}{2a}, 0)$
-  \[
-    \begin{cases}
-      k_x = k_y = t,\\
-      k_z = 0
-    \end{cases}, \quad
-    E = -\alpha - 2\gamma + 4\sqrt2r
-  \]
-  For $[1,1,1]$: $(\frac\pi a, \frac\pi a, \frac\pi a)$
-  \[
-    k_x = k_y = k_z = t, \quad E = -\alpha
-  \]
-  \[
-    E_k = E_0 + \frac{\hbar^2}{2m} (\bm k - \bm k_0)^2 \qq{for $k \to 0$}
-  \]
-  Use some approximation
-  \[
-    k \to 0, \quad
-    \cos\frac{ak}{2} = 1 - \frac{a^2k^2}{8}
-  \]
-  BCC:
-  \[
-    E_k = -\alpha - 8\gamma \ab(1 - \frac{a^2k_x^2}{8})\ab( ...k_y) \ab( ... k_z)
-  = -\alpha - 8\gamma + \gamma a^2k^2
-  \]
-  where $\gamma a^2 = \frac{\hbar^2}{2m^*}$, $m^* = \frac{\hbar^2}{2\gamma a}$.
-  
-\end{solution}
 \begin{solution}[$\text{i} = \text{BCC}$, $\text{ii} = \text{FCC}$]
   Assume the lattice constant $a$.
   \newcounter{case} \setcounter{case}{1}
   \begin{enumext}[label = (\alph*\textsubscript{\roman{case}})]
     \item Each atom has 8 NNs, i.e.,
-    \[
-      \{\bm R_s\} = \ab\{\frac a2(\pm1, \pm1, \pm1)\}
-    \]
-    Then, the sum in the general form becomes
-    \[
-      \sum_s \upe^{-\iu \bm k \cdot \bm R_s}
-    = \sum_{\sigma_x=\pm} \sum_{\sigma_y=\pm} \sum_{\sigma_z=\pm}
-      \upe^{-\iu\frac a2\sigma_xk_x} \cdot
-      \upe^{-\iu\frac a2\sigma_yk_y} \cdot
-      \upe^{-\iu\frac a2\sigma_zk_z}
-    = 8\cos\ab(\frac{ak_x}2) \cos\ab(\frac{ak_y}2) \cos\ab(\frac{ak_z}2)
-    \]
-    Hence, the dispersion relation is
+    $\{\bm R_s\} = \ab\{\frac a2(\pm1, \pm1, \pm1)\}$.
+    The dispersion relation is
     \[
       E(\bm k) = -\alpha - 8\gamma
-      \cos\ab(\frac{ak_x}2) \cos\ab(\frac{ak_y}2) \cos\ab(\frac{ak_z}2)
+      \cos\ab(\frac{ak_x}2) \cos\ab(\frac{ak_y}2) \cos\ab(\frac{ak_z}2).
     \]
-    \item \begin{enumext}[columns = 2]
+    \item From the relation can obtain the vectors $\bm k$.
+    \[
+      |\bm k|^2 = |\bm k - \bm G|^2
+    = |\bm k|^2 - 2\bm k \cdot \bm G + |\bm G|^2, \quad
+      2\bm k \cdot \bm G = |\bm G|^2.
+    \]
+    \begin{enumext}
       \item $\Gamma$ point: $\bm k = (0,0,0)$,
       $E(\Gamma) = -\alpha - 8\gamma$.
-      \item $[100]$: $\bm k = \frac{2\pi}{a}(1, 0, 0)$,
-      $E(X) = -\alpha + 8\gamma$.
+      \item $[100]$: $\bm k = \frac{2\pi}{a}(\pm 1, 0, 0)$,
+      $E(X) = -\alpha \pm 8\gamma$.
       \item $[110]$: $\bm k = \frac{2\pi}{a}(\frac12, \frac12, 0)$,
       $E(N) = -\alpha$.
       \item $[111]$: $\bm k = \frac\pi a(1, 1, 1)$,
-      $E(P) = -\alpha$
+      $E(P) = -\alpha$.
     \end{enumext}
-    \item The $\cos$ terms in the general form differs between
+    \item The cosine terms in the general form differs between
     $[-8\gamma, +8\gamma]$. So, the energy gap is
     \[
       \Delta E_\text{BCC} = (-\alpha + 8\gamma) - (-\alpha - 8\gamma)
-    = 16\gamma
+    = 16\gamma.
     \]
     The dispersion relation can be expanded around the $\Gamma$ point
     \[
-      E(\bm k) = -\alpha - 8\gamma\ab[1
-        - \frac12\ab(\frac{ak_x}{2})^2
-        - \frac12\ab(\frac{ak_y}{2})^2
-        - \frac12\ab(\frac{ak_z}{2})^2 ]
-    \xlongequal{k^2=k_x^2+k_y^2+k_z^2} -\alpha - 8\gamma + \gamma a^2 k^2
+      E(\bm k) = -\alpha - 8\gamma
+        \ab[1- \sum_i \frac12\ab(\frac{ak_i}{2})^2]
+    = -\alpha - 8\gamma + \gamma a^2 k^2.
     \]
     Then, the effective mass $m^* = \frac{\hbar^2}{\pdv[2]E/k}
     = \frac{\hbar^2}{2\gamma a^2}$.
@@ -172,50 +70,35 @@
       \{\bm R_s\} = \ab\{
         \frac a2(\pm1, \pm1, 0),
         \frac a2(\pm1, 0, \pm1),
-        \frac a2(0, \pm1, \pm1).
-      \}
+        \frac a2(0, \pm1, \pm1)\}.
     \]
-    Then, the sum in the general form becomes
-    \begin{align*}
-      \sum_s \upe^{-\iu \bm k \cdot \bm R_s} &
-    = \sum_{\text{cyclic}(x,y,z)} \sum_\pm
-      \upe^{-\iu\frac a2(\pm k_i\pm k_j)} \\ &
-    = 4\ab[
-        \cos\ab(\frac{ak_x}2) \cos\ab(\frac{ak_y}2) +
-        \cos\ab(\frac{ak_y}2) \cos\ab(\frac{ak_z}2) +
-        \cos\ab(\frac{ak_z}2) \cos\ab(\frac{ak_x}2) ]
-    \end{align*}
-    Hence, the dispersion relation is
+    The dispersion relation is
     \[
-      E(\bm k) = -\alpha - 4\gamma \ab[
-        \cos\ab(\frac{ak_x}2) \cos\ab(\frac{ak_y}2) +
-        \cos\ab(\frac{ak_y}2) \cos\ab(\frac{ak_z}2) +
-        \cos\ab(\frac{ak_z}2) \cos\ab(\frac{ak_x}2) ]
+      E(\bm k) = -\alpha - 4\gamma
+        \ab[\cos\ab(\frac{ak_x}2) \cos\ab(\frac{ak_y}2) + \text{Cyclic}].
     \]
-    \item \begin{enumext*}[columns = 2, label = \roman*.]
+    \item \begin{enumext}
       \item $\Gamma$ point: $\bm k = (0,0,0)$,
-      $E(\Gamma) = -\alpha - 8\gamma$.
+      $E(\Gamma) = -\alpha - 12\gamma$.
       \item $[100]$: $\bm k = \frac{2\pi}{a}(1, 0, 0)$,
-      $E(X) = -\alpha - 4\gamma$.
-      \item(2) $[110]$ point: $\bm k = \frac{2\pi}{a}(\frac34, \frac34, 0)$,
+      $E(X) = -\alpha + 4\gamma$.
+      \item $[110]$: $\bm k = \frac{2\pi}{a}(\frac34, \frac34, 0)$,
       $E(N) = -\alpha + \gamma(4\sqrt2 - 2)$.
-      \item(2) $[111]$ point: $\bm k = \frac\pi a(1, 1, 1)$,
-      $E(P) = -\alpha - 12\gamma$
-    \end{enumext*}
+      \item $[111]$: $\bm k = \frac{2\pi}a(\frac12, \frac12, \frac12)$,
+      $E(P) = -\alpha$.
+    \end{enumext}
     \item The $\cos$ terms in the general form differs between
     $[-12\gamma, +4\gamma]$. So, the energy gap is
     \[
       \Delta E_\text{FCC} = (-\alpha + 4\gamma) - (-\alpha - 12\gamma)
-    = 16\gamma
+    = 16\gamma.
     \]
     The dispersion relation can be expanded around the $\Gamma$ point
     \begin{align*}
       E(\bm k) & = -\alpha - 4\gamma\sum_{\text{cyclic}(x,y,z)}\ab[1
         - \frac12\ab(\frac{ak_i}{2})^2
-        - \frac12\ab(\frac{ak_j}{2})^2 ]\\ &
-    = -\alpha - 12\gamma + 4\gamma\ab[
-        \ab(\frac{k_xa}2)^2 + \ab(\frac{k_ya}2)^2 + \ab(\frac{k_za}2)^2]
-    = -\alpha - 12\gamma + \gamma a^2k^2
+        - \frac12\ab(\frac{ak_j}{2})^2 ]\\
+      & = -\alpha - 12\gamma + \gamma a^2k^2.
     \end{align*}
     Then, the effective mass $m^* = \frac{\hbar^2}{\pdv[2]E/k}
     = \frac{\hbar^2}{2\gamma a^2}$.

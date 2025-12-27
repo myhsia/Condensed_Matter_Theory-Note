@@ -1,13 +1,13 @@
 % !TeX root = ../main.tex
 
-\section{Nearly free electron model}
+\paragraph{Homework \#5 Nearly free electron model}
 
 \begin{problem}[Compare Kronig-Penney model with the nearly free electron model]
   The Kronig-Penney model allows one to consider both the nearly-free-electron
   and tight-binding limits. Consider the (repulsive) Dirac-Kronig-Penney model.
   It gives the following implicit equation for the energy bands
   \[
-    \cos(ka) = \cos(qa) + u\frac{\sin(qa)}{qa}
+    \cos(ka) = \cos(qa) + u\frac{\sin(qa)}{qa},
   \]
   where $q = \sqrt{2mE}/\hbar$ and $u = \frac{mU_0a}{\hbar^2} > 0$. Assuming
   that $u \ll q$, find the solution of above equation near the Bragg points
@@ -16,77 +16,6 @@
   sign means that $k$ is close yet no equal to the wavenumber of the Bragg
   point.)
 \end{problem}
-\begin{solution}
-  KP model $k = \frac{n\pi}{a} + \delta$.
-  \[
-    \cos ka = \cos qa + u\frac{\sin qa}{qa}
-  \]
-  Since
-  \[
-    \cos(n\pi + \delta a) = \cos n\pi \cos\delta a - \sin n\pi \sin\delta a
-  = (-1)^n \cos\delta a = (-1)^n \ab[1 - \frac{(\delta a)^2}{2}]
-  \]
-  The energy
-  \[
-    E^2 = \frac{\hbar^2}{2m}\ab(\frac{n\pi}{a})^2 + \Delta E, \quad
-    q = \frac{\sqrt{2mE}}{\hbar} = \frac{n\pi}{a} + \epsilon
-  \]
-  Then the cosine and sine
-  \[
-    \cos(qa) = (-1)^n \ab[1 - \frac{(\epsilon a)^2}{2}], \quad
-    \frac{\sin(qa)}{qa} = \frac{(-1)^n\epsilon a}{n\pi}
-  \]
-  We can obtain an equation about $\epsilon$
-  \[
-    \epsilon^2 - \frac{2U}{an\pi}\epsilon - \delta^2 = 0
-  \]
-  NFE: Expand into a Fourier mode
-  \[
-    V(x) = \sum_a Va\upe^{\iu Gx} = U_0\delta(x - na)
-  \]
-  \[
-    k = \frac{n\pi}{a} + \Delta, \quad
-    k' = \frac{n\pi}{a} - \Delta
-  \]
-  The wavefunction
-  \[
-    \psi(x) = a\psi_k^0 + b\psi_{k'}^0
-  \]
-  where $\psi_k^0 = \frac1{\sqrt L}\upe^{\iu kx}$.
-  The eigenequation
-  \[
-    (H_0 + H')\psi(x) = E\psi(x)
-  \]
-  where $H_0 = -\frac{\hbar^2}{2m} \odv*[2]{}x + \bar V$, $\Delta V = V(x) - \bar V$.
-  \[
-    H_0\psi_k^0 = E_k^0\psi_k^0, \quad
-    H_0\psi_{k'}^0 = E_{k'}^0 \psi_{k'}^0
-  \]
-  \[
-    a(E_k^0 - E + \Delta V)\psi_k^0 + b(E_{k'}^0 - E + \Delta V)\psi_{k'}^0 = 0
-  \]
-  \[
-    \begin{cases}
-      (E_k^0 - E)a + V_n^*b = 0,\\
-      V_n^a (E_{k'}^0 - E)b = 0
-    \end{cases}
-  \]
-  \[
-    V_n = \braket<k|V(x)|k> = \frac1a\int_0^a U_0 \delta(x) \upe^{-\iu2\pi mx/a} \d x
-  \]
-  The Determine should be zero
-  \[
-    \begin{vmatrix}
-      E_k^0 - E & V_m^*\\
-      V_n & E_{k'}^0 - E
-    \end{vmatrix} = 0
-  \]
-  $E_k^0 = E_{k'}^0$,
-  \[
-    E_\pm = \frac12\{E_k^0 + E_{k'}^0 \pm \sqrt{(E_k^0 - E_k^0) + 4|V_n|^2}\}, \quad
-    E_\text{gap} = 2|V_n| = \frac{2U_0}{a}
-  \]
-\end{solution}
 \begin{solution}
   Near the Bragg points, assume
   \[
@@ -121,7 +50,7 @@
   Substitute $u = mU_0a/\hbar^2$ into the expression above
   \[
     E = E_n^0 + \frac{U_0}{a} \pm
-              \sqrt{\ab(\frac{U_0}{a})^2 + \ab(\frac{n\pi\hbar^2\kappa}{ma})^2},
+        \sqrt{\ab(\frac{U_0}{a})^2 + \ab(\frac{n\pi\hbar^2\kappa}{ma})^2}
   \]
   with the band gap
   \[
@@ -142,64 +71,29 @@
     U(x,y) = U_0 \ab(\cos\frac{2\pi x}{a} + \cos\frac{2\pi y}{a}).
   \]
   \begin{enumext}
-    \item Find the energy bands near the edges of the first Brillouin zone.
-    (Hint: the edges of the Brillouin zone are the Bragg planes where the
+    \item Find the energy bands near the \emph{edges} of the first Brillouin
+    zone. (Hint: the edges of the Brillouin zone are the Bragg planes where the
     eigenstates are doubly degenerate.) Plot the bands and isoenergetic
     surfaces.
-    \item Repeat the analysis of part (a) for regions near the corners of the
-    first Brillouin zone, where there are four degenerate eigenstates.
+    \item Repeat the analysis of part (a) for regions near the \emph{corners}
+    of the first Brillouin zone, where there are four degenerate eigenstates.
   \end{enumext}
 \end{problem}
-\begin{solution}[By TA]
-  \begin{enumext}
-    \item
-    \[
-      U(\bm r) = \sum_G U_G \upe^{\iu \bm G\cdot \bm r}, \quad
-      U_G = \frac1{V_\text{Cell}} \int_\text{Cell} U(\bm r)
-      \upe^{-\iu \bm G\cdot \bm r} \d \bm r
-    \]
-    \[
-      U = U_0 \ab(\cos\frac{2\pi x}{a} + \cos\frac{2\pi y}{a})
-    = \frac{U_0}{2}
-      (\upe^{\pm\iu\frac{2\pi x}{a}} + \upe^{\pm\iu\frac{2\pi x}{a}})
-    \]
-    \[
-      \bm G = (\pm\frac{2\pi}{a}, 0), (0, \pm \frac{2\pi}{a}), U_G = \frac{U_0}{2}.
-    \]
-    $k_x = \frac\pi a + \delta$, $k_y$.
-    \[
-      \begin{vmatrix}
-        E_k^0 - E & \frac{U_0}{2}\\
-        \frac{U_0}{2} & E_{k'}^0 - E
-      \end{vmatrix} = 0
-    \]
-    \[
-      E = \frac{\hbar^2}{2m} \ab(\frac{\pi^2}{a^2} + q_x^2 + k_y^2)
-      \pm\sqrt{\ab(\frac{\pi\hbar^2}{ma}q_x)^2 + \ab(\frac{U_0}{2})^2}
-    \]
-    \[
-      k_x = \pm \frac\pi a + q_x, \quad
-      k_y = \pm \frac\pi a + q_x.
-    \]
-    \item $\braket<k_i|U(\bm r)|k_j> \neq 0$, $\bm k_i - \bm k_j = (0,\pm\frac{2\pi}{a})$, $(\pm\frac{2\pi}{a}, 0)$.
-  \end{enumext}
-\end{solution}
 \begin{solution}\leavevmode
   \begin{enumext}
-    \item In reciprocal space, the reciprocal lattice vectors are
+    \item The reciprocal vectors are
+    $\bm G_1 = \ab(\frac{2\pi}{a}, 0)$,
+    $\bm G_2 = \ab(0, \frac{2\pi}{a})$.
+    Apply Fourier transformation to the potential
     \[
-      \bm G_1 = \ab(\frac{2\pi}{a}, 0), \quad
-      \bm G_2 = \ab(0, \frac{2\pi}{a}).
+      U(x,y) = \frac{U_0}{2}
+      \ab[e^{\pm\iu\bm G_1 \cdot \bm r} + e^{\pm\iu\bm G_2 \cdot \bm r}]
+      = \sum_G U_G \upe^{\iu\bm G \cdot \bm r}.
     \]
-    The potential can be expressed as
+    So, the Fourier coefficient is $U_{\pm G_{1,2}} = U_0/2$.
+    Near the zone edge (e.g., $k_x = \pi/a$), consider a wavevector
     \[
-      U(x,y) = \frac{U_0}{2} \ab[
-        e^{i \bm G_1 \cdot \bm r} + e^{-i \bm G_1 \cdot \bm r} +
-        e^{i \bm G_2 \cdot \bm r} + e^{-i \bm G_2 \cdot \bm r}].
-    \]
-    At the zone edge (e.g., $k_x = \pi/a$), consider a wavevector
-    \[
-      \bm k = \ab(\frac{\pi}{a} + q_x,  k_y),
+      \bm k = \ab(\frac{\pi}{a} + q_x,  k_y)
     \]
     with $|q_x| \ll \pi/a$. The two nearly degenerate plane waves are
     $\ket|\bm k>$ and $\ket|\bm k - \bm G_1>$.
@@ -214,74 +108,58 @@
     \]
     Expanding to first order in $q_x$
     \[
-      E^{(0)} \approx E_0 \pm \alpha q_x, \qq{where}
-      E_0 = \frac{\hbar^2}{2m} \ab[\ab(\frac{\pi}{a})^2 + k_y^2], \quad
-      \alpha = \frac{\hbar^2 \pi}{m a}.
+      E^{(0)} \approx E_0 \pm \alpha q_x
+    = \frac{\hbar^2}{2m} \ab[\ab(\frac{\pi}{a})^2 + k_y^2]
+      \pm \frac{\hbar^2 \pi}{m a} q_x.
     \]
-    \begin{center}
-      \begin{minipage}{.42\linewidth}
-        \centering
-        \includegraphics[height = .16\paperwidth]{media/hw5-1.png}
-      \end{minipage}
-      \hspace*\fill
-      \begin{minipage}{.27\linewidth}
-        \centering
-        \includegraphics[height = .16\paperwidth]{media/hw5-2.png}
-      \end{minipage}
-      \hspace*\fill
-      \begin{minipage}{.27\linewidth}
-        \centering
-        \includegraphics[height = .16\paperwidth]{media/hw5-3.png}
-      \end{minipage}
-    \end{center}
     The perturbation couples these states with matrix element
     $\braket<\bm k|U|\bm k - \bm G_1> = U_0/2$.
     The Hamiltonian in the subspace $\{\ket|\bm k>, \ket|\bm k - \bm G_1>\}$ is
     \[
-      H = \begin{pmatrix}
-        E_0 + \alpha q_x & U_0/2 \\
-        U_0/2 & E_0 - \alpha q_x
-      \end{pmatrix}.
+      H = \begin{pNiceMatrix}[first-col, first-row]
+                      & \ket|\bm k>      & \ket|\bm k - \bm G_1>\\
+          \bra<\bm k| & E_0 + \alpha q_x & U_0/2 \\
+\bra<\bm k - \bm G_1| & U_0/2 & E_0 - \alpha q_x
+      \end{pNiceMatrix}.
     \]
-    Diagonalizing gives the eigenenergies
+    From the eigenfunction $\det(\mathcal H - E\identity) = 0$,
+    one can obtain the eigenvalues
     \[
-      E_{\pm} = E_0 \pm \sqrt{(\alpha q_x)^2 + \ab( \frac{U_0}{2})^2 }
-    = E_0 + \frac{\hbar^2 q_x^2}{2m} \pm \sqrt{\ab(\frac{\hbar^2 \pi}{m a} q_x)^2 + \ab(\frac{U_0}{2})^2}
+      E_{\pm} = E_0 + \frac{\hbar^2 q_x^2}{2m}
+        \pm \sqrt{\ab(\frac{\hbar^2 \pi}{m a} q_x)^2 + \ab(\frac{U_0}{2})^2}.
     \]
-    \item The corners of the first Brillouin zone are points like $\bm k_0 = (\pi/a, \pi/a)$ (the M point). The four degenerate plane waves at this point are
+    \item The corners ($M$-point) of the first Brillouin zone are
     \begin{align*}
       \bm k_1 & = \bm k_0 = (+\pi/a, +\pi/a), \\
       \bm k_2 & = \bm k_0 - \bm G_1 = (-\pi/a, +\pi/a), \\
       \bm k_3 & = \bm k_0 - \bm G_2 = (+\pi/a, -\pi/a), \\
-      \bm k_4 & = \bm k_0 - \bm G_1 - \bm G_2 = (-\pi/a, -\pi/a).
+      \bm k_4 & = \bm k_0 - \bm G_1 - \bm G_2 = (-\pi/a, -\pi/a),
     \end{align*}
-    All have the same free-electron energy $E_0 = \frac{\hbar^2}{2m} \ab[ (\pi/a)^2 + (\pi/a)^2] = \frac{\hbar^2 \pi^2}{m a^2}$.
-
+    with the same free-electron energies
+    \[
+      E_0 = \frac{\hbar^2}{2m} \ab(k_x^2 + k_y^2) = \frac{\hbar^2 \pi^2}{m a^2}.
+    \]
     In the basis
     $\{\ket|\bm k_1>, \ket|\bm k_2>, \ket|\bm k_3>, \ket|\bm k_4> \}$,
     states are coupled if they differ by $\pm \bm G_1$ or $\pm \bm G_2$.
     The non-zero off-diagonal matrix elements are
     \[
       \braket<\bm k_1|U|\bm k_2> = \braket<\bm k_1|U|\bm k_3> =
-      \braket<\bm k_2|U|\bm k_4> = \braket<\bm k_3|U|\bm k_4> = U_0/2.
+      \braket<\bm k_2|U|\bm k_4> = \braket<\bm k_3|U|\bm k_4> = \tfrac{U_0}2.
     \]
     The Hamiltonian is
     \[
-      H = E_0 \identity + \frac{U_0}{2}
-      \begin{pmatrix}
-        0 & 1 & 1 & 0 \\
-        1 & 0 & 0 & 1 \\
-        1 & 0 & 0 & 1 \\
-        0 & 1 & 1 & 0
-      \end{pmatrix}.
+      \mathcal H = E_0 \identity + \frac{U_0}{2}
+      \begin{pNiceMatrix}[first-col, first-row]
+      & \ket|\bm k_1> & \ket|\bm k_2>
+      & \ket|\bm k_3> & \ket|\bm k_4> \\
+        \bra<\bm k_1| & 0 & 1 & 1 & 0 \\
+        \bra<\bm k_2| & 1 & 0 & 0 & 1 \\
+        \bra<\bm k_3| & 1 & 0 & 0 & 1 \\
+        \bra<\bm k_4| & 0 & 1 & 1 & 0
+      \end{pNiceMatrix}.
     \]
-    Diagonalizing this matrix yields eigenvalues
-    \[
-      E = E_0 + \frac{U_0}{2} \times \{2,\ -2,\ 0,\ 0\}
-      = \{E_0 + U_0,\ E_0 - U_0,\ E_0,\ E_0\}.
-    \]
-    Thus, at $\bm q = 0$, the fourfold degeneracy splits into three distinct
-    levels: one non-degenerate band at $E_0 + U_0$, one non-degenerate band at
-    $E_0 - U_0$, and a two-fold degenerate band at $E_0$.
+    From the eigenfunction $\det(\mathcal H - E\identity) = 0$, one can obtain
+    the eigenvalues $E = \{E_0 + U_0,\ E_0 - U_0,\ E_0,\ E_0\}$.
   \end{enumext}
 \end{solution}
