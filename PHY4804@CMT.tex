@@ -1,5 +1,5 @@
 \documentclass[11pt]{whatsnote}
-\usepackage{dsfont, wrapstuff, pgfpages}
+\usepackage{dsfont, wrapstuff, pgfpages, pdfpages}
 \DeclareRobustCommand \identity {\mathds 1}
 \coverset{
   title   = Condensed Matter Theory,
@@ -52,12 +52,11 @@
 \setlength \abovedisplayskip {1.8pt}
 \setlength \belowdisplayskip {1.8pt}
 \clearpage
-\linespread{.9}
 \setenumext{nosep}
-\begin{multicols}{2}
+\begin{multicols*}{2}
   \input{./context/maauzi.tex}
-\end{multicols}
-\clearpage
+\end{multicols*}
+\clearpage \linespread{1.15}
 \begin{multicols}{2}
 \newweek
 \input{./context/assignment1.tex}
@@ -78,5 +77,9 @@
 \newweek
 \input{./context/assignment9.tex}
 \end{multicols}
+
+\clearpage
+
+\includepdf[pages = -]{Kagome.pdf}
 
 \end{document}
