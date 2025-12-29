@@ -7,7 +7,7 @@
 
 # l3build
 /build
-*.pdf
+PHY4804@CMT.pdf
 
 # LaTeX aux files
 *.aux
