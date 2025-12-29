@@ -32,19 +32,18 @@ Or the drift velocity $v_d \ll v_\text{rms}$.
   \[
     m\odv{\bm v}/t = -m\bm v/\tau - e\bm E
   \]
-  At steady state (omit the acceleration time), $\odv{\bm v}t = 0$. Hence
+  At steady state ($\odv{\bm v}t = 0$). The drift velocity
   \[
-    \bm v_d \equiv \braket<\bm v(t)> = -e\tau\bm E/m \equiv -\mu\bm E.
+    \bm v_d \equiv \braket<\bm v(t)> = -e\tau\bm E/m \equiv -\mu\bm E,
   \]
-  This is the drift velocity, with
-  mobility $\mu = \frac{\bm v}{\bm E} = \frac{e\tau}{m}$ defined.
+  where mobility $\mu = \frac{\bm v}{\bm E} = \frac{e\tau}{m}$.
   For a given field, a higher $\mu$ means the electrons will move faster.
   The conductance
   \[
     \sigma = \bm j/\bm E
   = -en\bm v/\bm E = ne\mu = -e^2n\tau/m^*.
   \]
-  $\tau = l/v_\text{rms}$ is usually independent of $E$.
+  Here, $\tau = l/v_\text{rms}$ is usually independent of $E$.
 \end{enumext}
 
 \subparagraph{Classical Hall effect}
@@ -58,7 +57,7 @@ Or the drift velocity $v_d \ll v_\text{rms}$.
     \omega_c = eB/m^*, \enspace
     r_c = v/\omega_c \propto 1/B.
   \]
-  Classically, any size of the orbit is allowed.
+  Classically, any orbit size is allowed.
 \end{enumext}
 
 \subparagraph{Drude model with a magnetic field}\leavevmode
@@ -67,13 +66,7 @@ Consider Drude model with applied electric and magnetic fields
 \[
   m^*\dot{\bm v} = -e(\bm E + \bm v \times \bm B) - m^*\bm v/\tau
 \]
-\begin{enumext}
-  \item Steady state: $\bm E = -m^*\bm v/e\tau - \bm v \times \bm B$.
-  \item With $\bm j = -ne\bm v$,
-  $\bm E = m^*\bm j/ne^2\tau + \bm j \times \bm B/ne$.
-\end{enumext}
-From Ohm's law $\bm j = \hat\sigma \bm E$, conductivity/resistivity
-are tensors.
+Taking the steady state, with Ohm's rule $\bm j = -ne\bm v = \hat\sigma \bm E$
 \begin{gather*}
   \hat\sigma =
   \begin{pmatrix}
@@ -82,25 +75,18 @@ are tensors.
    -\frac{\sigma_0\omega_c\tau}{1 + \omega_c^2\tau^2} &
     \frac{\sigma_0}{1 + \omega_c^2\tau^2} & 0\\
     0 & 0 & \sigma_0
-  \end{pmatrix}, \
-  \hat\rho = \hat\sigma^{-1}
-  \begin{pmatrix}
-    \sigma_0^{-1} & -\frac{B}{ne} & 0\\
-    \frac{B}{ne} & \sigma_0^{-1} & 0\\
-    0 & 0 & \sigma_0^{-1}
-  \end{pmatrix},\\
-  \sigma_{xx} = \frac{\rho_{xx}}{\rho_{xx}^2 + \rho_{xy}^2},\quad
-  \sigma_{xy} = -\frac{\rho_{xy}}{\rho_{xx}^2 + \rho_{xy}^2},\quad
-  \sigma_0    = \frac{ne^2\tau}{m^*}.
+  \end{pmatrix},\
+  \hat\rho = \hat\sigma^{-1},\
+  \sigma_0 = \frac{ne^2\tau}{m^*}.
 \end{gather*}
 The Hall coefficient $R_H = \rho_{xy}/B = -1/ne$.
 
 \subparagraph{Drawbacks}
 
-\begin{enumext*}[nosep, columns = 7]
+\begin{enumext*}[label = (\alph*), nosep, columns = 7]
   \item(3) Existence of insulators.
   \item(4) Temperature dependence of $\sigma$.
-  \item(7) Heat capacity $C_v^\text{Drude} = \frac32nk_B$ does not match
+  \item(7) Heat capacity $C_v^\text D = \frac32nk_B$ does not match
   $C_v \approx 10^{-4} nk_BT$.
 \end{enumext*}
 
@@ -134,7 +120,7 @@ The electrons are confined in a 3D box ($V = L_xL_yL_z$) with
 \end{enumext}
 The PBC can be applied
 \[
-  \psi(x + L_x, y, z) = \psi(x, y + L_y, z) = \psi(x, y, z + L_z).
+  \psi(x + L_x, y, z) = \psi(x, y + L_y, z) = \psi(x, y, z + L_z)
 = \psi(x, y, z),
 \]
 determines the allowed $k$
@@ -186,10 +172,7 @@ The boundary conditions lead to quantization.
 \subparagraph{Bosons and Fermions at $T \neq 0$}\leavevmode
 
 At finite temperature, Bosons/Fermions obeys Bose-Einstein/Fermi-Dirac
-statistics
-\[
-  \bar n_i = g_i/\{\exp[(\epsilon_i-\mu)/k_BT] \mp 1\}
-\]
+statistics $\bar n_i = g_i\{\exp[(\epsilon_i-\mu)/k_BT] \mp 1\}^{-1}$.
 \begin{enumext}[columns = 2]
   \item $\epsilon_i$: Energy of the $i$-th state.
   \item $n_i$: Occupation number.
@@ -225,8 +208,7 @@ As $T$ increasing, the function will broaden $\sim 2k_BT$ at $E = E_f$.
 
 \subparagraph{Density of states}
 
-The density of states describes the number states that can be occupied within
-an interval of energy.
+The number states can be occupied per energy.
 \[
   g(E) = \odv nE = \frac1V\odv NE =
   \begin{cases*}
@@ -289,12 +271,10 @@ The heat capacity of electrons increases linearly with temperature.
 \subparagraph{Limitation of Free electron gas model}
 
 \begin{enumext}
-  \item Electrons in solids are not free electrons.
-  \item How to explain the existence of semiconductors and insulators?
-  \item $C_V\sim T$ only valid at very low temperatures. Fail to explain
-  $C_V \sim T^3$ at intermediate temperature region.
-  \item At intermediate $T$, , Wiedemann Franz law ($L = \kappa/T\sigma$) is $T$
-  dependent.
+  \item Cannot explain semiconductors/insulators.
+  \item $C_V \propto T$ only at very low $T$.
+  \item Fail to explain $C_V \sim T^3$ at intermediate temperature region.
+  \item Wiedemann-Franz law temperature dependent.
   \item The sign of Hall coefficient $R_H = -1/ne$.
 \end{enumext}
 
@@ -304,51 +284,38 @@ The heat capacity of electrons increases linearly with temperature.
 
 \subparagraph{Specific heat capacity in solids}
 
-The experimental result $C_V \sim aT + bT^3$.
-At room temperature or above, most $C_V$ is close to a constant value.
+Experimentally, $C_V \sim aT + bT^3$ (electronic and lattice).
+At high $T$, $C_V$ approaches constant.
 
 \subparagraph{Dulong-Petit law}
 
-Heat capacity per mole: $C_V = 3N_Ak_B = 3R$.
+Each atom has $3$ independent harmonic oscillators; each contributes $k_BT$ to
+energy. Thus, $C_V = 3N_Ak_B = 3R$.
 \begin{enumext}
-  \item It's only applicable to the heavier elements (fail for light atoms
-  bonded strongly to each other, such as diamond)
-  \item It's appliable only at high temperatures.
+  \item Only applicable to heavier elements (fail for light and
+  strongly bonded atoms, such as diamond)
+  \item Appliable only at high temperatures.
 \end{enumext}
 
 \paragraph{Einstein model}
 
-\begin{enumext}
-  \item Assume that each atom in the crystal vibrates independently.
-  \item The vibrations are harmonic oscillators and assigned them a frequency
-  of $\omega_E$ (Einstein frequency)
-  \item The energy of a single harmonic oscillator
-  is $E_n = \hbar\omega_E\ab(n + \frac12)$.
-  \item For $N$ vibrating atoms, we need $3N$ independent 1D oscillators to
-  describe the motion.
-\end{enumext}
-The partition function ($\beta = 1/k_BT$)
+Assume \emph{independent harmonic oscillators} with Einstein
+frenquency $\omega_E$ and quantized
+energy $E_n = \hbar\omega_E\ab(n + \frac12)$.
+
+$N$ vibrating atoms need $3N$ independent 1D oscillators to
+describe the motion.
+The heat capacity can be obtained
 \[
-  Z = \sum_{n\geq 0} \upe^{-\beta\hbar\omega_E\ab(n+\frac12)}
-= \frac{\upe^{-\beta\hbar\omega_E/2}}{1 - \upe^{-\beta\hbar\omega_E}}
-\]
-The mean energy of single oscillator
-\[
-  \bar E = -\frac1Z\pdv Z\beta = \frac12 \hbar\omega_E
-          \frac{\upe^{\beta\hbar\omega_E} + 1}{\upe^{\beta\hbar\omega_E} - 1}
-\]
-The heat capacity
-\[
-  C = \pdv{\bar E}T = k_B(\beta\hbar\omega_E)^2
+  C = \pdv{\bar E}T = -\pdv*[fun]{\frac1Z\pdv Z\beta}T
+  = k_B(\beta\hbar\omega_E)^2
       \frac{\upe^{\beta\hbar\omega_E}}{(\upe^{\beta\hbar\omega_E} - 1)^2}
 \]
-For $3N$ 1D oscillators, $C = 3Nk_B(\beta\hbar\omega_E)^2
-  \frac{\upe^{\beta\hbar\omega_e}}{(\upe^{\beta\hbar\omega_E} - 1)^2}$.
 \begin{enumext}
-  \item At high temperature limit ($\beta \to 0$), $C \to 3Nk_B$,
+  \item High temperature ($\beta \to 0$), $C \to 3Nk_B$,
   approach to Dulong-Petit law at high temperature.
-  \item At low temperature limit ($\beta \to \infty$), $C \to 0$,
-  but exponentially, rather than as $T^3$.
+  \item Low temperature ($\beta \to \infty$), $C \to 0$,
+  but exponentially not $T^3$.
 \end{enumext}
 
 \subparagraph{Limitation of Einstein model}
@@ -362,80 +329,841 @@ For $3N$ 1D oscillators, $C = 3Nk_B(\beta\hbar\omega_E)^2
 \paragraph{Debye model}
 
 \begin{enumext}
-  \item Atoms are coupled to each other in a solid.
-  \item Atom vibrations generate sound waves (replace $\omega_E$ by a linear
-  dispersion $\omega(k) = \nu k$)
-  \item The sound waves are quantized the same way as Planck quantized
-  light waves.
-  \item Different from light waves, there are three modes for each $\bm k$: a
-  longitudinal mode and two transverse modes. (light has only the transverse
-  modes).
-  \item There is a maximum oscillation frequency (Debye frequency).
-  \item Carry out the integration over a sphere of area equal to the area of
-  the Brillouin zones.
+  \item Atoms are coupled to each other, there vibrations generate sound waves
+  with a linear dispersion $\omega(k) = \nu k$.
+  \item The sound waves are quantized similar to light waves, but there are
+  three modes (one longitudinal two transverse) for each $\bm k$.
+  \item There is a maximum oscillation frequency (Debye frequency), Debye
+  temperature, and Debye radius
+  \[
+    \omega_D = (6\pi^2n)^{1/3} \nu,\quad
+    T_D = \hbar\omega_D/k_B, \quad q_D = \omega_D/\nu.
+  \]
+  The heat capacity
+  \[
+    C = \pdv{\bar E}T
+  = 9Nk_B\ab(\frac T{T_D})^3 \int_0^{T_D/T}
+    \frac{x^4\upe^x}{(\upe^x - 1)^2} \d x.
+  \]
+  \begin{enumext}
+    \item $T \gg T_D$: $C \to 3Nk_B$.
+    \item $T \ll T_D$: $C \to \frac{12}{5}\pi^4 Nk_B T^3/T_D^3$.
+  \end{enumext}
 \end{enumext}
-\[
-  (2\pi)^3N/V = \frac43 \pi k_D^3, \quad k_D = \ab(\frac{6\pi^2N}{V})^{1/3}.
-\]
 
-\subparagraph{PBC}
+\subparagraph{Limitation of Debye model}
 
-In a 1D chain, the PBC let atom $N$ connect to atom $1$:
-$\upe^{\iu(\omega t - kna)} = \upe^{\iu(\omega t-k(N+n)a)}$, implies
-$k = 2\pi n/Na = 2\pi n/L$. With this, the possible mode of $k$ is quantized.
+\begin{enumext}
+  \item The cutoff seem like a cheat rather than physics.
+  \item The assumption that sound waves exist even for very large values of $k$,
+  but sound is based on a long-wavelength idea.
+  \item $T_D$ is varying with temperature experimentally.
+  \item Metal's heat capacity also have a term proportional
+  to $T$.
+\end{enumext}
 
 \paragraph{Vibrations in a monatomic chain}
 
+Atoms of mass $m$, spacing $a$, nearest-neighbor spring constant $\beta$.
+EOM
+\[
+  m \ddot{u}_n = \beta(u_{n+1} + u_{n-1} - 2u_n).
+\]
+\begin{enumext}
+  \item Wave solution gives dispersion $\omega = 2\sqrt{\beta/m} |\sin(ka/2)|$.
+  \item For small $k$, $\omega \approx a\sqrt{\beta/m}|\bm k|$, looks
+  like sound waves. Implies the velocity
+  of sound (phase velocity) $v_s = v_p = \frac\omega k = a\sqrt{\frac\beta m}$.
+  \item At the boundary of 1st BZ, $\omega_{\max} = 2\sqrt{\beta/m}$,
+  $v_g = \pdv\omega k = 0$.
+\end{enumext}
+
+\subparagraph{Quantum modes: phonons}
+
+Refer to a phonon as a Quantized lattice vibration.
+\begin{enumext}
+  \item For a normal mode of frequency $\omega$,
+  $E_n = (n + \frac12)\hbar\omega$.
+  \item Phonons are bosons, occupation given by Bose-Einstein distribution
+  $n_B(\omega) = [e^{\hbar\omega/k_B T} - 1]^{-1}$.
+\end{enumext}
+
+\subparagraph{Crystal momentum}
+
+Phonon carries crystal momentum $\hbar k$ (quasi-momentum, defined modulo
+reciprocal lattice vectors). Conservation of crystal momentum governs
+scattering processes.
+
+
 \paragraph{Vibrations in a diatomic chain}
 
-\paragraph{Phonons}
+Two atoms per unit cell (masses $m$, $M$) with the dispersion relation
+\[
+  \omega_\pm^2
+= \frac{\beta(M + m)}{Mm}\ab[1 \pm \sqrt{1 - \frac{4Mm}{(M + m)^2}\sin^2ak}],
+\]
+gives the acoustic ($\omega_-$) and optical ($\omega_+$) branches.
+\begin{enumext}
+  \item $k = 0$, $\omega_-^2 = 0$, $\omega_+^2 = 2\beta/\mu$.
+  \item $k = \pi/(2a)$, $\omega_+^2 = 2\beta/m$, $\omega_-^2 = 2\beta/M$.
+\end{enumext}
+The gap at $\pm\frac\pi{2a}$ exists if $M \neq m$.
+\begin{enumext}
+  \item Acoustic mode: Atoms vibrate in same direction for $\omega_-$.
+  \item Optical mode: Atoms vibrate in opposite direction for $\omega_-$,
+  can couple to electromagnetic radiation (infrared).
+\end{enumext}
 
-\paragraph{Experimental observations of lattice vibrations}
+\paragraph{Vibrations in 3D lattices}
 
-\clearpage
+For a unit cell with $n$ atoms, there are $3n$ branches
+$3$ acoustic (one longitudinal, two transverse) and $3n - 3$ optical branches.
+
+\paragraph{Experimental observations of vibrations}
+
+X-ray scattering, neutron scattering, Raman spectroscopy, Brillouin
+spectroscopy, etc., used to measure dispersion $\omega(k)$ and density of
+states $g(\omega)$.
 
 \begin{framed}\large\bfseries
   \#4 Crystal Symmetry and Structure
 \end{framed}
 
-\clearpage
+\paragraph{Crystal definition}
+
+Periodic, Basis, Symmetry, Anisotropy.
+
+\subparagraph{Bravais lattice}
+
+A lattice is repeating structure defined as an infinite set of points
+\[
+  \bm R = n_1\bm a_1 + n_2\bm a_2 + n_3\bm a_3,
+\]
+which can be constructed as sums of a set of linearly independent
+primitive vectors $\bm a_i$. With the properties of
+\emph{identical}, \emph{infinite extension},
+and~\emph{contains crystal symmetry}.
+
+\subparagraph{Primitive unit cell}
+
+Contains only one lattice point, with
+volume $\Omega = \bm a_1 \cdot (\bm a_2 \times \bm a_3)$.
+
+\subparagraph{Wigner-Seitz cell}
+
+Lines perpendicular and connecting the midpoints between a given lattice and all
+nearby lattice sites.
+
+\subparagraph{Crystallographic directions and planes}
+
+Crystallographic directions $[l_1 l_2 l_3]$
+represents $\bm n = l_1\bm a_1 + l_2\bm a_2 + l_3\bm a_3$.
+A group of identical directions can be written as $\braket<l_1 l_2 l_3>$, like
+\[
+  \braket<100> = \{[100],\ [\bar100],\ [010],\ [0\bar10],\ [001],\ [00\bar1]\}.
+\]
+Planes: Miller indices $(hkl)$ obtained from reciprocals of intercepts
+\[
+  1/a:1/b:1/c = h:k:l
+\]
+with the corresponding family $\{hkl\}$.
+
+\paragraph{Crystal symmetry}
+
+\subparagraph{Symmetry operations}
+
+\begin{enumext}
+  \item $n$-fold rotation axis: An object that requires rotation of $2\pi/n$
+  \item Reflection (mirror), Inversion, Rotoinversion.
+\end{enumext}
+
+\subparagraph{Crystal structures}
+
+\begin{itemize}
+  \item \ce{CsCl}: Simple cubic with basis \ce{Cs} at $[0,0,0]$,
+  \ce{Cl} at $[\frac12,\frac12,\frac12]$.
+  \item \ce{NaCl}: FCC with basis Na at $[0,0,0]$, Cl at $[\frac12,0,0]$.
+  \item Diamond/Zinc blende (\ce{ZnS}): FCC with basis two \ce C
+  (or \ce{Zn} and \ce{S}) atoms at $[0,0,0]$ and $[\frac14,\frac14,\frac14]$.
+  \item Perovskite (\ce{ABO3}): Cubic with \ce A at corners, \ce B at body
+  center, \ce O at face centers.
+\end{itemize}
+
+\subparagraph{Reciprocal lattice}
+
+Defined by $\bm G \cdot \bm R = 2\pi m$. Primitive vectors
+\[
+  \bm b_i = \frac{2\pi (\bm a_j \times \bm a_k)}{\bm a_i \cdot (\bm a_j \times \bm a_k)}, \quad
+  \bm a_i \cdot \bm b_j = 2\pi \delta_{ij}, \quad
+  \Omega = \bm a_1 \cdot (\bm a_2 \times \bm a_3).
+\]
+Reciprocal lattice vectors are normal to real lattice planes $(hkl)$;
+interplanar spacing $d_{hkl} = 2\pi/|\bm G_{hkl}|$. See \textbf{Problem 3.3}.
+
+\subparagraph{Brillouin zone}
+
+Wigner-Seitz unit cell of reciprocal lattice is the first BZ, contains all
+wavevectors closer to origin than to any other reciprocal lattice point.
+\begin{enumext}
+  \item SC.
+  $\Gamma:(0,0,0)$, $X:\pi/a(1,0,0)$, $R:\pi/a(1,1,1)$.
+  \item FCC.
+  $\Gamma:(0,0,0)$, $X:2\pi/a(1,0,0)$, \\
+  $L:\pi/a(1,1,1)$, $R:2\pi/a(3/4,3/4,1)$.
+  \item BCC.
+  $\Gamma:(0,0,0)$, $X:2\pi/a(1,0,0)$, \\
+  $P:\pi/a(1,1,1)$, $N:2\pi/a(1/2,1/2,0)$.
+\end{enumext}
+\begin{center}
+  \includegraphics[width = .3\linewidth]{SC.png}
+  \hfill
+  \includegraphics[width = .3\linewidth]{FCC.png}
+  \hfill
+  \includegraphics[width = .3\linewidth]{BCC.png}
+\end{center}
+
+\subparagraph{Chemical bonding}
+
+\[
+  \text{Cohesive energy} = \text{energy of free atoms} - \text{crystal energy}.
+\]
+
+\begin{enumext}
+  \item van der Waals (weak, induced dipole)
+  \[
+    U = 4\epsilon\ab[\ab(\frac\sigma R)^{12} - \ab(\frac\sigma R)^6].
+  \]
+  \item Ionic crystals (electrostatic, strong)
+  \item Covalent (electron sharing, directional)
+  \item Metallic (delocalized electrons)
+  \item Hydrogen bonding (dipole-dipole).
+\end{enumext}
 
 \begin{framed}\large\bfseries
   \#5 Scattering Experiments
 \end{framed}
 
-\clearpage
+\paragraph{X-Ray}
+
+\begin{enumext}
+  \item X-rays are electromagnetic waves. Atoms scatter X-ray waves
+  elastically, primarily through the atoms' electrons.
+  \item Some scattered waves can add constructively (constructive interference)
+  in a few specific directions.
+  \item The diffraction pattern of X-ray is highly relative to the crystal
+  structure.
+\end{enumext}
+
+\subparagraph{Bragg's Law}
+
+\[
+  2d_{hkl} \sin\theta = n\lambda
+\]
+
+\subparagraph{Laue's condition}
+
+Under elastic scattering
+\[
+  \bm k' - \bm k = \bm G.
+\]
+
+\subparagraph{Ewald construction for diffraction}
+
+\begin{enumext}
+  \item Draw a sphere in reciprocal space centered on the tip of the incident
+  wave vector $\bm k$ of radius $k$ (so that it passed through the origin).
+  \item There will be some wave vector satisfying the Laue condition if and
+  only if some reciprocal lattice point (in addition to the origin lines on the
+  surface of the sphere).
+\end{enumext}
+
+\subparagraph{Ewald construction}
+
+\subparagraph{Geometrical structure factor}
+
+\subparagraph{Diffraction methods}
+
+See \textbf{Problem 4.2}.
 
 \begin{framed}\large\bfseries
   \#6 Bloch Theorem
 \end{framed}
 
-\clearpage
+\paragraph{Bloch theorem}
+For electron in periodic potential $U(\bm r + \bm R) = U(\bm r)$, the wavefunction has form
+\[
+  \psi_{\bm k}(\bm r) = e^{i\bm k \cdot \bm r} u_{\bm k}(\bm r), \quad u_{\bm k}(\bm r + \bm R) = u_{\bm k}(\bm r).
+\]
+Crystal momentum $\hbar \bm k$; energy bands $E_n(\bm k)$ periodic in $\bm k$ with period $\bm G$.
+
+\subparagraph{Brillouin zone}
+Wavevector $\bm k$ can be restricted to first Brillouin zone. Number of allowed $\bm k$-states equals number of unit cells.
+
+\subparagraph{Kronig–Penney model}
+1D periodic square-well potential. Dispersion given by
+\[
+  \cos(kd) = \cos(\alpha a) \cosh(\beta b) - \frac{\alpha^2 - \beta^2}{2\alpha\beta} \sin(\alpha a) \sinh(\beta b),
+\]
+where $\alpha^2 = 2mE/\hbar^2$, $\beta^2 = 2m(V_0-E)/\hbar^2$, $d=a+b$. Solutions exist only for certain energy ranges (bands), separated by gaps.
+
+\subparagraph{Failure of free electron theory}
+Cannot explain insulators/semiconductors, temperature dependence of Lorenz number, sign anomalies in Hall effect, etc.
+
+\subparagraph{de Broglie hypothesis}
+Particles have wave nature; $\lambda = h/p$. Confirmed by electron diffraction.
 
 \begin{framed}\large\bfseries
   \#7 Band Theory I-NFE and TB model
 \end{framed}
 
-\clearpage
+\paragraph{Nearly free electron (NFE) model}
+Weak periodic potential treated as perturbation. Unperturbed states are plane waves. Degenerate perturbation at Brillouin zone boundaries opens energy gaps. For 1D, gap magnitude $E_g = 2|U_n|$, where $U_n$ is Fourier component of potential.
+
+\subparagraph{Tight binding (TB) model}
+Electrons tightly bound to atoms; wavefunction = linear combination of atomic orbitals (LCAO):
+\[
+  \psi(\bm r) = \sum_m c_m \varphi_i(\bm r - \bm R_m).
+\]
+Energy bands:
+\[
+  E(\bm k) = \varepsilon_i - \sum_s J(\bm R_s) e^{-i\bm k \cdot \bm R_s},
+\]
+where $J(\bm R_s)$ is hopping integral. Nearest-neighbor approximation often used.
+
+\subparagraph{Examples}
+Simple cubic with s-orbitals:
+\[
+  E(\bm k) = \varepsilon_s - J_0 - 2J_1 (\cos k_x a + \cos k_y a + \cos k_z a).
+\]
+Bandwidth proportional to $J_1$. Effective mass near band bottom: $m^* = \hbar^2/(2J_1 a^2)$.
+
+\subparagraph{Comparison}
+NFE: good for nearly free electrons (conduction bands). TB: good for tightly bound electrons (valence bands).
 
 \begin{framed}\large\bfseries
   \#8 Band Theory II
 \end{framed}
 
-\clearpage
+\paragraph{Intrinsic semiconductors}
+Pure semiconductor; carrier concentrations $n = p = n_i$. At finite $T$,
+\[
+  n = N_c e^{-(E_c - E_f)/k_B T}, \quad p = N_v e^{-(E_f - E_v)/k_B T},
+\]
+where $N_c, N_v$ are effective densities of states. Intrinsic carrier concentration
+\[
+  n_i = \sqrt{N_c N_v} e^{-E_g/(2k_B T)}.
+\]
+Fermi level near midgap: $E_f = E_v + \frac{1}{2}E_g - \frac{3}{4}k_B T \ln(m_e^*/m_h^*)$.
+
+\subparagraph{Doped semiconductors}
+\begin{itemize}
+  \item n-type: donors (group V) add electrons; $n \approx N_d$, $p = n_i^2/N_d$.
+  \item p-type: acceptors (group III) add holes; $p \approx N_a$, $n = n_i^2/N_a$.
+\end{itemize}
+Fermi level shifts toward donor/acceptor levels.
+
+\subparagraph{Carrier scattering}
+Impurity scattering: mobility $\propto T^{3/2}/N_i$. Lattice scattering: mobility $\propto T^{-3/2}$ (acoustic phonons) or $T^{-1/2}$ (optical phonons). Total mobility: $1/\mu_{\text{total}} = \sum 1/\mu_i$.
+
+\subparagraph{p-n junction}
+Formed by joining p- and n-type semiconductors. Built-in potential $V_0 = \frac{k_B T}{e} \ln(N_a N_d / n_i^2)$. Depletion width $W = \sqrt{\frac{2\varepsilon (N_a+N_d) V_0}{e N_a N_d}}$.
+Current–voltage characteristic (ideal diode):
+\[
+  I = I_0 (e^{eV/(k_B T)} - 1).
+\]
+Reverse breakdown: avalanche (impact ionization) or Zener (tunneling).
+
+\subparagraph{Devices}
+\begin{itemize}
+  \item LED: forward-biased p-n junction; recombination emits light.
+  \item Solar cell: photon absorption creates electron-hole pairs, separated by built-in field.
+  \item BJT: npn or pnp structure; amplifies current.
+  \item MOSFET: metal-oxide-semiconductor field-effect transistor; voltage-controlled channel.
+  \item Schottky barrier: metal-semiconductor contact; rectifying or ohmic.
+\end{itemize}
+
+\subparagraph{Heterojunctions}
+Different semiconductors joined; band alignments: type I (straddling), type II (staggered), type III (broken gap). Used in 2D electron gases, optical devices, tunneling diodes.
 
 \begin{framed}\large\bfseries
   \#9 Physics of Semiconductors
 \end{framed}
 
-\clearpage
+\paragraph{Intrinsic semiconductors}
+Pure semiconductor; carrier concentrations $n = p = n_i$. At finite $T$,
+\[
+  n = N_c e^{-(E_c - E_f)/k_B T}, \quad p = N_v e^{-(E_f - E_v)/k_B T},
+\]
+where $N_c, N_v$ are effective densities of states. Intrinsic carrier concentration
+\[
+  n_i = \sqrt{N_c N_v} e^{-E_g/(2k_B T)}.
+\]
+Fermi level near midgap: $E_f = E_v + \frac{1}{2}E_g - \frac{3}{4}k_B T \ln(m_e^*/m_h^*)$.
+
+\subparagraph{Doped semiconductors}
+\begin{itemize}
+  \item n-type: donors (group V) add electrons; $n \approx N_d$, $p = n_i^2/N_d$.
+  \item p-type: acceptors (group III) add holes; $p \approx N_a$, $n = n_i^2/N_a$.
+\end{itemize}
+Fermi level shifts toward donor/acceptor levels.
+
+\subparagraph{Carrier scattering}
+Impurity scattering: mobility $\propto T^{3/2}/N_i$. Lattice scattering: mobility $\propto T^{-3/2}$ (acoustic phonons) or $T^{-1/2}$ (optical phonons). Total mobility: $1/\mu_{\text{total}} = \sum 1/\mu_i$.
+
+\subparagraph{p-n junction}
+Formed by joining p- and n-type semiconductors. Built-in potential $V_0 = \frac{k_B T}{e} \ln(N_a N_d / n_i^2)$. Depletion width $W = \sqrt{\frac{2\varepsilon (N_a+N_d) V_0}{e N_a N_d}}$.
+Current–voltage characteristic (ideal diode):
+\[
+  I = I_0 (e^{eV/(k_B T)} - 1).
+\]
+Reverse breakdown: avalanche (impact ionization) or Zener (tunneling).
+
+\subparagraph{Devices}
+\begin{itemize}
+  \item LED: forward-biased p-n junction; recombination emits light.
+  \item Solar cell: photon absorption creates electron-hole pairs, separated by built-in field.
+  \item BJT: npn or pnp structure; amplifies current.
+  \item MOSFET: metal-oxide-semiconductor field-effect transistor; voltage-controlled channel.
+  \item Schottky barrier: metal-semiconductor contact; rectifying or ohmic.
+\end{itemize}
+
+\subparagraph{Heterojunctions}
+Different semiconductors joined; band alignments: type I (straddling), type II (staggered), type III (broken gap). Used in 2D electron gases, optical devices, tunneling diodes.
 
 \begin{framed}\large\bfseries
   \#10 Electron in a Magnetic Field
 \end{framed}
 
-\clearpage
+\paragraph{Bohr–Sommerfeld quantization}\leavevmode
+
+\subparagraph{Quantization rule}\leavevmode
+
+\begin{enumext}
+  \item The number of wavelengths along a closed trajectory must be integer:
+    \[
+      \frac{1}{\hbar} \oint \bm p \cdot \d\bm r = 2\pi N, \quad N \in \mathbb Z.
+    \]
+  \item In a magnetic field \(\bm B = \nabla \times \bm A\), the canonical momentum becomes \(\bm p \rightarrow \bm p - e\bm A\).
+  \item The quantization condition becomes
+    \[
+      \frac{1}{\hbar} \oint (\bm p - e\bm A) \cdot \d\bm r = 2\pi N.
+    \]
+  \item This leads to quantization of the magnetic flux enclosed by the orbit:
+    \[
+      \phi = N \phi_0, \quad \phi_0 = \frac{h}{e}.
+    \]
+\end{enumext}
+
+\subparagraph{Onsager quantization condition}\leavevmode
+
+\begin{enumext}
+  \item In \(k\)-space, the area enclosed by an orbit is quantized:
+    \[
+      S_k = \frac{2\pi eB}{\hbar} \ab(N + \frac12 - \frac{\gamma}{2\pi}),
+    \]
+    where \(\gamma\) is the Berry phase.
+  \item For free electrons (\(S_k = \pi k^2\)), the energy becomes quantized:
+    \[
+      E_N = \hbar \omega_c \ab(N + \frac12 - \frac{\gamma}{2\pi}), \quad \omega_c = \frac{eB}{m^*}.
+    \]
+  \item Without Berry phase (\(\gamma = 0\)):
+    \[
+      E_N = \hbar \omega_c \ab(N + \frac12).
+    \]
+\end{enumext}
+
+\paragraph{Landau quantization}\leavevmode
+
+\subparagraph{Quantum mechanical solution}\leavevmode
+
+\begin{enumext}
+  \item Hamiltonian for an electron in a magnetic field (Landau gauge \(\bm A = (0, Bx, 0)\)):
+    \[
+      \hat H = \frac{1}{2m^*} (\bm p - e\bm A)^2.
+    \]
+  \item The motion parallel to \(\bm B\) is free, while the perpendicular motion is quantized into Landau levels (LLs):
+    \[
+      E = \frac{\hbar^2 k_z^2}{2m^*} + \ab(N + \frac12) \hbar \omega_c, \quad N = 0,1,2,\dots
+    \]
+  \item In 2D (\(k_z=0\)): \(E_N = \ab(N + \frac12) \hbar \omega_c\).
+\end{enumext}
+
+\subparagraph{Degeneracy of Landau levels}\leavevmode
+
+\begin{enumext}
+  \item Each Landau level has a degeneracy per unit area:
+    \[
+      n_B = \frac{eB}{h} \quad (\text{per spin}).
+    \]
+  \item With spin degeneracy \(g_s = 2\): \(n_B = 2\frac{eB}{h}\).
+  \item The filling factor \(\nu = \frac{n_e}{n_B} = \frac{hn_e}{eB}\).
+\end{enumext}
+
+\subparagraph{Density of states}\leavevmode
+
+\begin{enumext}
+  \item In 3D, the DOS becomes a series of peaks (Landau tubes) broadened by scattering.
+  \item In 2D, the DOS is a set of delta functions at each Landau level, broadened by disorder.
+  \item The broadening \(\Delta E \sim \hbar / \tau_q\), where \(\tau_q\) is the quantum lifetime.
+  \item Landau levels are resolved when \(\omega_c \tau_q \gg 1\).
+\end{enumext}
+
+\subparagraph{Zeeman splitting}\leavevmode
+
+\begin{enumext}
+  \item Zeeman term adds spin splitting:
+    \[
+      E = \ab(N + \frac12) \hbar \omega_c \pm \frac12 g^* \mu_B B.
+    \]
+  \item The spin susceptibility \(\chi \propto g^* m^*\).
+\end{enumext}
+
+\paragraph{Shubnikov–de Haas (SdH) oscillations}\leavevmode
+
+\subparagraph{Basic phenomenology}\leavevmode
+
+\begin{enumext}
+  \item Oscillations in longitudinal resistivity \(\rho_{xx}\) as a function of \(1/B\).
+  \item Periodicity in \(1/B\):
+    \[
+      \Delta\ab(\frac1B) = \frac{2e}{h n_e}.
+    \]
+  \item The oscillation frequency \(B_F = \frac{h}{2\pi e} S_k\) gives the extremal cross-sectional area of the Fermi surface.
+\end{enumext}
+
+\subparagraph{Lifshitz–Kosevich (LK) formalism}\leavevmode
+
+\begin{enumext}
+  \item Amplitude of SdH oscillations:
+    \[
+      \frac{\Delta\rho_{xx}}{\rho_0} = R_T R_D R_S \cos\ab[2\pi\ab(\frac{B_F}{B} + \frac12 + \beta)],
+    \]
+    where
+    \begin{align*}
+      R_T &= \frac{2\pi^2 k_B T / \hbar\omega_c}{\sinh(2\pi^2 k_B T / \hbar\omega_c)} \quad \text{(thermal damping)},\\
+      R_D &= \upe^{-\pi/\omega_c \tau_q} \quad \text{(Dingle factor)},\\
+      R_S &= \cos\ab(\frac{\pi g^* m^*}{2 m_0}) \quad \text{(spin damping)}.
+    \end{align*}
+  \item Phase factor \(\beta = \gamma/2\pi\) contains the Berry phase \(\gamma\).
+\end{enumext}
+
+\subparagraph{Extracting parameters}\leavevmode
+
+\begin{enumext}
+  \item From temperature dependence of the amplitude → cyclotron mass \(m^*\).
+  \item From Dingle plot → quantum lifetime \(\tau_q\).
+  \item From phase \(\beta\) → Berry phase (\(\beta = 1/2\) for Dirac fermions).
+\end{enumext}
+
+\paragraph{Integer quantum Hall effect (IQHE)}\leavevmode
+
+\subparagraph{Basic observations}\leavevmode
+
+\begin{enumext}
+  \item At high magnetic fields (\(\omega_c \tau \gg 1\)), Hall resistivity \(\rho_{xy}\) forms plateaus at quantized values:
+    \[
+      \rho_{xy} = \frac{h}{\nu e^2}, \quad \nu = 1,2,3,\dots
+    \]
+  \item Simultaneously, longitudinal resistivity \(\rho_{xx} \to 0\).
+  \item Quantized Hall conductance \(\sigma_{xy} = \nu \frac{e^2}{h}\).
+\end{enumext}
+
+\subparagraph{Edge states}\leavevmode
+
+\begin{enumext}
+  \item In a finite sample, confinement potential creates edge channels.
+  \item Edge states are chiral (unidirectional) and carry the current.
+  \item Backscattering is suppressed → dissipationless transport.
+\end{enumext}
+
+\subparagraph{Localization and plateaus}\leavevmode
+
+\begin{enumext}
+  \item Disorder localizes states in the tails of Landau levels.
+  \item Extended states exist only near the center of each Landau level.
+  \item As the Fermi level moves through localized states, \(\sigma_{xx}\) remains zero → Hall plateaus.
+\end{enumext}
+
+\paragraph{Fractional quantum Hall effect (FQHE)}\leavevmode
+
+\subparagraph{Basic observations}\leavevmode
+
+\begin{enumext}
+  \item Occurs in very clean 2DEG at high \(B\) and low \(T\).
+  \item Hall plateaus at fractional filling factors \(\nu = p/q\) (e.g., \(1/3, 2/5, 3/7\)).
+  \item \(\rho_{xx}\) shows minima at the same fillings.
+\end{enumext}
+
+\subparagraph{Composite fermion picture}\leavevmode
+
+\begin{enumext}
+  \item Each electron binds an even number \(2j\) of magnetic flux quanta → composite fermion (CF).
+  \item CFs experience an effective magnetic field \(B^* = B - 2j \phi_0 n_e\).
+  \item The FQHE of electrons is the IQHE of CFs.
+  \item Principal Jain sequence: \(\nu = \frac{j}{2j \pm 1}\).
+\end{enumext}
+
+\subparagraph{Wigner crystal}\leavevmode
+
+\begin{enumext}
+  \item At very low density and high \(B\), electrons can crystallize into a Wigner crystal.
+  \item Characterized by vanishing conductivity and pinning mode resonances.
+\end{enumext}
 
 \begin{framed}\large\bfseries
   \#11, \#12 Dirac Band Theory
 \end{framed}
+
+\paragraph{Band structure of monolayer graphene}\leavevmode
+
+See \textbf{Problem 9.1}. $E = \epsilon_0 \pm |f(\bm k)|$,
+$f(\bm k) = \sum_{i=1}^3 \upe^{\iu\bm k \cdot \delta_l}$.
+
+\subparagraph{More general expression}
+
+Consider specific example of two orbitals per unit cell
+\[
+  E_\pm = \frac{\epsilon_0 \pm \gamma_0|f(\bm k)|}{1 \mp s_0|f(\bm k)|}
+\]
+$E_+$ and $E_-$ are the conduction band and valence band.
+\begin{enumext}
+  \item Two bands: conduction ($\pi$) and valence ($\pi^*$) band.
+  \item No energy gap at the $K$, $K' = \frac{4\pi}{3\sqrt3a}(\pm1,0)$ points.
+  \item The reasonable case: $\epsilon_0 = 0$, $s_0 = 0$,
+  $E_\pm = \pm\gamma_0|f(\bm k)|$. Then at $K$, $K'$ points $E_\pm = 0$.
+  Indicating that there is no coupling between the A and B sublattices.
+  They support the same quantum states, leading to a degeneracy point.
+  \item $K$, $K'$ points:
+  $4\text{-fold degeneracy} = 2\ \text{sublattices} + 2\ \text{valleys}$.
+\end{enumext}
+
+\subparagraph{Linear expansion near $K$, $K'$ points}\leavevmode
+
+See \textbf{Problem 9.2}: Resemble massless particle (photons) $E = cp$,
+but with 300 times slower speed.
+
+\subparagraph{Pseudospin degree of freedom}
+
+Pseudospin is a degree of freedom related to the relative amplitude of Bloch
+function on the A or B sublattice.
+
+\subparagraph{Chirality}
+
+The orientation of the pseudospin is related to the direction of the momentum,
+The amplitudes on the A or B sublattice of eigenstate depend
+on $\theta_q = \arctan p_y/p_x$.
+
+Chirality is reversed in the $K'$ valley.
+\begin{enumext}
+  \item Conduction band electron: $\bm \sigma \cdot \bm n = 1$.
+  \item Valence band electron: $\bm \sigma \cdot \bm n = -1$.
+\end{enumext}
+Chirality conserved: no backscattering between Dirac cones.
+
+\subparagraph{Klein tunneling}
+
+If a given potential doesn't break A-B symmetry, then it is unable to
+influence the pseudospin degree of freedom, therefore, be conserved upon
+scattering.
+
+Klein paradox:
+\begin{enumext}
+  \item Transmission of relativistic particles unimpeded even by
+  highest barriers.
+  \item Physical picture: particle/hole conversion.
+\end{enumext}
+
+\subparagraph{Berry phase}
+
+The Berry phase is the same for conduction and valley band.
+Berry phase around $K$, $K'$ point $\phi_B = \pm\pi$.
+
+\subparagraph{Trigonal warping beyond linearization} \leavevmode
+
+Consider the next nearest-neighbor hopping $t'$.
+\[
+  E(\bm q) \approx 3t' \pm v_F|\bm q|
+- \ab(\frac{9t'a^2}{4} \pm \frac{3t}{8}a^2\sin3\arctan\frac{q_x}{q_y})\bm q^2
+\]
+Trigonal warping
+\begin{enumext}
+  \item $t'$ shifts in energy and breaks electron-hole symmetry.
+  \item The second order part depends on the direction in momentum space and
+  has a threefold symmetry.
+\end{enumext}
+
+\subparagraph{Boron nitride: Dirac equation with a mass}
+
+
+
+\paragraph{Band structure of bilayer graphene}\leavevmode
+
+\paragraph{Landau levels in graphene}\leavevmode
+
+
+\hrule
+
+\paragraph{Introduction to graphene}\leavevmode
+
+\subparagraph{Basic structure}\leavevmode
+
+\begin{enumext}
+  \item 2D honeycomb lattice of carbon atoms, sp\(^2\) hybridization.
+  \item Two sublattices (A and B) per unit cell.
+  \item Lattice constant \(a \approx 2.46\,\text{\AA}\).
+\end{enumext}
+
+\subparagraph{Electronic properties}\leavevmode
+
+\begin{enumext}
+  \item Zero‑gap semiconductor (semimetal) with linear dispersion at \(K\) and \(K'\) points.
+  \item Charge carriers behave as massless Dirac fermions with Fermi velocity \(v_F \approx 10^6\,\text{m/s}\).
+  \item High mobility, excellent thermal conductivity, optically transparent (\(\pi\alpha \approx 2.3\%\) absorption).
+\end{enumext}
+
+\paragraph{Band structure of monolayer graphene}\leavevmode
+
+\subparagraph{Tight‑binding model}\leavevmode
+
+\begin{enumext}
+  \item Nearest‑neighbor hopping integral \(\gamma_0 \approx 3.0\,\text{eV}\).
+  \item Hamiltonian in basis \(( \psi_A, \psi_B )\):
+    \[
+      H = \begin{pmatrix}
+        0 & -\gamma_0 f(\bm k)\\
+        -\gamma_0 f^*(\bm k) & 0
+      \end{pmatrix},
+      \quad
+      f(\bm k) = \sum_{i=1}^3 \upe^{\iu \bm k \cdot \bm\delta_i}.
+    \]
+  \item Energy dispersion:
+    \[
+      E(\bm k) = \pm \gamma_0 |f(\bm k)|.
+    \]
+  \item At the \(K\) points, \(f(\bm k)=0\) → Dirac cones.
+\end{enumext}
+
+\subparagraph{Low‑energy effective Hamiltonian}\leavevmode
+
+\begin{enumext}
+  \item Near \(K\) (\(\xi=+1\)) and \(K'\) (\(\xi=-1\)):
+    \[
+      H_\xi(\bm p) = v_F \begin{pmatrix}
+        0 & \xi p_x - \iu p_y\\
+        \xi p_x + \iu p_y & 0
+      \end{pmatrix}
+      = v_F (\xi \sigma_x p_x + \sigma_y p_y).
+    \]
+  \item Dispersion: \(E_{\pm}(\bm p) = \pm v_F |\bm p|\).
+  \item Eigenstates (pseudospinors):
+    \[
+      \psi_{\pm,\xi} = \frac{1}{\sqrt2} \begin{pmatrix}
+        1\\
+        \pm \xi \upe^{\iu \xi \theta_{\bm p}}
+      \end{pmatrix}, \quad
+      \theta_{\bm p} = \arctan(p_y/p_x).
+    \]
+\end{enumext}
+
+\subparagraph{Berry phase and chirality}\leavevmode
+
+\begin{enumext}
+  \item Berry phase \(\gamma = \pi\) for a closed loop around a Dirac point.
+  \item Chirality (helicity) operator: \(\hat h = \bm\sigma \cdot \bm n\), where \(\bm n = \bm p/|\bm p|\).
+  \item Chirality is conserved → no back‑scattering → Klein tunneling.
+\end{enumext}
+
+\subparagraph{Density of states}\leavevmode
+
+\begin{enumext}
+  \item Linear DOS near Dirac point:
+    \[
+      g(E) = \frac{2|E|}{\pi \hbar^2 v_F^2}.
+    \]
+  \item Carrier density \(n\) and Fermi energy:
+    \[
+      E_F = \hbar v_F \sqrt{\pi |n|}, \quad
+      k_F = \sqrt{\pi |n|}.
+    \]
+\end{enumext}
+
+\paragraph{Band structure of bilayer graphene}\leavevmode
+
+\subparagraph{Tight‑binding model}\leavevmode
+
+\begin{enumext}
+  \item Bernal (AB) stacking: interlayer coupling \(\gamma_1 \approx 0.39\,\text{eV}\) between A2 and B1.
+  \item Hamiltonian in basis (A1, B1, A2, B2):
+    \[
+      H = \begin{pmatrix}
+        0 & -\gamma_0 f & 0 & 0\\
+        -\gamma_0 f^* & 0 & \gamma_1 & 0\\
+        0 & \gamma_1 & 0 & -\gamma_0 f\\
+        0 & 0 & -\gamma_0 f^* & 0
+      \end{pmatrix}.
+    \]
+  \item Four bands: two high‑energy bands split by \(\pm\gamma_1\), and two low‑energy bands touching at \(K\).
+\end{enumext}
+
+\subparagraph{Low‑energy effective Hamiltonian}\leavevmode
+
+\begin{enumext}
+  \item For the low‑energy bands, effective two‑component Hamiltonian:
+    \[
+      H_{2,\xi}(\bm p) = -\frac{1}{2m^*} \begin{pmatrix}
+        0 & (\xi p_x - \iu p_y)^2\\
+        (\xi p_x + \iu p_y)^2 & 0
+      \end{pmatrix},
+      \quad m^* = \frac{\gamma_1}{2v_F^2}.
+    \]
+  \item Parabolic dispersion: \(E_{\pm}(\bm p) = \pm \frac{p^2}{2m^*}\).
+  \item Berry phase \(\gamma = 2\pi\).
+\end{enumext}
+
+\subparagraph{Trigonal warping}\leavevmode
+
+\begin{enumext}
+  \item Due to skew interlayer hopping \(\gamma_3\), the low‑energy dispersion becomes anisotropic.
+  \item At very low energies, the Fermi surface splits into four Dirac pockets.
+\end{enumext}
+
+\subparagraph{Electrically tunable band gap}\leavevmode
+
+\begin{enumext}
+  \item A perpendicular electric field breaks inversion symmetry → opens a band gap.
+  \item Gap size \(\Delta \propto\) applied field, up to \(\sim \gamma_1\).
+\end{enumext}
+
+\paragraph{Landau levels in graphene}\leavevmode
+
+\subparagraph{Monolayer graphene}\leavevmode
+
+\begin{enumext}
+  \item Landau level energies:
+    \[
+      E_N = \pm \hbar \omega_c \sqrt{2N}, \quad
+      \omega_c = \frac{v_F}{l_B}, \quad
+      l_B = \sqrt{\frac{\hbar}{eB}}.
+    \]
+  \item Zero‑energy Landau level (\(N=0\)) is half‑filled in neutral graphene.
+  \item Fourfold degeneracy (spin × valley).
+\end{enumext}
+
+\subparagraph{Bilayer graphene}\leavevmode
+
+\begin{enumext}
+  \item Landau level energies:
+    \[
+      E_N = \pm \hbar \omega_c \sqrt{N(N-1)}, \quad
+      \omega_c = \frac{eB}{m^*}.
+    \]
+  \item Two zero‑energy levels (\(N=0,1\)) → eightfold degeneracy.
+\end{enumext}
+
+\subparagraph{Quantum Hall effect}\leavevmode
+
+\begin{enumext}
+  \item Monolayer: Hall conductivity \(\sigma_{xy} = \pm (4N+2) \frac{e^2}{h}\) (half‑integer QHE).
+  \item Bilayer: \(\sigma_{xy} = \pm 4N \frac{e^2}{h}\) (integer QHE).
+  \item Room‑temperature QHE observable due to large Landau level spacing.
+\end{enumext}
