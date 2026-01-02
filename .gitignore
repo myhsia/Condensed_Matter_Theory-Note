@@ -1,6 +1,5 @@
 # Unnecessary files
 /archive
-/project
 
 # macOS DS
 .DS_Store
